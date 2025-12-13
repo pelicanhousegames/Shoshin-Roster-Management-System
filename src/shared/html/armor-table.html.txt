@@ -1,0 +1,117 @@
+<div class="shoshin-step5-panel">
+  <table id="shoshin-armor-table" style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; width:48px; white-space:nowrap;">
+          Image
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Armor
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Type
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Attributes
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Cost
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Do-maru -->
+      <tr
+        data-armor="Do-maru"
+        data-type="Basic Armor"
+        data-attributes="Permanently gain +1 Defense."
+        data-cost="2"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Basic1.jpeg"
+            alt="Do-maru"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Do-maru
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Basic Armor
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Permanently gain +1 Defense.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- O-yoroi -->
+      <tr
+        data-armor="O-yoroi"
+        data-type="Great Armor"
+        data-attributes="Permanently gain +2 Defense."
+        data-cost="4"
+        data-classes="Daimyo,Samurai,Sohei"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Great.jpeg"
+            alt="O-yoroi"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          O-yoroi
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Great Armor
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Permanently gain +2 Defense.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          4
+        </td>
+      </tr>
+
+      <!-- Tosei-gusoku -->
+      <tr
+        data-armor="Tosei-gusoku"
+        data-type="Modern Armor"
+        data-attributes="Permanently gain +3 Defense."
+        data-cost="6"
+        data-classes="Daimyo,Samurai"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Modern.jpeg"
+            alt="Tosei-gusoku"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Tosei-gusoku
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Modern Armor
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Permanently gain +3 Defense.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          6
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="shoshin-armor-empty"
+       style="display:none; margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
+    No armor options are available for this character.
+  </div>
+</div>

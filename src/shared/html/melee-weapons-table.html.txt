@@ -1,0 +1,454 @@
+<div class="shoshin-step3-panel">
+  <table id="shoshin-melee-table" style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; width:48px; white-space:nowrap;">
+          Image
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Weapon
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Type
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Damage
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Critical
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Distance
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Attributes
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Cost
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Unarmed Combat -->
+      <tr
+        data-weapon="Unarmed Combat"
+        data-type="Fists, Kicks, etc"
+        data-cost="0"
+        data-damage="1"
+        data-critical="Fear"
+        data-distance="(e)"
+        data-attributes="Does not damage armored units."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Jujutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Unarmed1.jpeg"
+            alt="Unarmed Combat"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Unarmed Combat
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Fists, Kicks, etc
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Fear
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          <b>Restrictions:</b> Does not damage armored units.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          0
+        </td>
+      </tr>
+
+      <!-- Jutte -->
+      <tr
+        data-weapon="Jutte"
+        data-type="Truncheon or Club"
+        data-cost="1"
+        data-damage="1"
+        data-critical="1"
+        data-distance="(e)"
+        data-attributes="May be combined with Shirube (Pitch or Tar)."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Juttejutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Club1.jpeg"
+            alt="Jutte"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Jutte
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Truncheon or Club
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          May be combined with Shirube (Pitch/Tar).
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Bo -->
+      <tr
+        data-weapon="Bo"
+        data-type="Pole or Staff"
+        data-cost="1"
+        data-damage="1"
+        data-critical="Stun"
+        data-distance="1"
+        data-attributes="--"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Bojutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Staff1.jpeg"
+            alt="Bo"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Bo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Pole or Staff
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Stun
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          --
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Tanto -->
+      <tr
+        data-weapon="Tanto"
+        data-type="Dagger"
+        data-cost="1"
+        data-damage="1"
+        data-critical="Bleed"
+        data-distance="(e)"
+        data-attributes="--"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Tantojutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Dagger1.jpeg"
+            alt="Tanto"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Tanto
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Dagger
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Bleed
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          --
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Kusarigama -->
+      <tr
+        data-weapon="Kusarigama"
+        data-type="Sickle and Chain"
+        data-cost="2"
+        data-damage="1d2"
+        data-critical="Fear"
+        data-distance="2"
+        data-attributes="--"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Kusarigamajutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Sickle1.jpeg"
+            alt="Kusarigama"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Kusarigama
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Sickle and Chain
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Fear
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          --
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Kanabo -->
+      <tr
+        data-weapon="Kanabo"
+        data-type="Studded War Club"
+        data-cost="2"
+        data-damage="1d2"
+        data-critical="Stun"
+        data-distance="(e)"
+        data-attributes="Can damage Stone objects."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Mojirijutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Studded1.jpeg"
+            alt="Kanabo"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Kanabo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Studded War Club
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Stun
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Can damage Stone objects.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Yari -->
+      <tr
+        data-weapon="Yari"
+        data-type="Spear"
+        data-cost="2"
+        data-damage="1"
+        data-critical="1"
+        data-distance="1"
+        data-attributes="Receives +1 To-Hit vs Cavalry units."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Sojutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Spear1.jpeg"
+            alt="Yari"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Yari
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Spear
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Receives +1 To-Hit vs Cavalry units.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Katana -->
+      <tr
+        data-weapon="Katana"
+        data-type="Sword"
+        data-cost="2"
+        data-damage="1d2"
+        data-critical="Bleed"
+        data-distance="(e)"
+        data-attributes="May decapitate Restrained units."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Kenjutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/katana1.jpeg"
+            alt="Katana"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Katana
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Sword
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Bleed
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          May decapitate Restrained units.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Naginata -->
+      <tr
+        data-weapon="Naginata"
+        data-type="Bladed Polearm"
+        data-cost="3"
+        data-damage="1d2"
+        data-critical="1"
+        data-distance="1"
+        data-attributes="Receives +1 To-Hit vs Cavalry units."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Naginatajutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Naginata1.jpeg"
+            alt="Naginata"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Naginata
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Bladed Polearm
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Receives +1 To-Hit vs Cavalry units.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          3
+        </td>
+      </tr>
+
+      <!-- Nodachi -->
+      <tr
+        data-weapon="Nodachi"
+        data-type="Great Sword"
+        data-cost="3"
+        data-damage="1d3"
+        data-critical="Bleed"
+        data-distance="(e)"
+        data-attributes="May decapitate Restrained units."
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+        data-training="Iaijutsu"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Nodachi1.jpeg"
+            alt="Nodachi"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600;">
+          Nodachi
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Great Sword
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d3
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Bleed
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          (e)
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          May decapitate Restrained units.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          3
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

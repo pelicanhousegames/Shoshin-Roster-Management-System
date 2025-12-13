@@ -1,0 +1,188 @@
+Task ID,Sprint,Epic,Feature,Task Description
+TASK-001,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Identify all existing Character WPForms field IDs for stats and metadata
+TASK-002,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field game_system to Character form (final step)
+TASK-003,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_melee_damage to Character form
+TASK-004,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_melee_crit to Character form
+TASK-005,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_melee_distance to Character form
+TASK-006,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_ranged_damage to Character form
+TASK-007,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_ranged_crit to Character form
+TASK-008,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_ranged_distance to Character form
+TASK-009,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_atk to Character form
+TASK-010,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_def to Character form
+TASK-011,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_mov to Character form
+TASK-012,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_bod to Character form
+TASK-013,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_ldr to Character form
+TASK-014,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_ini to Character form
+TASK-015,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_total_cost to Character form
+TASK-016,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Add hidden field char_mrbpa_modifiers to Character form
+TASK-017,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Update Character JS to set game_system = 'Path of Ascension' on init or submit
+TASK-018,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Update Character JS to write melee damage/crit/distance into hidden fields
+TASK-019,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Update Character JS to write ranged damage/crit/distance into hidden fields
+TASK-020,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Update Character JS to write ATK/DEF/MOV/BOD/LDR/INI into hidden fields
+TASK-021,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Update Character JS to write total cost into char_total_cost
+TASK-022,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Implement MRBPA aggregation and write to char_mrbpa_modifiers
+TASK-023,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Test saving new character and confirm all hidden fields populate correctly
+TASK-024,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.1: Character Hidden Stat Fields,Test editing character (changing options) and confirm hidden fields stay in sync
+TASK-025,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Identify Support Asset WPForms field IDs for Ozutsu and Mokuzo stats
+TASK-026,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field game_system to Support Asset form (final step)
+TASK-027,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_melee_damage to Support Asset form
+TASK-028,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_melee_crit to Support Asset form
+TASK-029,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_melee_distance to Support Asset form
+TASK-030,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_ranged_damage to Support Asset form
+TASK-031,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_ranged_crit to Support Asset form
+TASK-032,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_ranged_distance to Support Asset form
+TASK-033,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_atk to Support Asset form
+TASK-034,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_def to Support Asset form
+TASK-035,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_mov to Support Asset form
+TASK-036,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_bod to Support Asset form
+TASK-037,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_ldr to Support Asset form
+TASK-038,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_ini to Support Asset form
+TASK-039,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_total_cost to Support Asset form
+TASK-040,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Add hidden field asset_mrbpa_modifiers to Support Asset form
+TASK-041,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Update Support JS to set game_system = 'Path of Ascension' on init or submit
+TASK-042,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Update Support JS to write Ozutsu ranged stats into hidden fields
+TASK-043,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Update Support JS to write Mokuzo hull-derived stats into hidden fields
+TASK-044,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Update Support JS to write ATK/DEF/MOV/BOD/LDR/INI into hidden fields
+TASK-045,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Update Support JS to write asset_total_cost into hidden field
+TASK-046,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Implement MRBPA aggregation and write to asset_mrbpa_modifiers
+TASK-047,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Test Ozutsu entry and confirm all hidden fields populate correctly
+TASK-048,Sprint 1,Epic 1: Derived Stat Persistence,Feature 1.2: Support Asset Hidden Stat Fields,Test Mokuzo entry and confirm all hidden fields populate correctly
+TASK-049,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Create /my-assets page template or shortcode container
+TASK-050,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Implement query for Character WPForms entries for current user
+TASK-051,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Implement query for Support Asset WPForms entries for current user
+TASK-052,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Implement grouping for Characters by class (Daimyo through Onmyoji)
+TASK-053,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,"Implement grouping for Support Assets by type (Artillery, Sailing Ships, Other)"
+TASK-054,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Sort assets within each group by Reference ID descending
+TASK-055,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,"Build HTML table headers for Image, Ref ID, Melee, Ranged, Stats, Cost, Actions"
+TASK-056,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Map Character entries into table rows using hidden stat fields
+TASK-057,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Map Support Asset entries into table rows using hidden stat fields
+TASK-058,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Ensure melee/ranged distances and MOV render with inch symbol
+TASK-059,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,Implement placeholder image logic for assets without a defined image
+TASK-060,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,"Add Assign (green), Edit (yellow), Delete (red) action buttons to each row"
+TASK-061,Sprint 1,Epic 2: /my-assets Inventory,Feature 2.1: /my-assets Table and Grouping,"Test /my-assets layout, grouping, and sorting with mixed asset data"
+TASK-062,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Add hidden HTML container for Assign modal on /my-assets page
+TASK-063,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Implement JS to open Assign modal when Assign button is clicked
+TASK-064,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Render asset display box inside modal using existing summary HTML/CSS
+TASK-065,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Implement AJAX endpoint to return user's roster list
+TASK-066,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Populate 'Select Clan Roster' dropdown in modal from AJAX data
+TASK-067,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Add numeric quantity input (1–99) to Assign modal
+TASK-068,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Style Assign button green and Cancel button red in modal
+TASK-069,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Implement AJAX endpoint to add asset to selected roster
+TASK-070,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,"On server, load target roster and parse roster_items_json"
+TASK-071,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,"If asset is non-Daimyo, merge or append roster item with quantity"
+TASK-072,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Detect when assigned asset is a Daimyo type
+TASK-073,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Count existing Daimyo items in roster from roster_items_json
+TASK-074,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Return flag to client when a Daimyo conflict exists
+TASK-075,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,"In JS, show Daimyo replacement prompt when conflict flag is returned"
+TASK-076,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Implement second AJAX call to perform Daimyo replacement when confirmed
+TASK-077,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,"On server, remove all existing Daimyo items from roster_items_json"
+TASK-078,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Insert new Daimyo roster item with requested quantity
+TASK-079,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Recompute roster_total_points from updated roster items and asset costs
+TASK-080,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Save updated roster back to WPForms with new JSON and total points
+TASK-081,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,"On client, close modal and show assignment success notification"
+TASK-082,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Test assigning non-Daimyo asset to multiple rosters
+TASK-083,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Test assigning first Daimyo to an empty roster
+TASK-084,Sprint 2,Epic 2: /my-assets Inventory,Feature 2.2: Assign Modal and Daimyo Logic,Test assigning second Daimyo and validate replacement flow works correctly
+TASK-085,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Create WPForms form for Create Clan Roster
+TASK-086,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add visible roster_name field (required)
+TASK-087,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add visible roster_ref_id field with placeholder (required)
+TASK-088,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add hidden owner_user_id field to roster form (final step)
+TASK-089,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add hidden roster_items_json field to roster form
+TASK-090,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add hidden roster_total_points field to roster form
+TASK-091,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Add HTML block placeholder for Roster Composition UI
+TASK-092,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Implement JS or PHP hook to populate owner_user_id on form render
+TASK-093,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.1: Roster Form Shell (/create-roster),Test creating and saving a minimal roster entry without items
+TASK-094,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Implement JS to load all user assets for use in roster composer
+TASK-095,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Group assets into dropdown optgroups by class and support type
+TASK-096,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"Render asset <select> element, quantity input, and 'Add to Roster' button"
+TASK-097,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Initialize in-memory rosterItems array for selected units
+TASK-098,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"On Add click, validate asset selection and quantity range"
+TASK-099,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Enforce max 1 Daimyo per roster in JS when adding units
+TASK-100,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Insert new roster item or update existing roster item in rosterItems array
+TASK-101,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"Render roster items table showing asset label, type, qty, unit cost, line total"
+TASK-102,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Implement Remove action to delete items from rosterItems array
+TASK-103,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Compute Clan Points total from rosterItems and hidden asset costs
+TASK-104,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Compute Initiative total from asset initiative values
+TASK-105,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Compute Total Honor (XP) from asset leadership values
+TASK-106,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Compute Masteries as floor(ClanPoints / 125)
+TASK-107,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"Display Clan Points, Initiative, Total Honor, and Masteries in composer UI"
+TASK-108,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Write serialized rosterItems JSON into hidden roster_items_json field
+TASK-109,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Write updated roster_total_points value into hidden field
+TASK-110,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Detect empty asset list and show 'no assignable units' message
+TASK-111,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Add Create Character and Create Support Asset buttons to empty-state message
+TASK-112,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,Include notice that leaving will not create Clan Roster in empty-state UI
+TASK-113,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"Test adding, editing, and removing units and confirm JSON matches UI"
+TASK-114,Sprint 2,Epic 3: Clan Roster Creation,Feature 3.2: Roster Composer UI & Live Totals,"Test saving and re-editing roster, rebuilding composer UI from JSON"
+TASK-115,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Create /my-rosters page template or shortcode container
+TASK-116,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Query roster WPForms entries for the current user
+TASK-117,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Parse roster_items_json for each roster entry
+TASK-118,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Fetch referenced asset entries for each roster item as needed
+TASK-119,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Compute Clan Points per roster from asset costs and quantities
+TASK-120,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Compute Initiative total per roster from asset initiative stats
+TASK-121,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Compute Total Honor (XP) per roster from asset leadership stats
+TASK-122,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Compute Masteries as floor(ClanPoints / 125) for each roster
+TASK-123,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,"Count Daimyo, Samurai, Ashigaru, Sohei, Ninja, and Onmyoji units per roster"
+TASK-124,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Count total Support Assets (Artillery and Sailing Ships) per roster
+TASK-125,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,"Build summary table headers including points, initiative, honor, and counts"
+TASK-126,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Render one summary row per roster with computed values
+TASK-127,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Add expandable '+' button at start of each roster row
+TASK-128,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Render hidden expanded row containing composition table per roster
+TASK-129,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,"Populate composition table with Class — Ref ID, Type, Qty, unit cost, line total"
+TASK-130,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Add Edit button to navigate to roster edit form for that roster
+TASK-131,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Add Delete button (red) for roster deletion (logic implemented later)
+TASK-132,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Add Print button placeholder to trigger print selector (wired in Sprint 4)
+TASK-133,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.1: /my-rosters Summary Table,Test /my-rosters with multiple rosters and verify calculations are correct
+TASK-134,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,"Define mapping of WordPress roles to roster limits (Contributor, Author, etc.)"
+TASK-135,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,Implement helper function to determine max roster count for current user
+TASK-136,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,"Before creating a new roster, count existing rosters for that user"
+TASK-137,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,Block roster creation when user already meets or exceeds their limit
+TASK-138,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,Display clear message when roster creation is blocked due to role limit
+TASK-139,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,Optionally show roster limit info note on /my-rosters page
+TASK-140,Sprint 3,Epic 4: Roster Dashboard & Limits,Feature 4.2: Roster Limits by Role,Test roster limits with test users in Contributor and Author roles
+TASK-141,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Add hidden print container <div id='shoshin-print-area'> to /my-rosters
+TASK-142,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Implement JS function to build consolidated print HTML for one roster
+TASK-143,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,"Render roster header in print view (Clan Name, Ref ID, Points, Initiative, Honor, Masteries)"
+TASK-144,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Group roster items by class and support type in print view
+TASK-145,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Aggregate MRBPA modifiers per build and cap display to 8 with overflow note
+TASK-146,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Aggregate Abilities per build and cap display to 8 with overflow note
+TASK-147,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,"Render stats table (melee, ranged, ATK, DEF, MOV, BOD, LDR, INI) in consolidated layout"
+TASK-148,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,"Render cost panel showing cost per unit, quantity, and line total"
+TASK-149,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Compute and render percentage of Clan Points per build in cost panel
+TASK-150,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Create print-specific CSS for consolidated roster sheet layout
+TASK-151,Sprint 4,Epic 6: Print & PDF System,Feature 6.1: Consolidated Print Layout,Test consolidated print output in at least one browser print preview
+TASK-152,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,Implement JS function to build complete print HTML for one roster
+TASK-153,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,"For each roster item, generate Q copies of the build block where Q is quantity"
+TASK-154,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,Hide quantity field inside each complete print build block (assume per-unit)
+TASK-155,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,"Reuse MRBPA, abilities, and stats layout from consolidated mode"
+TASK-156,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,Test complete print view with unit entries that have large quantities
+TASK-157,Sprint 4,Epic 6: Print & PDF System,Feature 6.2: Complete Print Layout,Validate complete print layout remains readable across multiple pages
+TASK-158,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Replace direct Print action with a selector UI (dropdown or modal)
+TASK-159,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Wire 'Consolidated Print' option to consolidated print builder and window.print()
+TASK-160,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Wire 'Complete Print' option to complete print builder and window.print()
+TASK-161,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Clear and repopulate #shoshin-print-area before each print build
+TASK-162,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Test both print modes from /my-rosters for multiple rosters
+TASK-163,Sprint 4,Epic 6: Print & PDF System,Feature 6.3: Print Mode Selector,Verify that canceling print returns the user cleanly to /my-rosters
+TASK-164,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Add hook to detect deletion of Character or Support Asset WPForms entries
+TASK-165,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,"Within delete hook, query all relevant roster entries for cleanup"
+TASK-166,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Parse roster_items_json for each roster
+TASK-167,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Remove any roster items whose assetEntryId matches the deleted asset
+TASK-168,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Recompute Clan Points totals for affected rosters after cleanup
+TASK-169,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Update roster_total_points field for each affected roster entry
+TASK-170,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Save updated roster entries back to WPForms
+TASK-171,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Test deleting a character used in multiple rosters and confirm cleanup
+TASK-172,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.1: Asset Deletion Cascade,Test deleting a support asset used in multiple rosters and confirm cleanup
+TASK-173,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.2: Roster Delete Action,Implement JS confirmation dialog for roster Delete button on /my-rosters
+TASK-174,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.2: Roster Delete Action,Create AJAX endpoint to delete roster WPForms entry with permission checks
+TASK-175,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.2: Roster Delete Action,"On delete success, remove roster row and expanded row from DOM"
+TASK-176,Sprint 5,Epic 5: Cascading Delete & Roster Removal,Feature 5.2: Roster Delete Action,Test deleting multiple rosters sequentially to ensure stability
+TASK-177,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Verify all distances and movement values show inch symbol consistently across UI
+TASK-178,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,"Confirm Assign buttons are green, Edit buttons yellow, and Delete buttons red throughout"
+TASK-179,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,"Test character creation, editing, and deletion flows end-to-end"
+TASK-180,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,"Test support asset creation, editing, and deletion flows end-to-end"
+TASK-181,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,"Test roster creation, editing, and deletion flows end-to-end"
+TASK-182,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Test Daimyo assignment and replacement from /my-assets Assign modal
+TASK-183,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Test Daimyo constraint within /create-roster composer UI
+TASK-184,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Test consolidated print mode across several rosters
+TASK-185,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Test complete print mode and verify page breaks are acceptable
+TASK-186,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,Test roster limits for Contributor and Author roles behave as expected
+TASK-187,Sprint 5,Epic 7: QA & Final Polish,Feature 7.1: Full QA Pass,"Perform full scenario: create assets, build roster, assign units, print, delete asset, and re-check rosters"

@@ -1,0 +1,249 @@
+   	  <div class="shoshin-step6-panel">
+  <table id="shoshin-support-table"
+         class="shoshin-table"
+         style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+  <tr>
+    <!-- Image: fixed narrow column -->
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; width:48px; white-space:nowrap;">
+      Image
+    </th>
+
+    <!-- Item -->
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+      Item
+    </th>
+
+    <!-- Type -->
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+      Type
+    </th>
+
+    <!-- Attributes -->
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+      Attributes
+    </th>
+
+    <!-- Cost -->
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+      Cost
+    </th>
+  </tr>
+</thead>
+
+
+    <tbody>
+	 <!-- Torinawa -->
+      <tr
+        data-item="Torinawa"
+        data-type="Capture Rope"
+        data-attributes="Grants abilities to Arrest and Rescue but only if proficient in Hojojutsu."
+        data-cost="0"
+        data-classes="Daimyo,Samurai,Sohei,Ninja"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Rope.jpeg"
+            alt="Torinawa"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Torinawa
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Capture Rope
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Grants abilities to Arrest and Rescue.<br>
+		  <b>Restrictions:</b> Hojojutsu training required.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          0
+        </td>
+      </tr>
+	
+      <!-- Shirube -->
+      <tr
+        data-item="Shirube"
+        data-type="Pitch or Tar"
+        data-attributes="May be combined with Jutte, Hankyu or Daikyu weapons."
+        data-cost="1"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Pitch.jpeg"
+            alt="Shirube"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Shirube
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Pitch or Tar
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          May be combined with Jutte, Hankyu or Daikyu weapons.<br>
+          Inflicts the Burn condition upon a successful hit.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Kanpo -->
+      <tr
+        data-item="Kanpo"
+        data-type="Herbal Medicine"
+        data-attributes="Grants Immunity to Poison."
+        data-cost="1"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Medicine.jpeg"
+            alt="Kanpo"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Kanpo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Herbal Medicine
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Grants Immunity to Poison.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Shakuhachi -->
+      <tr
+        data-item="Shakuhachi"
+        data-type="Bamboo Flute"
+        data-attributes="Grants Immunity to Fear."
+        data-cost="1"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Flute.jpeg"
+            alt="Shakuhachi"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Shakuhachi
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Bamboo Flute
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Grants Immunity to Fear.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Sashimono -->
+      <tr
+        data-item="Sashimono"
+        data-type="Clan Banner"
+        data-attributes="Permanently gain +1 Leadership."
+        data-cost="2"
+        data-classes="Samurai,Ashigaru,Sohei"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Sashimono.png"
+            alt="Sashimono"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Sashimono
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Clan Banner
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently gain +1 Leadership.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Emakimono -->
+      <tr
+        data-item="Emakimono"
+        data-type="Illustrated Handscrolls"
+        data-attributes="Permanently gain +1 Initiative."
+        data-cost="2"
+        data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Handscrolls.jpeg"
+            alt="Emakimono"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Emakimono
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Illustrated Handscrolls
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently gain +1 Initiative.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Uma -->
+      <tr
+        data-item="Uma"
+        data-type="Horse"
+        data-attributes='Mounted Advantage (Movement): Permanently add +8&quot; to base movement. Mounted Advantage (Resilience): Permanently add +1 to Body if proficient in Bajutsu. Mounted Advantage (High Ground): +1 To-Hit vs non-mounted units if proficient in Bajutsu.'
+        data-cost="3"
+        data-classes="Daimyo,Samurai,Sohei"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          <img
+            src="/wp-content/uploads/2025/12/Horse.jpeg"
+            alt="Uma"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Uma
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Horse
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          <b>Mounted Advantage (Movement):</b> Permanently add +8&quot; to base movement.<br>
+          <b>Mounted Advantage (Toughness):</b> Permanently add +1 to Body <em>(Bajutsu required)</em>.<br>
+          <b>Mounted Advantage (High Ground):</b> +1 To-Hit vs non-mounted units <em>(Bajutsu required)</em>.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          3
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="shoshin-support-empty"
+       style="display:none; margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
+    No support items are available for this character.
+  </div>
+</div>

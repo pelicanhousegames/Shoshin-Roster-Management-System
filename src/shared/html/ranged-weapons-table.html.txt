@@ -1,0 +1,315 @@
+<div class="shoshin-step4-panel">
+  <table id="shoshin-ranged-table" style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; width:48px; white-space:nowrap;">
+          Image
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Weapon
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Type
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Damage
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Critical
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Distance
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Attributes
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Cost
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+	<!-- Kunai -->
+      <tr
+        data-weapon="Kunai"
+        data-type="Utility Tool"
+        data-cost="1"
+        data-damage="1"
+        data-critical="Fear"
+        data-distance="2"
+        data-attributes="--"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Shuriken1.jpeg"
+               alt="Kunai"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Kunai
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Utility Tool
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Fear
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          <b>Restrictions:</b> Ninja only.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+		
+      <!-- Shuriken -->
+      <tr
+        data-weapon="Shuriken"
+        data-type="Throwing Stars"
+        data-cost="1"
+        data-damage="1"
+        data-critical="Bleed"
+        data-distance="2"
+        data-attributes="--"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Shuriken1.jpeg"
+            alt="Shuriken"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Shuriken
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Throwing Stars
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Bleed
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          --
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Fukiya -->
+      <tr
+        data-weapon="Fukiya"
+        data-type="Blowgun and Darts"
+        data-cost="1"
+        data-damage="1"
+        data-critical="Poison"
+        data-distance="4"
+        data-attributes="--"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/dart1.jpeg"
+               alt="Fukiya"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Fukiya
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Blowgun and Darts
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Poison
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          4
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          --
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Hankyu -->
+      <tr
+        data-weapon="Hankyu"
+        data-type="Half Bow"
+        data-cost="1"
+        data-damage="1"
+        data-critical="1"
+        data-distance="9"
+        data-attributes='May be combined with Shirube. Extended Range: -1 To-Hit from 9" to 18".'
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Bow.jpeg"
+               alt="Hankyu"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Hankyu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Half Bow
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          9
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          May be combined with Shirube.<br>
+          <b>Extended Range:</b> -1 To-Hit from 9" to 15".
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Daikyu -->
+      <tr
+        data-weapon="Daikyu"
+        data-type="Great Bow"
+        data-cost="2"
+        data-damage="1"
+        data-critical="1"
+        data-distance="18"
+        data-attributes='Not a cavalry weapon. May be combined with Shirube. Extended Range: -1 To-Hit from 18" to 30".'
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Bow.jpeg"
+               alt="Daikyu"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Daikyu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Great Bow
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          18
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          May be combined with Shirube.<br>
+		  <b>Extended Range:</b> -1 To-Hit from 18" to 30".<br>
+		  <b>Restrictions:</b> May not be combined with Uma.<br>
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Tanegashima -->
+      <tr
+        data-weapon="Tanegashima"
+        data-type="Arquebus"
+        data-cost="2"
+        data-damage="1d2"
+        data-critical="1"
+        data-distance="12"
+        data-attributes='Not a cavalry weapon. Requires an action to reload after use. Extended Range: -1 To-Hit from 12" to 18".'
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Arquebus1.jpeg"
+               alt="Tanegashima"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Tanegashima
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Arquebus
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d2
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          12
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Requires reload after use.<br>
+          <b>Extended Range:</b> -1 To-Hit from 12" to 18".<br>
+		  <b>Restrictions:</b> May not be combined with Uma.<br>
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Houroku-Hiya -->
+      <tr
+        data-weapon="Houroku-Hiya"
+        data-type="Gunpowder Bombs"
+        data-cost="3"
+        data-damage="1d6"
+        data-critical="Burn"
+        data-distance="6"
+        data-attributes='Single To-Hit roll for all units within 2&quot; of target. Critical Miss: Roll damage for all units within 2&quot;.'
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/bomb1.jpeg"
+               alt="Houroku-Hiya"
+               style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;" />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; font-weight:600; white-space:nowrap;">
+          Houroku-hiya
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Gunpowder Bombs
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1d6
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          Burn
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          6
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; vertical-align:top; color:#555;">
+          Single To-Hit roll for all units within 2" of target.<br>
+          <strong>Critical Miss:</strong> Roll damage for all units within 2".<br>
+		  <b>Restrictions:</b> May not be combined with Uma.<br>
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          3
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div id="shoshin-ranged-empty"
+       style="display:none; margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
+    No ranged weapons are available for this character.
+  </div>
+</div>

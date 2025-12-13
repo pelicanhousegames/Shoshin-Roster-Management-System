@@ -1,0 +1,14 @@
+# Logs
+*.log
+
+# Environment / secrets
+.env
+wp-config.php
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Build / dependency folders (future-proofing)
+node_modules/
+dist/

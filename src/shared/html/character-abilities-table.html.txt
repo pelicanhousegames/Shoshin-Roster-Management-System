@@ -1,0 +1,223 @@
+<div class="shoshin-step2-panel">
+  <table id="shoshin-abilities-table" class="shoshin-table"
+         style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Ability
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Effect
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Cost
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ability="Divine Inspiration" data-cost="0">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Divine Inspiration
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          All friendly clan units located within 2&quot; receive +1 to all saving throws.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          0
+        </td>
+      </tr>
+
+      <tr data-ability="Honor Duel" data-cost="0">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Honor Duel
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          May initiate an honor duel against an enemy samurai or daimyō.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          0
+        </td>
+      </tr>
+
+      <tr data-ability="Iron Fists" data-cost="1">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Iron Fists
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Unarmed combat deals damage to armor and stone.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          1
+        </td>
+      </tr>
+
+      <tr data-ability="Missile Deflection" data-cost="1">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Missile Deflection
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Spend an action to negate a ranged attack once per round.<br>
+		  Must be declared before an attack roll is made.<br>
+		  <b>Restrictions:</b> Does not apply to gunpowder (arquebus, bombs, artillery) weapons.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          1
+        </td>
+      </tr>
+
+      <tr data-ability="Ki Resilience" data-cost="2">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Ki Resilience
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently add +1 Body.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          2
+        </td>
+      </tr>
+
+      <tr data-ability="Heal" data-cost="3">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Heal
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Spend an action to restore 1 Body and/or remove the Poison condition from any engaged unit,
+          including yourself.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          3
+        </td>
+      </tr>
+
+      <tr data-ability="Wall Crawling" data-cost="1">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Wall Crawling
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          May move upon any vertical surface as long as there is enough movement to end turn on a horizontal surface.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          1
+        </td>
+      </tr>
+
+      <tr data-ability="Light-footed" data-cost="1">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Light-footed
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Disengaging from an enemy does not provoke an opportunity attack.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          1
+        </td>
+      </tr>
+
+      <tr data-ability="Assassinate" data-cost="2">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Assassinate
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently add +1 Damage and Critical hits bypass High Defense.<br>
+		  <b>Restrictions:</b> Tanto, Shuriken, and Fukiya only.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          2
+        </td>
+      </tr>
+
+      <tr data-ability="Shadow Strikes" data-cost="3">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Shadow Strikes
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently add +2 &lsquo;To-Hit&rsquo; during nighttime.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          3
+        </td>
+      </tr>
+
+      <tr data-ability="Concealment" data-cost="3">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Concealment
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently add +1 Defense.<br>
+		  <b>Gain Concealment ability:</b> Spend an action to become hidden.<br>
+		  Automatically concealed at start of nighttime rounds.<br>
+		  <b>Restrictions:</b> May not be combined with Shirube.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          3
+        </td>
+      </tr>
+
+      <tr data-ability="Agile" data-cost="4">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Agile
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Permanently add +2 to base movement.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          4
+        </td>
+      </tr>
+
+      <tr data-ability="Aura of Resolve" data-cost="3">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Aura of Resolve
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          All friendly units (including onmyoji) within 3&quot; gain High Defense.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          3
+        </td>
+      </tr>
+
+      <tr data-ability="Omen of Wrath" data-cost="4">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Omen of Wrath
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          All friendly units (including onmyoji) within 3&quot; gain +1 Attack.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          4
+        </td>
+      </tr>
+
+      <tr data-ability="Enduring Ward" data-cost="4">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Enduring Ward
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          All friendly units (including onmyoji) within 3&quot; gain +1 Defense.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          4
+        </td>
+      </tr>
+
+      <tr data-ability="Beyond the Veil" data-cost="5">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600;">
+          Beyond the Veil
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Summon any Yokai up to 12&quot; away with unobstructed line of sight.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; white-space:nowrap;">
+          5
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="shoshin-abilities-empty"
+       style="display:none; margin-top:0.5rem; font-size:0.85rem; font-style:italic; color:#666;">
+    No class abilities are available for this character.
+  </div>
+</div>

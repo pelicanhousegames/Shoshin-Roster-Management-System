@@ -1,0 +1,201 @@
+<!-- STEP 2 — Munitions Section (Hidden unless Ozutsu is selected) -->
+<div id="shoshin-munitions-section" style="margin-bottom:12px;">
+
+  <h3 style="margin:0 0 4px; font-size:0.95rem;">Munitions</h3>
+
+  <div id="shoshin-munitions-block" class="shoshin-step-munitions-panel">
+  <table id="shoshin-munitions-table"
+         style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+  <tr>
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:center; width:48px; white-space:nowrap;">
+      Image
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:left; white-space:nowrap;">
+      Munition
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:left; white-space:nowrap;">
+      Type
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:center; white-space:nowrap;">
+      Damage
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:center; white-space:nowrap;">
+      Critical
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:center; white-space:nowrap;">
+      Distance
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:left; white-space:nowrap;">
+      Attributes
+    </th>
+
+    <th style="border-bottom:1px solid #ccc; padding:4px 6px;
+               text-align:center; width:48px; white-space:nowrap;">
+      Cost
+    </th>
+  </tr>
+</thead>
+
+
+    <tbody>
+
+      <!-- Tetsuho (Iron Cannonball) -->
+      <tr data-munition="Tetsuho" data-cost="5">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Cannonball.jpeg"
+               alt="Tetsuho"
+               style="width:32px;height:32px;object-fit:contain;display:block;margin:0 auto;">
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; font-weight:600; white-space:nowrap;">
+          Tetsuho
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Iron Cannonball
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1d6
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1d3
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          18"
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Can damage multiple targets within 1" Line AOE.<br>
+          Extended Range: -1 To-Hit from 18" to 24".
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          5
+        </td>
+      </tr>
+
+      <!-- Bo-Hiya (Flaming Arrow) -->
+      <tr data-munition="Bo-Hiya" data-cost="5">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Flame-Arrow.jpeg"
+               alt="Bo-Hiya"
+               style="width:32px;height:32px;object-fit:contain;display:block;margin:0 auto;">
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; font-weight:600; white-space:nowrap;">
+          Bo-Hiya
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Flaming Arrow
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1d6
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1d2
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          24"
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Condition: Burn upon successful hit.<br>
+          Extended Range: -1 To-Hit from 24" to 36".
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          5
+        </td>
+      </tr>
+
+      <!-- Tama-ire (Grapeshot) -->
+      <tr data-munition="Tama-ire" data-cost="5">
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   text-align:center; vertical-align:middle;">
+          <img src="/wp-content/uploads/2025/12/Grapeshot.jpeg"
+               alt="Tama-ire"
+               style="width:32px;height:32px;object-fit:contain;display:block;margin:0 auto;">
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; font-weight:600; white-space:nowrap;">
+          Tama-ire
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Grapeshot
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1d3
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          1
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          12"
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; color:#555;">
+          Can damage multiple targets within a 30° cone up to 12".
+        </td>
+
+        <td style="padding:4px 6px; border-bottom:1px solid #eee;
+                   vertical-align:middle; text-align:center;">
+          5
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  
+  <div id="shoshin-munitions-empty"
+       style="margin-top:4px; font-size:0.8rem; font-style:italic; color:#666; display:none;">
+    Select one or more munitions to pair with this asset.
+  </div>
+</div>
+

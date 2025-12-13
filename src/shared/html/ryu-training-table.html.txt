@@ -1,0 +1,538 @@
+<div class="shoshin-step7-panel">
+  <table id="shoshin-training-table" style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; width:48px; white-space:nowrap;">
+          Image
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Ryū
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Discipline
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Equipment
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:center; white-space:nowrap;">
+          Cost
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Jujutsu -->
+      <tr
+        data-training="Jujutsu"
+        data-weapon="Unarmed Combat"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Unarmed1.jpeg"
+            alt="Jujutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Jujutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Unarmed Combat
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Fists, Kicks, etc.
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Juttejutsu -->
+      <tr
+        data-training="Juttejutsu"
+        data-weapon="Jutte"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Club1.jpeg"
+            alt="Juttejutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Juttejutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Truncheon or Club
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Jutte
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Bojutsu -->
+      <tr
+        data-training="Bojutsu"
+        data-weapon="Bo"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Staff1.jpeg"
+            alt="Bojutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Bojutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Pole or Staff
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Bo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Tantojutsu -->
+      <tr
+        data-training="Tantojutsu"
+        data-weapon="Tanto"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Dagger1.jpeg"
+            alt="Tantojutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Tantojutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Dagger
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Tanto
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Kusarigamajutsu -->
+      <tr
+        data-training="Kusarigamajutsu"
+        data-weapon="Kusarigama"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Sickle1.jpeg"
+            alt="Kusarigamajutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Kusarigamajutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Sickle and Chain
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Kusarigama
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Mojirijutsu -->
+      <tr
+        data-training="Mojirijutsu"
+        data-weapon="Kanabo"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Studded1.jpeg"
+            alt="Mojirijutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Mojirijutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Studded War Club
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Kanabo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Sojutsu -->
+      <tr
+        data-training="Sojutsu"
+        data-weapon="Yari"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Spear1.jpeg"
+            alt="Sojutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Sojutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Spear
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Yari
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Kenjutsu -->
+      <tr
+        data-training="Kenjutsu"
+        data-weapon="Katana"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/katana1.jpeg"
+            alt="Kenjutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Kenjutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Sword
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Katana
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Naginatajutsu -->
+      <tr
+        data-training="Naginatajutsu"
+        data-weapon="Naginata"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Naginata1.jpeg"
+            alt="Naginatajutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Naginatajutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Bladed Polearm
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Naginata
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Iaijutsu -->
+      <tr
+        data-training="Iaijutsu"
+        data-weapon="Nodachi"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Nodachi1.jpeg"
+            alt="Iaijutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Iaijutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Great Sword
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Nodachi
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Shurikenjutsu -->
+      <tr
+        data-training="Shurikenjutsu"
+        data-weapon="Shuriken"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Shuriken1.jpeg"
+            alt="Shurikenjutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Shurikenjutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Throwing Stars
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Shuriken
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Fukumibarijutsu -->
+      <tr
+        data-training="Fukumibarijutsu"
+        data-weapon="Fukiya"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/dart1.jpeg"
+            alt="Fukumibarijutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Fukumibarijutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Blowgun &amp; Darts
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Fukiya
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Kyujutsu -->
+      <tr
+        data-training="Kyujutsu"
+        data-weapon="Hankyu,Daikyu"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Bow.jpeg"
+            alt="Kyujutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Kyujutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Bows
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Hankyu, Daikyu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Kayakujutsu -->
+		<tr
+		  data-training="Kayakujutsu"
+		  data-cost="2"
+		>
+		  <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+			<img
+			  src="/wp-content/uploads/2025/12/Arquebus1.jpeg"
+			  alt="Kayakujutsu"
+			  style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+			/>
+		  </td>
+		  <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+			Kayakujutsu
+		  </td>
+		  <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+			Gunpowder Firearms & Explosives
+		  </td>
+		  <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+			Tanegashima, Houroku-Hiya, Ozutsu
+		  </td>
+		  <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+			2
+		  </td>
+		</tr>
+
+
+      <!-- Hojojutsu -->
+      <tr
+        data-training="Hojojutsu"
+        data-weapon="Torinawa"
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Rope.jpeg"
+            alt="Hojojutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Hojojutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Arresting Rope
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Torinawa
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Suieijutsu -->
+      <tr
+        data-training="Suieijutsu"
+        data-weapon=""
+        data-cost="1"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Water.jpeg"
+            alt="Suieijutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Suieijutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Water Combat
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Mokuzo Hansen
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          1
+        </td>
+      </tr>
+
+      <!-- Bajutsu -->
+      <tr
+        data-training="Bajutsu"
+        data-weapon="Uma"
+        data-cost="2"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Horse.jpeg"
+            alt="Bajutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Bajutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Horsemanship
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Uma
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          2
+        </td>
+      </tr>
+
+      <!-- Ninjutsu -->
+      <tr
+        data-training="Ninjutsu"
+        data-weapon="Kunai"
+        data-cost="0"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Ninjutsu.jpeg"
+            alt="Ninjutsu"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Ninjutsu
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Espionage
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Kunai
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          0
+        </td>
+      </tr>
+
+      <!-- Onmyodo -->
+      <tr
+        data-training="Onmyodo"
+        data-weapon=""
+        data-cost="0"
+      >
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center; vertical-align:middle;">
+          <img
+            src="/wp-content/uploads/2025/12/Sorcery.jpeg"
+            alt="Onmyodo"
+            style="width:32px; height:32px; object-fit:contain; display:block; margin:0 auto;"
+          />
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; font-weight:600; white-space:nowrap;">
+          Onmyodo
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          Sorcery
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; color:#555;">
+          —
+        </td>
+        <td style="padding:4px 6px; border-bottom:1px solid #eee; text-align:center;">
+          0
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

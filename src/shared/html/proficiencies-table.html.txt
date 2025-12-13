@@ -1,0 +1,125 @@
+<h3 style="margin-bottom:6px;">Character Proficiencies</h3>
+
+<div id="shoshin-proficiency-wrapper">
+  <table id="shoshin-proficiency-table" class="shoshin-table"
+         style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+    <thead>
+      <tr>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Proficiency
+        </th>
+        <th style="border-bottom:1px solid #ccc; padding:4px 6px; text-align:left;">
+          Description
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Inept: Melee Combat
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Melee attack rolls successful on natural 6 (Lucky Hit) only.<br>
+          Melee weapons lose all additional benefits and their range is reduced to engagement only.
+        </td>
+      </tr>
+      <tr data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Inept: Ranged Combat
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Ranged attack rolls successful on natural 6 (Lucky Hit) only.<br>
+          Ranged weapons lose all additional benefits and their effective range halved.
+        </td>
+      </tr>
+      <tr data-classes="Daimyo,Samurai,Ashigaru,Sohei,Ninja,Onmyoji">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Inept: Water Combat
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          May not attack while located within water terrain.<br>
+		  Must start round at water terrain edge to move within water terrain.<br>
+		  May not captain or crew a sailing ship.
+        </td>
+      </tr>
+      <tr data-classes="Daimyo,Samurai,Sohei">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Inept: Horsemanship
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Does not benefit from Mounted Advantage (Toughness) +1 Body or from
+          Mounted Advantage (High Ground) +1 To-Hit versus non-mounted targets.
+        </td>
+      </tr>
+      <tr data-classes="Daimyo">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Ancestral Prestige
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          May choose any armor at one-half points cost.
+        </td>
+      </tr>
+      <tr data-classes="Daimyo">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Martial Mastery
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          May train any one proficiency for free.
+        </td>
+      </tr>
+      <tr data-classes="Samurai">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Sword Master
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Pays one-half points cost to train either Kenjutsu or Iaijutsu.
+        </td>
+      </tr>
+      <tr data-classes="Ashigaru">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          General Ineptitude
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Pays double points cost to train any available proficiency.
+        </td>
+      </tr>
+      <tr data-classes="Sohei">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Martial Artist
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Proficient in Jujutsu <i>(free)</i>.
+        </td>
+      </tr>
+      <tr data-classes="Sohei">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Polearms Adept
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Pays one-half points cost to train either Sojutsu or Naginatajutsu.
+        </td>
+      </tr>
+      <tr data-classes="Ninja">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Espionage Expert
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Proficient in Ninjutsu <i>(included)</i>.
+        </td>
+      </tr>
+      <tr data-classes="Onmyoji">
+        <td style="font-weight:600; border-bottom:1px solid #eee; padding:4px 6px;">
+          Mysticism and Ritualism
+        </td>
+        <td style="color:#555; border-bottom:1px solid #eee; padding:4px 6px;">
+          Proficient in Onmyodo <i>(included)</i>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p id="shoshin-proficiency-empty"
+     style="display:none; font-size:0.85rem; color:#777; margin-top:6px;">
+    No special proficiencies are associated with this class.
+  </p>
+</div>

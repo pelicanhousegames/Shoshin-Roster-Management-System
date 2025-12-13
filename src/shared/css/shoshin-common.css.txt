@@ -1,0 +1,844 @@
+/* =========================================================
+   BASE TABLE STYLING (for in-form helper tables)
+   ========================================================= */
+
+/* Base styling for all Shoshin helper tables (used in the form AND expansion) */
+.shoshin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  table-layout: fixed;
+}
+
+.shoshin-table th,
+.shoshin-table td {
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+.shoshin-table th {
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+/* STEP 1: Proficiency table (2 columns: Name / Effect) */
+#shoshin-proficiency-table.shoshin-table th:first-child,
+#shoshin-proficiency-table.shoshin-table td:first-child {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#shoshin-proficiency-table.shoshin-table th:nth-child(2),
+#shoshin-proficiency-table.shoshin-table td:nth-child(2) {
+  white-space: normal;
+}
+
+/* STEP 2: Abilities table (3 columns: Ability / Effect / Cost) */
+#shoshin-abilities-table.shoshin-table th:first-child,
+#shoshin-abilities-table.shoshin-table td:first-child {
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#shoshin-abilities-table.shoshin-table th:nth-child(2),
+#shoshin-abilities-table.shoshin-table td:nth-child(2) {
+  white-space: normal;
+}
+
+/* Cost column */
+#shoshin-abilities-table.shoshin-table th:last-child {
+  width: 60px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#shoshin-abilities-table.shoshin-table td:last-child {
+  width: 60px;
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+/* Ability name formatting */
+#shoshin-abilities-table.shoshin-table td:first-child {
+  font-weight: 600;
+  color: #000;
+  vertical-align: middle;
+  padding: 4px 6px;
+}
+
+/* Prevent wrapping in Type column for ranged weapons (if used) */
+#shoshin-ranged-table td.shoshin-type {
+  white-space: nowrap;
+}
+
+/* Vertical centering for main weapon/armor/training/support tables */
+#shoshin-melee-table th,
+#shoshin-melee-table td,
+#shoshin-ranged-table th,
+#shoshin-ranged-table td,
+#shoshin-armor-table th,
+#shoshin-armor-table td,
+#shoshin-training-table th,
+#shoshin-training-table td {
+  vertical-align: middle !important;
+}
+
+/* STEP 6: Support Items table (Image / Item / Type / Attributes / Cost) */
+#shoshin-support-table.shoshin-table th:nth-child(1),
+#shoshin-support-table.shoshin-table td:nth-child(1) {
+  width: 48px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#shoshin-support-table.shoshin-table th:nth-child(2),
+#shoshin-support-table.shoshin-table td:nth-child(2) {
+  width: 140px;
+  white-space: nowrap;
+}
+
+#shoshin-support-table.shoshin-table th:nth-child(3),
+#shoshin-support-table.shoshin-table td:nth-child(3) {
+  width: 180px;
+  white-space: nowrap;
+}
+
+#shoshin-support-table.shoshin-table th:nth-child(4),
+#shoshin-support-table.shoshin-table td:nth-child(4) {
+  width: auto;
+  white-space: normal;
+}
+
+#shoshin-support-table.shoshin-table th:nth-child(5),
+#shoshin-support-table.shoshin-table td:nth-child(5) {
+  width: 60px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Shrink headers for weapon / char stats tables in forms */
+.shoshin-weapons th,
+.shoshin-stats th {
+  font-size: 0.8rem !important;
+  white-space: nowrap;
+  padding: 3px 4px !important;
+}
+
+.shoshin-red {
+  color: #b00000 !important;
+  font-weight: normal !important;
+}
+
+/* =========================================================
+   WPFORMS SHARED UI (Reset, Progress, Submit)
+   ========================================================= */
+
+/* Progress header for forms 2247 / 2501 */
+#wpforms-form-2247 .shoshin-progress-header,
+#wpforms-form-2501 .shoshin-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+/* Progress bar spacing */
+#wpforms-form-2247 .wpforms-page-indicator.progress,
+#wpforms-form-2501 .wpforms-page-indicator.progress {
+  margin-bottom: 16px;
+}
+
+/* Top Reset button styling – used by both forms */
+#wpforms-form-2247 .shoshin-reset-btn-top,
+#wpforms-form-2501 .shoshin-reset-btn-top {
+  background-color: #FFCC39;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+#wpforms-form-2247 .shoshin-reset-btn-top:hover,
+#wpforms-form-2501 .shoshin-reset-btn-top:hover {
+  background-color: #e6b832;
+}
+
+#wpforms-form-2247 .shoshin-reset-btn-top:active,
+#wpforms-form-2501 .shoshin-reset-btn-top:active {
+  background-color: #d4a72e;
+}
+
+/* Green Save Button (Characters + Support Assets) */
+#wpforms-form-2247 .wpforms-submit,
+#wpforms-submit-2247,
+#wpforms-form-2501 .wpforms-submit,
+#wpforms-submit-2501 {
+  background-color: #05CE78 !important;
+  border-color: #05CE78 !important;
+  color: #000 !important;
+  font-weight: 600;
+}
+
+#wpforms-form-2247 .wpforms-submit:hover,
+#wpforms-submit-2247:hover,
+#wpforms-form-2501 .wpforms-submit:hover,
+#wpforms-submit-2501:hover {
+  background-color: #04b86b !important;
+  border-color: #04b86b !important;
+}
+
+#wpforms-form-2247 .wpforms-submit:active,
+#wpforms-submit-2247:active,
+#wpforms-form-2501 .wpforms-submit:active,
+#wpforms-submit-2501:active {
+  background-color: #03a65f !important;
+  border-color: #03a65f !important;
+}
+
+/* Reference ID validation message */
+.shoshin-refid-error.wpforms-error {
+  color: #d9534f !important;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   MY ASSETS LAYOUT (Shortcode Display)
+   ========================================================= */
+
+.shoshin-asset-list-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.shoshin-asset-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* Buckets per Character Class / Support Type */
+.shoshin-bucket {
+  margin-bottom: 32px;
+}
+
+.shoshin-bucket-title {
+  font-size: 1.3rem;
+  margin: 0 0 8px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.shoshin-bucket-empty {
+  font-size: 0.9rem;
+  color: #777;
+  font-style: italic;
+  margin: 4px 0 0 0;
+}
+
+.shoshin-bucket-cards {
+  margin-top: 8px;
+}
+
+/* Asset cards */
+.shoshin-asset-card {
+  border: 1px solid #ddd;
+  background: transparent;
+  padding: 16px 18px 18px;
+  margin-bottom: 16px;
+}
+
+.shoshin-asset-card + .shoshin-asset-card {
+  margin-top: 16px;
+}
+
+/* =========================================================
+   ROW 1: Image, Meta, BUTTONS
+   ========================================================= */
+
+.shoshin-asset-row1 {
+  display: flex;
+  align-items: center;   /* centers avatar vs text block */
+  gap: 16px;
+}
+
+/* 64x64 portrait */
+.shoshin-asset-avatar {
+  flex: 0 0 64px;
+  display: flex;
+  align-items: center;   /* vertically centers image within its 64px column */
+}
+
+.shoshin-asset-avatar img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+/* Header main block */
+.shoshin-asset-header-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centers text vertically */
+  min-height: 64px;          /* matches portrait height */
+}
+
+.shoshin-asset-class-name {
+  margin: 0 0 2px;
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.shoshin-asset-class-desc {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.shoshin-asset-size, .shoshin-asset-dimension {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+/* Row1 buttons (Assign / Edit / Delete) – top-aligned on the right */
+.shoshin-asset-actions.row1-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-self: flex-start;   /* top align relative to row1 */
+}
+
+/* Generic actions row (if used elsewhere) */
+.shoshin-asset-actions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* =========================================================
+   ROW 2: Stat Strip (REF + Stats + COST)
+   ========================================================= */
+
+/* Full-width stat strip row under header */
+.shoshin-asset-stat-row {
+  margin-top: 4px;  /* reduced gap to tighten Row1→Row2 */
+}
+
+/* Table behavior for the stat strip */
+.shoshin-stat-strip {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;   /* REF is fixed; remaining columns share width */
+}
+
+.shoshin-stat-strip td {
+  padding: 0;            /* inner div handles padding */
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Inner cell: label over value, centered */
+.shoshin-stat-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  gap: 2px;
+}
+
+/* Base label/value */
+.shoshin-stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.shoshin-stat-value {
+  font-size: 0.9rem;
+}
+
+/* REF cell (first column) – fixed width, no wrap */
+.shoshin-stat-strip td.shoshin-ref-td {
+  width: 160px;          /* tuned for 15-character REF IDs */
+  min-width: 160px;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: #FFF !important;
+}
+
+/* REF text left-aligned, no label above */
+.shoshin-stat-strip td.shoshin-ref-td .shoshin-stat-value {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Remove borders & background from stat strip */
+.shoshin-stat-strip,
+.shoshin-stat-strip td,
+.shoshin-stat-strip th {
+  border: none !important;
+}
+
+.shoshin-stat-strip .shoshin-stat-cell,
+.shoshin-stat-cost-cell {
+  border: none !important;
+  background: #FFF !important;
+}
+
+/* LABELS (except REF): slightly bolder, darker */
+.shoshin-stat-strip td:not(.shoshin-ref-td) .shoshin-stat-label {
+  font-weight: 600 !important;   /* moderate bold */
+  color: #333 !important;
+}
+
+/* VALUES (except REF): lighter, softer */
+.shoshin-stat-strip td:not(.shoshin-ref-td) .shoshin-stat-value {
+  font-weight: 400 !important;
+  color: #555 !important;
+}
+
+/* COST column: extra gap from INI, pill-style text */
+.shoshin-stat-strip .shoshin-stat-cost-cell {
+  white-space: nowrap;
+  padding-left: 24px !important;   /* gap after INI */
+  padding-right: 12px !important;  /* balanced right side */
+  text-align: center;
+}
+
+.shoshin-stat-cost-cell .cost-label {
+  font-size: 0.75rem;
+  font-weight: 600 !important;
+  color: #333 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.shoshin-stat-cost-cell .cost-value {
+  font-size: 1rem;
+  font-weight: 400 !important;
+  color: #555 !important;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   ROW 3: Expand / Collapse Toggle + Expansion
+   ========================================================= */
+
+/* BASE (non-hover) toggle button styling */
+.shoshin-asset-toggle {
+  margin-top: 4px;      /* reduced from 12px for tighter Row2→Row3 */
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+
+  color: #000;               /* BLACK text and icon */
+  padding: 2px 8px;          /* tighter vertical padding */
+  font-size: 0.85rem;
+  cursor: pointer;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+/* Hover */
+.shoshin-asset-toggle:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #000 !important;
+}
+
+/* Active (mousedown) */
+.shoshin-asset-toggle:active {
+  background: transparent;
+  border-color: transparent;
+  color: #000 !important;
+}
+
+/* Icon circle stays black always */
+.shoshin-asset-toggle-icon {
+  border: 1px solid #000;
+  border-radius: 10%;
+  padding: 2px 6px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure toggles never pick up old red/hover styles */
+.shoshin-asset-toggle,
+.shoshin-asset-toggle:hover,
+.shoshin-asset-toggle:active,
+.shoshin-asset-toggle:focus {
+  background: transparent !important;
+  border: none !important;
+  color: #000 !important;
+  box-shadow: none !important;
+}
+
+/* Instruction text in toggle */
+.shoshin-asset-toggle-text {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Details/expansion area */
+.shoshin-asset-details {
+  display: none;
+  margin-top: 8px;
+  border-top: 1px dashed #ddd;
+  padding-top: 10px;
+}
+
+.shoshin-asset-details.is-open {
+  display: block;
+}
+
+/* 4-block grid */
+.shoshin-asset-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* single column layout */
+  gap: 16px;                    /* vertical spacing between blocks */
+}
+
+@media (max-width: 768px) {
+  .shoshin-asset-row1 {
+    flex-direction: row;
+  }
+}
+
+.shoshin-asset-block h4,
+.shoshin-asset-block h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   EXPANSION TABLES (ROW 3)
+   Make them match the 7 helper tables + COMPACT MODE
+   ========================================================= */
+
+/* All tables that live inside the expansion blocks */
+.shoshin-asset-block table.shoshin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;          /* compact mode: smaller text */
+  table-layout: auto;          /* allow natural column sizing */
+}
+
+/* Header cells in expansion tables */
+.shoshin-asset-block table.shoshin-table thead th {
+  border-bottom: 1px solid #ccc;
+  padding: 3px 5px;            /* slightly tighter padding */
+  text-align: left;
+  vertical-align: middle;
+  background: #f7f7f7;
+  font-weight: 600;
+  font-size: 0.78rem;          /* slightly larger than body */
+}
+
+/* Body cells in expansion tables */
+.shoshin-asset-block table.shoshin-table tbody td {
+  border-bottom: 1px solid #eee;
+  padding: 3px 5px;            /* slightly tighter padding */
+  vertical-align: middle;
+  font-size: 0.75rem;
+}
+
+/* Shared first column: image thumbnails */
+.shoshin-asset-block table.shoshin-table td.shoshin-cell-image {
+  width: 40px;                 /* narrower to match 24px img */
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 24px thumbnail images */
+.shoshin-asset-block table.shoshin-table td.shoshin-cell-image img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---------- Proficiencies & Abilities ----------
+   (Image | Capability | Attributes)
+------------------------------------------------- */
+.shoshin-asset-block table.shoshin-profab-table td.shoshin-cell-capability {
+  width: 20%;
+  white-space: nowrap;
+}
+
+.shoshin-asset-block table.shoshin-profab-table td.shoshin-cell-attributes {
+  width: auto;
+}
+
+/* ---------- Equipment & Items ----------
+   (Image | Equipment | Type | Attributes)
+----------------------------------------- */
+.shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-equipment {
+  width: 16%;
+  white-space: nowrap;
+}
+
+.shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-type {
+  width: 16%;
+  white-space: nowrap;
+}
+
+.shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-attributes {
+  width: auto;
+}
+
+/* ---------- Ryū Discipline ----------
+   (Image | Ryū | Discipline | Equipment)
+--------------------------------------- */
+.shoshin-asset-block table.shoshin-ryu-table td:nth-child(2) {
+  width: 16%;
+  white-space: nowrap;
+}
+
+.shoshin-asset-block table.shoshin-ryu-table td:nth-child(3) {
+  width: 22%;
+  white-space: nowrap;
+}
+
+.shoshin-asset-block table.shoshin-ryu-table td:nth-child(4) {
+  width: auto;
+}
+
+/* ---------- Combat Modifiers ----------
+   Headers centered, content top-aligned
+   ------------------------------------ */
+
+/* Top-align *everything* in the modifiers table */
+.shoshin-asset-block table.shoshin-mods-table th,
+.shoshin-asset-block table.shoshin-mods-table td {
+  vertical-align: top !important;
+}
+
+/* Header base style: lighter like other headers */
+.shoshin-asset-block table.shoshin-mods-table th {
+  text-align: center !important;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: 400;        /* lighter weight for the word (Melee, Ranged, etc.) */
+  color: #333;
+}
+
+/* Insert the bold tag ([M], [R], etc.) before the word */
+.shoshin-asset-block table.shoshin-mods-table th::before {
+  content: attr(data-tag) " ";
+  font-weight: 700;        /* bold tag */
+  color: #000;
+}
+
+/* Hide the original tag text inside the span */
+.shoshin-asset-block table.shoshin-mods-table th .tag-hidden {
+  display: none;
+}
+
+/* Bullet list formatting */
+.shoshin-asset-block table.shoshin-mods-table td ul {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 0.70rem !important;   /* matches reduced data font size */
+}
+
+
+/* Empty/none messages */
+.shoshin-expansion-empty {
+  font-size: 0.8rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* Combat modifiers layout (cell content) */
+.shoshin-modifiers-cell-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 0.8rem;
+}
+
+.shoshin-modifiers-cell-list li {
+  margin-bottom: 2px;
+}
+
+/* Optional "None" text when no modifiers in a column */
+.shoshin-modifiers-none {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Generic muted text */
+.shoshin-muted {
+  color: #777;
+  font-style: italic;
+}
+
+/* =========================================================
+   STANDARD BUTTON COLORS — Assign / Edit / Delete
+   ========================================================= */
+
+/* Base button reset */
+.shoshin-btn {
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  color: #000;
+}
+
+/* GREEN: ASSIGN */
+.shoshin-btn-assign {
+  background-color: #05CE78;
+  border: 1px solid #05CE78;
+  color: #000;
+}
+
+.shoshin-btn-assign:hover {
+  background-color: #04B86B;
+  border-color: #04B86B;
+}
+
+/* YELLOW: EDIT */
+.shoshin-btn-edit {
+  background-color: #FFCC39;
+  border: 1px solid #FFCC39;
+  color: #000;
+}
+
+.shoshin-btn-edit:hover {
+  background-color: #E6B832;
+  border-color: #E6B832;
+}
+
+/* RED: DELETE */
+.shoshin-btn-delete {
+  background-color: #D64040;
+  border: 1px solid #D64040;
+  color: #fff;
+}
+
+.shoshin-btn-delete:hover {
+  background-color: #B83333;
+  border-color: #B83333;
+}
+
+/* Ensure red stat values in the strip actually show as red */
+.shoshin-stat-strip td .shoshin-stat-value.shoshin-red {
+  color: #b00000 !important;
+  font-weight: 600 !important;  /* optional, if you want a bit more emphasis */
+}
+
+/* Fix COST label/value vertical alignment */
+.shoshin-stat-cost-cell {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   /* centers label + value vertically */
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+
+/* =========================================================
+   TOP FILTER NAV (All / Daimyo / Samurai / etc.)
+   ========================================================= */
+
+.shoshin-asset-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.shoshin-asset-filter-btn {
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.shoshin-asset-filter-btn:hover {
+  background: #eaeaea;
+}
+
+.shoshin-asset-filter-btn.is-active {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+/* =========================================================
+   MY ASSETS FILTER BAR
+   ========================================================= */
+
+.shoshin-asset-filters {
+  display: flex;
+  justify-content: center;   /* center the menu */
+  flex-wrap: wrap;           /* wrap nicely on small screens */
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 4px 0;
+}
+
+/* Basic pill-style buttons (we can refine later) */
+.shoshin-asset-filter-btn {
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.shoshin-asset-filter-btn.is-active {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+
+.shoshin-asset-empty-state {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.shoshin-asset-empty-state h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #777;
+  font-weight: 400;
+}
+
+.shoshin-asset-empty-state h2 em {
+  font-style: italic;
+}
