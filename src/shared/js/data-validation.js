@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // === Register all forms that use Reference ID validation ===
   const FORMS = [
-    { formId: 2247, refFieldId: 4 }, // Character Creator
-    { formId: 2501, refFieldId: 3 }  // Support Asset Creator
+  { formId: 2247, refFieldId: 4 }, // Character Creator
+  { formId: 2501, refFieldId: 3 }, // Support Asset Creator
+  { formId: 2799, refFieldId: 3 }  // Clan Roster Creator
   ];
+
 
   // === Find which form is currently on this page ===
   let activeForm = null;
@@ -78,4 +80,16 @@ document.addEventListener('DOMContentLoaded', function () {
       refInput.focus();
     }
   }, true); // capture first
+
+    // === Validate on FORM SUBMIT as well (covers single-step forms like 2799) ===
+  formEl.addEventListener('submit', function (e) {
+    const value = refInput.value.trim();
+    if (value.length < 3) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      showRefError('Please enter at least 3 characters for the Reference ID.');
+      refInput.focus();
+    }
+  }, true);
+
 });

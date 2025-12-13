@@ -134,3 +134,4 @@ Hidden Field (ID #2): Label = Owner WP User ID; Default Value = {user_id}; CSS C
 Single Line Text (ID #3): Label = Reference ID; CSS Class = (none)
 Hidden Field (ID #4): Label = Game System; Default Value = Path of Ascension; CSS Class = (none)
 Single Line Text (ID #5): Label = Clan Name; CSS Class = (none)
+HTML Code Block (ID #6): Label = Clan Roster Summary; Code = (functions as display block); CSS Class = (none)
