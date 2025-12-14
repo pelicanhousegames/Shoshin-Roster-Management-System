@@ -310,31 +310,31 @@ document.addEventListener('DOMContentLoaded', function () {
         // 1) IMG
         '<td class="shoshin-assigned-img-td">' +
           '<div class="shoshin-assigned-img-wrap">' +
-            '<img src="' + esc(img) + '" alt="" style="width:24px;height:24px;object-fit:cover;border:1px solid #ddd;border-radius:4px;" />' +
+            '<img src="' + esc(img) + '" alt="" style="width:32px;height:32px;object-fit:cover;border:1px solid #ddd;border-radius:4px;" />' +
           '</div>' +
-        '</td>' +
+        '</td>' +    
 
-        // 2) QTY (DISPLAY ONLY)
-        '<td class="shoshin-assigned-qty-td">' +
-          '<div class="shoshin-stat-cell">' +
-            '<div class="shoshin-stat-label">QTY</div>' +
-            '<div class="shoshin-stat-value">' + esc(qty) + '</div>' +
-          '</div>' +
-        '</td>' +
-
-        // 3) REF ID
+        // 2) REF ID
         '<td class="shoshin-assigned-plain-td">' +
           '<div class="shoshin-stat-cell">' +
-            '<div class="shoshin-stat-label">REF</div>' +
+            '<div class="shoshin-stat-label"></div>' +
             '<div class="shoshin-stat-value">' + esc(refId) + '</div>' +
           '</div>' +
         '</td>' +
 
-        // 4) CLASS TYPE
+        // 3) CLASS TYPE
         '<td class="shoshin-assigned-plain-td">' +
           '<div class="shoshin-stat-cell">' +
-            '<div class="shoshin-stat-label">TYPE</div>' +
+            '<div class="shoshin-stat-label"></div>' +
             '<div class="shoshin-stat-value">' + esc(unitType) + '</div>' +
+          '</div>' +
+        '</td>' +
+
+        // 4) QTY (DISPLAY ONLY)
+        '<td class="shoshin-assigned-qty-td">' +
+          '<div class="shoshin-stat-cell">' +
+            '<div class="shoshin-stat-label">QTY</div>' +
+            '<div class="shoshin-stat-value">' + esc(qty) + '</div>' +
           '</div>' +
         '</td>' +
 

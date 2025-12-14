@@ -1196,6 +1196,11 @@ display: none !important;
 }
 
 /* 4) Selective vertical dividers (override border:none !important elsewhere) */
+/* Divider after TYPE (col 3) */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(3) {
+  border-right: 1px solid #e6e6e6 !important;
+}
+
 /* Divider after TYPE (col 4) */
 .shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(4) {
   border-right: 1px solid #e6e6e6 !important;
@@ -1216,11 +1221,25 @@ display: none !important;
   border-right: 1px solid #e6e6e6 !important;
 }
 
+/* Divider after TOTALS (col 17) */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(17) {
+  border-right: 1px solid #e6e6e6 !important;
+}
+
 /* =========================================================
    /my-rosters Row 1 — selective vertical dividers
    ========================================================= */
 
-/* Divider between HONOR and DAIMYO (after col 4) */
+/* Divider between REF ID and UNITS (after col 1) */
+.shoshin-roster-card
+  .shoshin-asset-stat-row
+  .shoshin-stat-strip
+  tbody td:nth-child(1) {
+  border-right: 1px solid #e6e6e6 !important;
+}
+
+
+   /* Divider between HONOR and DAIMYO (after col 4) */
 .shoshin-roster-card
   .shoshin-asset-stat-row
   .shoshin-stat-strip
