@@ -188,8 +188,12 @@ display:inline-block;
 #wpforms-form-2501 .shoshin-reset-btn-top:hover{
 background-color:var(--shoshin-yellow-hover);
 }
+
 #wpforms-form-2247 .shoshin-reset-btn-top:active,
-#wpforms-form-2501 .shoshin-reset-btn-top:active
+#wpforms-form-2501 .shoshin-reset-btn-top:active{
+  background-color:#d4a72e;
+}
+
 
 /* Green Save Button */
 #wpforms-form-2247 .wpforms-submit,
@@ -595,12 +599,16 @@ cursor:pointer;
 line-height:1.2;
 color:#333;
 }
-.shoshin-asset-filter-btn:hover
-.shoshin-asset-filter-btn.is-active{
-border-color:#000;
-background:#000;
-color:#fff;
+.shoshin-asset-filter-btn:hover{
+  background:#eaeaea;
 }
+
+.shoshin-asset-filter-btn.is-active{
+  border-color:#000;
+  background:#000;
+  color:#fff;
+}
+
 .shoshin-asset-empty-state{
 text-align:center;
 margin:24px 0;
@@ -1279,3 +1287,108 @@ display: none !important;
   background: transparent !important;
 }
 
+/* =========================================================
+   /my-assets — Row 2 Stat Strip Vertical Dividers
+   Only after specific columns (REF, M DIS, R DIS, INI)
+   ========================================================= */
+
+/* Safety scope: assets only (NOT rosters) */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-stat-strip
+  tbody
+  tr
+  > td:nth-child(1),   /* REF */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-stat-strip
+  tbody
+  tr
+  > td:nth-child(4),   /* M DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-stat-strip
+  tbody
+  tr
+  > td:nth-child(7),   /* R DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-stat-strip
+  tbody
+  tr
+  > td:nth-child(13) { /* INI */
+  border-right: 1px solid #e2e2e2;
+}
+
+/* Prevent double-thick edges */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-stat-strip td {
+  border-left: none !important;
+}
+
+/* =========================================================
+   /my-assets — Row 2 Stat Strip: selective vertical dividers
+   Uses inset box-shadow so it survives border:none !important
+   Dividers after: REF, M DIS, R DIS, INI
+   ========================================================= */
+
+/* Safety scope: assets only (NOT rosters) */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip
+  tbody tr > td:nth-child(1),   /* REF */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip
+  tbody tr > td:nth-child(4),   /* M DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip
+  tbody tr > td:nth-child(7),   /* R DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip
+  tbody tr > td:nth-child(13) { /* INI */
+  box-shadow: inset -1px 0 0 #e2e2e2 !important;
+}
+
+/* =========================================================
+   FIX — /my-assets Row2 dividers must sit ON TOP of white layers
+   Use td::after with absolute positioning (not border/box-shadow)
+   Dividers after: REF (1), M DIS (4), R DIS (7), INI (13)
+   ========================================================= */
+
+/* Scope: /my-assets only (exclude roster cards) */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td{
+  position: relative; /* anchor the ::after divider */
+}
+
+/* Create the divider (hidden by default) */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td::after{
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  right: 0;
+  width: 1px;
+  background: #e2e2e2;
+  z-index: 5;          /* sit above any #fff layers */
+  pointer-events: none;
+  opacity: 0;          /* off unless targeted */
+}
+
+/* Turn divider ON only after the specific columns */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td:nth-child(1)::after,   /* REF */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td:nth-child(4)::after,   /* M DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td:nth-child(7)::after,   /* R DIS */
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row
+  table.shoshin-stat-strip tbody tr > td:nth-child(13)::after{  /* INI */
+  opacity: 1;
+}
