@@ -1,4 +1,3 @@
-<?php
 /**
  * Shoshin - My Rosters Shortcode + AJAX (WPCode-safe)
  * Usage: [shoshin_my_rosters]
@@ -346,6 +345,192 @@ if ( ! function_exists( 'shoshin_ajax_unassign_unit' ) ) {
 }
 
 add_action( 'wp_ajax_shoshin_unassign_unit', 'shoshin_ajax_unassign_unit' );
+
+/** -----------------------------
+ *  AJAX: set qty for a grouped unit (qty=0 removes row)
+ *  Expects POST:
+ *   - rosterEntryId (int)
+ *   - unitKey (string)
+ *   - qty (int >= 0)
+ *   - nonce
+ *  ----------------------------- */
+if ( ! function_exists( 'shoshin_ajax_set_unit_qty' ) ) {
+	function shoshin_ajax_set_unit_qty() {
+
+		if ( ! function_exists( 'wpforms' ) ) {
+			wp_send_json_error( [ 'message' => 'WPForms is not available.' ], 500 );
+		}
+
+		if ( ! is_user_logged_in() ) {
+			wp_send_json_error( [ 'message' => 'You must be logged in.' ], 401 );
+		}
+
+		check_ajax_referer( shoshin_rosters_ajax_nonce_action(), 'nonce' );
+
+		$entry_id = isset( $_POST['rosterEntryId'] ) ? absint( $_POST['rosterEntryId'] ) : 0;
+		$unit_key = isset( $_POST['unitKey'] ) ? sanitize_text_field( wp_unslash( $_POST['unitKey'] ) ) : '';
+		$qty      = isset( $_POST['qty'] ) ? intval( $_POST['qty'] ) : -1;
+
+		if ( ! $entry_id || $unit_key === '' || $qty < 0 ) {
+			wp_send_json_error( [ 'message' => 'Missing rosterEntryId, unitKey, or qty.' ], 400 );
+		}
+
+		$entry = wpforms()->entry->get( $entry_id );
+		if ( ! $entry || empty( $entry->entry_id ) ) {
+			wp_send_json_error( [ 'message' => 'Roster entry not found.' ], 404 );
+		}
+
+		// Ensure correct form
+		$form_id = isset( $entry->form_id ) ? (int) $entry->form_id : 0;
+		if ( $form_id !== 2799 ) {
+			wp_send_json_error( [ 'message' => 'Invalid roster form.' ], 403 );
+		}
+
+		// Ownership check
+		$current_user_id = get_current_user_id();
+		$owner_id        = 0;
+		if ( isset( $entry->user_id ) ) {
+			$owner_id = (int) $entry->user_id;
+		} elseif ( isset( $entry->created_by ) ) {
+			$owner_id = (int) $entry->created_by;
+		}
+
+		if ( $owner_id !== $current_user_id ) {
+			wp_send_json_error( [ 'message' => 'Not authorized for this roster.' ], 403 );
+		}
+
+		// Decode entry fields JSON
+		$entry_fields = json_decode( (string) $entry->fields, true );
+		if ( ! is_array( $entry_fields ) ) {
+			$entry_fields = [];
+		}
+
+		// Normalize to [field_id] => field array
+		$fields_by_id = shoshin_normalize_wpforms_fields( $entry_fields );
+
+		$assigned_raw = shoshin_get_wpforms_field_value( $fields_by_id, 9, '' );
+		$assigned_arr = [];
+
+		if ( is_string( $assigned_raw ) && trim( $assigned_raw ) !== '' ) {
+			$tmp = json_decode( $assigned_raw, true );
+			if ( is_array( $tmp ) ) {
+				$assigned_arr = $tmp;
+			}
+		}
+
+		if ( ! is_array( $assigned_arr ) ) {
+			$assigned_arr = [];
+		}
+
+		$assigned_arr = array_values( $assigned_arr );
+
+		// -----------------------------
+		// Reuse TASK 5 hardened matching
+		// -----------------------------
+		$canon = function( $v ) {
+			$v = is_scalar( $v ) ? (string) $v : '';
+			$v = trim( $v );
+			$v = preg_replace( '/\s+/', ' ', $v );
+			if ( function_exists( 'mb_strtolower' ) ) {
+				return mb_strtolower( $v );
+			}
+			return strtolower( $v );
+		};
+
+		$unit_key_exact = trim( (string) $unit_key );
+		$unit_key_lc    = $canon( $unit_key_exact );
+
+		$unit_sig = '';
+		$parts    = explode( '|', $unit_key_exact );
+		if ( count( $parts ) >= 5 ) {
+			$unit_sig =
+				$canon( $parts[0] ) . '|' .
+				$canon( $parts[1] ) . '|' .
+				$canon( $parts[2] ) . '|' .
+				$canon( $parts[3] ) . '|' .
+				$canon( $parts[4] );
+		}
+
+		$item_sig = function( $it ) use ( $canon ) {
+			$kind = $canon( $it['kind'] ?? '' );
+			$cls  = $canon( $it['cls'] ?? ( $it['class'] ?? ( $it['supportType'] ?? '' ) ) );
+			$ref  = $canon( $it['refId'] ?? ( $it['ref_id'] ?? '' ) );
+			$name = $canon( $it['name'] ?? ( $it['title'] ?? '' ) );
+			$img  = $canon( $it['img'] ?? ( $it['image'] ?? ( $it['imgUrl'] ?? '' ) ) );
+			return $kind . '|' . $cls . '|' . $ref . '|' . $name . '|' . $img;
+		};
+
+		$found_index = -1;
+
+		for ( $i = 0; $i < count( $assigned_arr ); $i++ ) {
+			$item = is_array( $assigned_arr[ $i ] ) ? $assigned_arr[ $i ] : [];
+
+			$key_exact = isset( $item['unitKey'] ) ? trim( (string) $item['unitKey'] ) : '';
+			$key_lc    = $canon( $key_exact );
+
+			if ( $key_exact !== '' && $key_exact === $unit_key_exact ) {
+				$found_index = $i;
+				break;
+			}
+			if ( $key_exact !== '' && $key_lc === $unit_key_lc ) {
+				$found_index = $i;
+				break;
+			}
+			if ( $unit_sig !== '' && $item_sig( $item ) === $unit_sig ) {
+				$found_index = $i;
+				break;
+			}
+		}
+
+		if ( $found_index < 0 ) {
+			wp_send_json_error( [ 'message' => 'Unit not found in roster assignment list.' ], 404 );
+		}
+
+		// qty=0 removes; otherwise set exact qty
+		if ( $qty === 0 ) {
+			array_splice( $assigned_arr, $found_index, 1 );
+		} else {
+			$assigned_arr[ $found_index ]['qty'] = $qty;
+		}
+
+		// Write back to field #9 and update digest #10
+		$new_assigned_json = wp_json_encode( array_values( $assigned_arr ) );
+		$new_digest        = sha1( $new_assigned_json );
+
+		if ( ! isset( $fields_by_id[9] ) || ! is_array( $fields_by_id[9] ) ) {
+			$fields_by_id[9] = [ 'id' => 9 ];
+		}
+		$fields_by_id[9]['value'] = $new_assigned_json;
+
+		if ( ! isset( $fields_by_id[10] ) || ! is_array( $fields_by_id[10] ) ) {
+			$fields_by_id[10] = [ 'id' => 10 ];
+		}
+		$fields_by_id[10]['value'] = $new_digest;
+
+		$save_fields_json = wp_json_encode( $fields_by_id );
+
+		$updated = wpforms()->entry->update(
+			$entry_id,
+			[ 'fields' => $save_fields_json ],
+			'',
+			'',
+			[ 'cap' => false ]
+		);
+
+		if ( empty( $updated ) ) {
+			wp_send_json_error( [ 'message' => 'Failed to update roster entry.' ], 500 );
+		}
+
+		wp_send_json_success( [
+			'entryId'               => $entry_id,
+			'assigned_units_json'   => $new_assigned_json,
+			'assigned_units_digest' => $new_digest,
+		] );
+	}
+}
+
+add_action( 'wp_ajax_shoshin_set_unit_qty', 'shoshin_ajax_set_unit_qty' );
+
 
 /** -----------------------------
  *  Shortcode: output wrapper + JSON payload + ajax config
