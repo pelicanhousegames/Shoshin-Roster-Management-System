@@ -680,10 +680,31 @@
           </div>
 
           <div class="shoshin-asset-actions row1-actions">
-            <button type="button" class="shoshin-btn shoshin-btn-assign">Assign</button>
-            <button type="button" class="shoshin-btn shoshin-btn-edit">Edit</button>
-            <button type="button" class="shoshin-btn shoshin-btn-delete">Delete</button>
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-assign"
+              aria-label="Assign to roster"
+              data-tooltip="Assign to roster">
+              Assign
+            </button>
+
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-edit"
+              aria-label="Edit asset"
+              data-tooltip="Edit asset">
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-delete"
+              aria-label="Delete asset"
+              data-tooltip="Delete asset">
+              Delete
+            </button>
           </div>
+
         </div>
 
         <div class="shoshin-asset-stat-row">
@@ -890,10 +911,31 @@
           </div>
 
           <div class="shoshin-asset-actions row1-actions">
-            <button type="button" class="shoshin-btn shoshin-btn-assign">Assign</button>
-            <button type="button" class="shoshin-btn shoshin-btn-edit">Edit</button>
-            <button type="button" class="shoshin-btn shoshin-btn-delete">Delete</button>
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-assign"
+              aria-label="Assign to roster"
+              data-tooltip="Assign to roster">
+              Assign
+            </button>
+
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-edit"
+              aria-label="Edit asset"
+              data-tooltip="Edit asset">
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="shoshin-btn shoshin-btn-delete"
+              aria-label="Delete asset"
+              data-tooltip="Delete asset">
+              Delete
+            </button>
           </div>
+
         </div>
 
         <div class="shoshin-asset-stat-row">

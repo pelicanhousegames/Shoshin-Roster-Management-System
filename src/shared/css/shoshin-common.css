@@ -842,3 +842,410 @@
 .shoshin-asset-empty-state h2 em {
   font-style: italic;
 }
+/* =========================================================
+   MY ROSTERS LAYOUT (Shortcode Display)
+   ========================================================= */
+
+.shoshin-roster-list-wrapper {
+  max-width: 1000px;   /* match .shoshin-asset-list-wrapper */
+  margin: 0 auto;
+}
+
+.shoshin-roster-list {
+  margin: 0;
+  padding: 0;
+}
+
+/* Row 3 toggle bar (separate from stat strip) */
+.shoshin-asset-row3 {
+  margin-top: 4px;           /* matches tightened Row2→Row3 spacing */
+}
+
+/* Keep toggle aligned left like /my-assets */
+.shoshin-asset-actions.row3-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Dense stat strip can overflow horizontally with many columns (rosters) */
+.shoshin-roster-card .shoshin-asset-stat-row {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent columns from becoming unreadably narrow */
+.shoshin-roster-card .shoshin-stat-strip {
+  min-width: 1200px;  /* adjust later if needed after real data */
+}
+
+/* =========================================================
+   ICON-ONLY ACTION BUTTONS (Roster / Asset Cards)
+   - No background fills
+   - No hover/active color changes
+   - Subtle shadow on hover only
+   ========================================================= */
+
+/* Base icon buttons */
+.shoshin-btn-print,
+.shoshin-btn-edit,
+.shoshin-btn-delete {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0; /* hide text */
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+/* ICONS (Unicode) */
+.shoshin-btn-print::before {
+  content: "🖨️";
+  font-size: 16px;
+}
+
+.shoshin-btn-edit::before {
+  content: "✏️";
+  font-size: 16px;
+}
+
+.shoshin-btn-delete::before {
+  content: "🗑️";
+  font-size: 16px;
+}
+
+/* COLOR = meaning (icon only) */
+.shoshin-btn-print::before {
+  filter: grayscale(100%);
+}
+
+.shoshin-btn-edit::before {
+  filter: none; /* yellow emoji already */
+}
+
+.shoshin-btn-delete::before {
+  filter: none;
+}
+
+/* HOVER: shadow only, no color change */
+.shoshin-btn-print:hover,
+.shoshin-btn-edit:hover,
+.shoshin-btn-delete:hover {
+  background: transparent !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transform: translateY(-1px);
+}
+
+/* ACTIVE: slight press */
+.shoshin-btn-print:active,
+.shoshin-btn-edit:active,
+.shoshin-btn-delete:active {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transform: translateY(0);
+}
+
+/* DISABLED: clear but subtle 
+.shoshin-btn-print:disabled,
+.shoshin-btn-edit:disabled,
+.shoshin-btn-delete:disabled,
+.shoshin-btn-print[aria-disabled="true"],
+.shoshin-btn-edit[aria-disabled="true"],
+.shoshin-btn-delete[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
+} */
+
+/* =========================================================
+   ICON ACTION BUTTONS — Hover Drop Shadow Only
+   ========================================================= */
+
+.shoshin-btn-print,
+.shoshin-btn-edit,
+.shoshin-btn-delete {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: box-shadow 0.15s ease;
+}
+
+/* Hover: subtle elevation */
+.shoshin-btn-print:hover,
+.shoshin-btn-edit:hover,
+.shoshin-btn-delete:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+/* Active: no visual change (intentional restraint) */
+.shoshin-btn-print:active,
+.shoshin-btn-edit:active,
+.shoshin-btn-delete:active {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================================================
+   FORCE HOVER SHADOW — Icon Action Buttons
+   ========================================================= */
+
+.shoshin-asset-card .shoshin-btn-print:hover,
+.shoshin-asset-card .shoshin-btn-edit:hover,
+.shoshin-asset-card .shoshin-btn-delete:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* =========================================================
+   ICON-ONLY ACTION BUTTONS — Assign / Edit / Delete
+   - No background fills
+   - No hover/active color changes
+   - Subtle drop shadow on hover only
+   ========================================================= */
+
+/* Base icon button reset */
+.shoshin-btn-assign,
+.shoshin-btn-edit,
+.shoshin-btn-delete {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0; /* hide text */
+  cursor: pointer;
+
+  transition: box-shadow 0.15s ease;
+}
+
+/* ================= ICONS ================= */
+
+/* ASSIGN → tray (add to roster) */
+.shoshin-btn-assign::before {
+  content: "📥";
+  font-size: 16px;
+}
+
+/* EDIT */
+.shoshin-btn-edit::before {
+  content: "✏️";
+  font-size: 16px;
+}
+
+/* DELETE */
+.shoshin-btn-delete::before {
+  content: "🗑️";
+  font-size: 16px;
+}
+
+/* ================= HOVER ================= */
+
+/* Hover: shadow only */
+.shoshin-asset-card .shoshin-btn-assign:hover,
+.shoshin-asset-card .shoshin-btn-edit:hover,
+.shoshin-asset-card .shoshin-btn-delete:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Active: same shadow (no color or bg change) */
+.shoshin-asset-card .shoshin-btn-assign:active,
+.shoshin-asset-card .shoshin-btn-edit:active,
+.shoshin-asset-card .shoshin-btn-delete:active {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+/* Tooltip arrow */
+.shoshin-asset-card .shoshin-btn-print[title]::before,
+.shoshin-asset-card .shoshin-btn-assign[title]::before,
+.shoshin-asset-card .shoshin-btn-edit[title]::before,
+.shoshin-asset-card .shoshin-btn-delete[title]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 4px);
+  transform: translateX(-50%) translateY(4px);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.88) transparent transparent transparent;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  z-index: 9999;
+}
+
+/* Show tooltip on hover + keyboard focus */
+.shoshin-asset-card .shoshin-btn-print[title]:hover::after,
+.shoshin-asset-card .shoshin-btn-assign[title]:hover::after,
+.shoshin-asset-card .shoshin-btn-edit[title]:hover::after,
+.shoshin-asset-card .shoshin-btn-delete[title]:hover::after,
+.shoshin-asset-card .shoshin-btn-print[title]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-assign[title]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-edit[title]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-delete[title]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.shoshin-asset-card .shoshin-btn-print[title]:hover::before,
+.shoshin-asset-card .shoshin-btn-assign[title]:hover::before,
+.shoshin-asset-card .shoshin-btn-edit[title]:hover::before,
+.shoshin-asset-card .shoshin-btn-delete[title]:hover::before,
+.shoshin-asset-card .shoshin-btn-print[title]:focus-visible::before,
+.shoshin-asset-card .shoshin-btn-assign[title]:focus-visible::before,
+.shoshin-asset-card .shoshin-btn-edit[title]:focus-visible::before,
+.shoshin-asset-card .shoshin-btn-delete[title]:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* UNASSIGN (opposite of Assign) — tray out/up */
+.shoshin-btn-unassign::before {
+  content: "📤";
+  font-size: 16px;
+}
+
+/* =========================================================
+   ICON-ONLY ACTION BUTTONS (cards only)
+   - overrides legacy colored buttons ONLY inside asset/roster cards
+   ========================================================= */
+
+.shoshin-asset-card .shoshin-btn-print,
+.shoshin-asset-card .shoshin-btn-assign,
+.shoshin-asset-card .shoshin-btn-edit,
+.shoshin-asset-card .shoshin-btn-delete {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0; /* hide text */
+  cursor: pointer;
+  transition: box-shadow 0.15s ease;
+}
+
+/* Icons */
+.shoshin-asset-card .shoshin-btn-print::before { content: "🖨️"; font-size: 16px; }
+.shoshin-asset-card .shoshin-btn-assign::before { content: "📥"; font-size: 16px; }
+.shoshin-asset-card .shoshin-btn-edit::before { content: "✏️"; font-size: 16px; }
+.shoshin-asset-card .shoshin-btn-delete::before { content: "🗑️"; font-size: 16px; }
+
+/* Print stays neutral */
+.shoshin-asset-card .shoshin-btn-print::before { filter: grayscale(100%); }
+
+/* Hover shadow (the one you liked) */
+.shoshin-asset-card .shoshin-btn-print:hover,
+.shoshin-asset-card .shoshin-btn-assign:hover,
+.shoshin-asset-card .shoshin-btn-edit:hover,
+.shoshin-asset-card .shoshin-btn-delete:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+
+/* =========================================================
+   SLEEK TOOLTIP (OPTION 2) — NO DOUBLE TOOLTIPS
+   Uses data-tooltip="..." (NOT title)
+   NOTE: tooltips won't show on real disabled buttons in many browsers.
+   ========================================================= */
+
+.shoshin-asset-card .shoshin-btn-print,
+.shoshin-asset-card .shoshin-btn-assign,
+.shoshin-asset-card .shoshin-btn-edit,
+.shoshin-asset-card .shoshin-btn-delete {
+  position: relative;
+}
+
+.shoshin-asset-card .shoshin-btn-print[data-tooltip]::after,
+.shoshin-asset-card .shoshin-btn-assign[data-tooltip]::after,
+.shoshin-asset-card .shoshin-btn-edit[data-tooltip]::after,
+.shoshin-asset-card .shoshin-btn-delete[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.1;
+  white-space: nowrap;
+
+  color: #fff;
+  background: rgba(0,0,0,0.88);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  backdrop-filter: blur(6px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  z-index: 9999;
+}
+
+.shoshin-asset-card .shoshin-btn-print[data-tooltip]:hover::after,
+.shoshin-asset-card .shoshin-btn-assign[data-tooltip]:hover::after,
+.shoshin-asset-card .shoshin-btn-edit[data-tooltip]:hover::after,
+.shoshin-asset-card .shoshin-btn-delete[data-tooltip]:hover::after,
+.shoshin-asset-card .shoshin-btn-print[data-tooltip]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-assign[data-tooltip]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-edit[data-tooltip]:focus-visible::after,
+.shoshin-asset-card .shoshin-btn-delete[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =========================================================
+   STAT STRIP — Force white background (cards only)
+   ========================================================= */
+
+.shoshin-asset-card .shoshin-asset-stat-row {
+  background: #fff !important;
+}
+
+.shoshin-asset-card .shoshin-stat-strip {
+  background: #fff !important;
+}
+
+/* =========================================================
+   STAT STRIP — Force solid white (cards only, all layers)
+   ========================================================= */
+
+/* The scroll container / row wrapper (important for rosters with overflow-x) */
+.shoshin-asset-card .shoshin-asset-stat-row {
+  background-color: #fff !important;
+}
+
+/* Table + row layers */
+.shoshin-asset-card table.shoshin-stat-strip,
+.shoshin-asset-card table.shoshin-stat-strip tbody,
+.shoshin-asset-card table.shoshin-stat-strip tr {
+  background-color: #fff !important;
+}
+
+/* Cell layers (this is usually what themes override) */
+.shoshin-asset-card table.shoshin-stat-strip td,
+.shoshin-asset-card table.shoshin-stat-strip th {
+  background-color: #fff !important;
+}
+
