@@ -176,6 +176,162 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   listEl.innerHTML = '';
+  // =============================================================================
+  // TASK 1 — UX Refinement
+  // 1) Load more (10 at a time, filter-aware)
+  // 2) Only one roster card expanded at a time
+  // 3) Filter bar by Total Clan Points
+  // =============================================================================
+
+  var PAGE_SIZE = 10;
+  var visibleLimit = PAGE_SIZE;
+  var currentPointsFilter = 'All Rosters';
+
+  var wrapperEl = listEl.closest('.shoshin-roster-list-wrapper') || listEl.parentElement;
+
+  var emptyFilterEl = null;
+  function ensureFilterEmptyEl() {
+    if (!wrapperEl) return null;
+    if (!emptyFilterEl) {
+      emptyFilterEl = document.createElement('div');
+      emptyFilterEl.className = 'shoshin-asset-empty-state';
+      emptyFilterEl.style.display = 'none';
+      wrapperEl.insertBefore(emptyFilterEl, listEl);
+    }
+    return emptyFilterEl;
+  }
+
+  var loadMoreWrap = null;
+  var loadMoreBtn = null;
+  function ensureLoadMoreEl() {
+    if (!wrapperEl) return null;
+    if (!loadMoreWrap) {
+      loadMoreWrap = document.createElement('div');
+      loadMoreWrap.className = 'shoshin-load-more-wrap';
+      loadMoreWrap.style.display = 'none';
+
+      loadMoreBtn = document.createElement('button');
+      loadMoreBtn.type = 'button';
+      loadMoreBtn.className = 'shoshin-load-more-btn shoshin-btn';
+      loadMoreBtn.textContent = 'Load more';
+      loadMoreBtn.addEventListener('click', function () {
+        visibleLimit += PAGE_SIZE;
+        applyRosterFilterAndPaging();
+        loadMoreBtn && loadMoreBtn.focus && loadMoreBtn.focus();
+      });
+
+      loadMoreWrap.appendChild(loadMoreBtn);
+      wrapperEl.appendChild(loadMoreWrap);
+    }
+    return loadMoreWrap;
+  }
+
+  function pointsMatchFilter(points, label) {
+    if (label === 'All Rosters') return true;
+    if (label === '~ 500') return (points >= 0 && points <= 500);
+    if (label === '~ 1000') return (points >= 501 && points <= 1000);
+    if (label === '~ 2500') return (points >= 1001 && points <= 2500);
+    if (label === '2500+') return (points >= 2501);
+    return true;
+  }
+
+  function buildPointsFilterBar() {
+    if (!wrapperEl) return null;
+
+    var existing = wrapperEl.querySelector('.shoshin-roster-filters');
+    if (existing) return existing;
+
+    var labels = ['All Rosters', '~ 500', '~ 1000', '~ 2500', '2500+'];
+
+    var bar = document.createElement('div');
+    bar.className = 'shoshin-asset-filters shoshin-roster-filters';
+
+    labels.forEach(function (label) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'shoshin-asset-filter-btn';
+      btn.textContent = label;
+
+      if (label === currentPointsFilter) btn.classList.add('is-active');
+
+      btn.addEventListener('click', function () {
+        bar.querySelectorAll('.shoshin-asset-filter-btn').forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        currentPointsFilter = label;
+        visibleLimit = PAGE_SIZE; // reset paging when filter changes
+        applyRosterFilterAndPaging();
+      });
+
+      bar.appendChild(btn);
+    });
+
+    wrapperEl.insertBefore(bar, listEl);
+    return bar;
+  }
+
+  function collapseRosterCard(card) {
+    var details = card.querySelector('.shoshin-asset-details');
+    if (!details || !details.classList.contains('is-open')) return;
+
+    details.classList.remove('is-open');
+    details.setAttribute('aria-hidden', 'true');
+
+    var btn = card.querySelector('.shoshin-asset-toggle');
+    var icon = card.querySelector('.shoshin-asset-toggle-icon');
+    var text = card.querySelector('.shoshin-asset-toggle-text');
+
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (icon) icon.textContent = '+';
+    if (text) text.textContent = btn && btn.getAttribute('data-expand-msg') ? btn.getAttribute('data-expand-msg') : 'Expand';
+  }
+
+  function applyRosterFilterAndPaging() {
+    if (!wrapperEl) return;
+
+    var msgEl = ensureFilterEmptyEl();
+    var moreEl = ensureLoadMoreEl();
+    var cards = Array.prototype.slice.call(wrapperEl.querySelectorAll('.shoshin-roster-card'));
+
+    // 1) build matching list
+    var matching = cards.filter(function (card) {
+      var pts = asInt(card.getAttribute('data-clan-points'), 0);
+      return pointsMatchFilter(pts, currentPointsFilter);
+    });
+
+    // 2) deterministic hide all
+    cards.forEach(function (c) { c.style.display = 'none'; });
+
+    var showCount = Math.min(visibleLimit, matching.length);
+    for (var i = 0; i < showCount; i++) matching[i].style.display = '';
+
+    // 3) empty message
+    if (msgEl) {
+      if (matching.length === 0) {
+        msgEl.innerHTML = '<h2><em>You currently do not have any clans with these points totals.</em></h2>';
+        msgEl.style.display = 'block';
+      } else {
+        msgEl.style.display = 'none';
+      }
+    }
+
+    // 4) load more visibility
+    if (moreEl) {
+      moreEl.style.display = (matching.length > visibleLimit) ? 'flex' : 'none';
+      if (loadMoreBtn) {
+        var remaining = Math.max(0, matching.length - showCount);
+        loadMoreBtn.textContent = remaining > 0 ? ('Load more (' + remaining + ' more)') : 'Load more';
+      }
+    }
+
+    // 5) if open card is now hidden, collapse it
+    var openDetails = wrapperEl.querySelectorAll('.shoshin-asset-details.is-open');
+    openDetails.forEach(function (d) {
+      var card = d.closest('.shoshin-roster-card');
+      if (card && card.style.display === 'none') collapseRosterCard(card);
+    });
+  }
+
 
   // ---------------------------------------------------------------------------
   // Rendering helpers
@@ -412,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var card = document.createElement('div');
     card.className = 'shoshin-asset-card shoshin-roster-card';
     card.setAttribute('data-roster-entry-id', String(rosterEntryId));
+    card.setAttribute('data-clan-points', String(clanPoints));
 
     card.innerHTML =
       // ROW 1
@@ -503,6 +660,9 @@ document.addEventListener('DOMContentLoaded', function () {
     listEl.appendChild(renderRosterCard(rosters[i], i));
   }
 
+  buildPointsFilterBar();
+  applyRosterFilterAndPaging();
+
   // =============================================================================
   // Delegated handlers (FIX: expand/collapse works even before DOM append timing)
   // =============================================================================
@@ -537,6 +697,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (icon) icon.textContent = '+';
         if (text) text.textContent = btn.getAttribute('data-expand-msg') || 'Expand';
       } else {
+        // TASK 1: Only one expanded at a time (scope: this roster list wrapper)
+        var scope = card.closest('.shoshin-roster-list-wrapper') || card.parentElement;
+        if (scope) {
+          scope.querySelectorAll('.shoshin-roster-card').forEach(function (c) {
+            if (c !== card) collapseRosterCard(c);
+          });
+        }
+
         details.classList.add('is-open');
         details.setAttribute('aria-hidden', 'false');
         btn.setAttribute('aria-expanded', 'true');

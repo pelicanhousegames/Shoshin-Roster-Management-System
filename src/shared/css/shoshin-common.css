@@ -1392,3 +1392,171 @@ display: none !important;
   table.shoshin-stat-strip tbody tr > td:nth-child(13)::after{  /* INI */
   opacity: 1;
 }
+
+
+/* ========================================================================== */
+/* Shoshin Modal (Delete Confirm) - Unified + Centered Content                 */
+/* Scope: /my-assets + /my-rosters                                            */
+/* ========================================================================== */
+
+body.shoshin-modal-open {
+  overflow: hidden;
+}
+
+/* Backdrop */
+.shoshin-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 100000;
+  display: none;
+}
+
+.shoshin-modal-backdrop[aria-hidden="false"] {
+  display: block;
+}
+
+/* Modal container */
+.shoshin-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(520px, calc(100vw - 32px));
+  min-height: 420px;
+  max-height: 85vh;
+
+  padding-bottom: 16px; /* subtle extra cushion below the action area */
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  z-index: 100001;
+  display: none;
+
+  /* KEY CHANGE */
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.shoshin-modal.is-open {
+  display: flex;
+}
+
+/* Header (pinned top) */
+.shoshin-modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 10px;
+}
+
+/* Logo */
+.shoshin-modal-logo {
+  width: 150px;
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+
+/* Close button */
+.shoshin-modal-x {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  color: #444;
+}
+
+/* CENTER ZONE: body + actions together */
+.shoshin-modal-body {
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
+  text-align: center;
+
+  padding: 0 20px 24px;
+  overflow: auto;
+}
+
+/* Typography */
+.shoshin-modal-title {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+  color: #111;
+}
+
+.shoshin-modal-desc {
+  font-size: 18px;
+  line-height: 1.55;
+  color: #333;
+  margin: 0;
+  max-width: 420px;
+}
+
+.shoshin-modal-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  /* KEY FIX: add bottom breathing room */
+  padding: 16px 16px 34px;  /* <-- bottom padding creates the lift */
+  margin: 0;
+}
+
+
+/* Buttons */
+.shoshin-modal-btn {
+  appearance: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  min-width: 140px;
+}
+
+.shoshin-modal-btn-cancel {
+  background: #e6e6e6;
+  color: #222;
+  border-color: #d0d0d0;
+}
+
+.shoshin-modal-btn-confirm {
+  background: #b00020;
+  color: #fff;
+  border-color: #8f0019;
+}
+
+/* Swap visual order: Confirm first, Cancel second */
+.shoshin-modal-btn-confirm {
+  order: 1;
+}
+
+.shoshin-modal-btn-cancel {
+  order: 2;
+}
+
+
+.shoshin-modal-error {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #b00020;
+  font-weight: 700;
+  text-align: center;
+}
