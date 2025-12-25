@@ -1,109 +1,107 @@
 /* =====================================================================
-SHOSHIN — SHARED STYLESHEET (DROP-IN REPLACEMENT)
--------------------------------------------------
+SHOSHIN — SHARED STYLESHEET (DROP-IN REPLACEMENT) — CLEAN / DE-DUPED
+---------------------------------------------------------------------
 
-PURPOSE:
+GOALS
+- One shared CSS for: WPForms + My Assets + My Rosters + Modals
+- One tooltip system: data-tooltip only
+- One icon-button system: prefer JS <img class="shoshin-btn-icon">, fallback to bg-image
+- One stat-strip system: NO "pill" cells (including COST)
+- /my-rosters Row3: transparent rows, no hover grey, optional dividers
 
-* One shared CSS file for WPForms + My Assets + My Rosters displays
-* De-duplicated icon-button + tooltip systems (use data-tooltip only)
-* Compact /my-rosters Row3 assigned strip with true 15ch REF/TYPE caps
-* Clear section headers + optional blocks kept commented when useful
-
-NOTES:
-
-* Icon buttons: JS injects <img class="shoshin-btn-icon"> into buttons.
-* Tooltips: use data-tooltip="..." attributes (NOT title).
-  ===================================================================== */
+===================================================================== */
 
 /* =====================================================================
-[0] GLOBAL TOKENS (OPTIONAL)
+[0] GLOBAL TOKENS
 ===================================================================== */
 
 :root{
---shoshin-text: #111;
---shoshin-muted: #777;
---shoshin-border: #ddd;
---shoshin-bg: #fff;
+  --shoshin-text: #111;
+  --shoshin-muted: #777;
+  --shoshin-border: #ddd;
+  --shoshin-line: var(--shoshin-border);
+  --shoshin-bg: #fff;
 
---shoshin-label: #333;
---shoshin-value: #555;
+  --shoshin-label: #333;
+  --shoshin-value: #555;
 
---shoshin-shadow: 0 3px 8px rgba(0,0,0,0.22);
+  --shoshin-shadow: 0 3px 8px rgba(0,0,0,0.22);
 
---shoshin-green: #05CE78;
---shoshin-green-hover: #04B86B;
+  --shoshin-green: #05CE78;
+  --shoshin-green-hover: #04B86B;
 
---shoshin-yellow: #FFCC39;
---shoshin-yellow-hover: #E6B832;
+  --shoshin-yellow: #FFCC39;
+  --shoshin-yellow-hover: #E6B832;
 
---shoshin-red: #D64040;
---shoshin-red-hover: #B83333;
+  --shoshin-red: #D64040;
+  --shoshin-red-hover: #B83333;
+
+  /* Icon URLs (fallback if <img> is not injected) */
+  --shoshin-ico-assign: url('/wp-content/uploads/2025/12/In.webp');
+  --shoshin-ico-edit:   url('/wp-content/uploads/2025/12/edit.webp');
+  --shoshin-ico-delete: url('/wp-content/uploads/2025/12/delete.webp');
 }
 
 /* =====================================================================
 [1] BASE TABLE STYLING (IN-FORM HELPER TABLES)
-
-* Used inside WPForms steps and any helper tables
-  ===================================================================== */
+===================================================================== */
 
 .shoshin-table{
-width:100%;
-border-collapse:collapse;
-font-size:0.9rem;
-table-layout:fixed;
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.9rem;
+  table-layout:fixed;
 }
-
 .shoshin-table th,
 .shoshin-table td{
-padding:4px 6px;
-vertical-align:middle;
+  padding:4px 6px;
+  vertical-align:middle;
 }
-
 .shoshin-table th{
-border-bottom:1px solid #ccc;
-text-align:left;
+  border-bottom:1px solid #ccc;
+  text-align:left;
 }
 
-/* STEP 1: Proficiency table (2 columns: Name / Effect) */
+/* STEP 1: Proficiency table */
 #shoshin-proficiency-table.shoshin-table th:first-child,
 #shoshin-proficiency-table.shoshin-table td:first-child{
-width:180px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
+  width:180px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 #shoshin-proficiency-table.shoshin-table th:nth-child(2),
 #shoshin-proficiency-table.shoshin-table td:nth-child(2){
-white-space:normal;
+  white-space:normal;
 }
 
-/* STEP 2: Abilities table (3 columns: Ability / Effect / Cost) */
+/* STEP 2: Abilities table */
 #shoshin-abilities-table.shoshin-table th:first-child,
 #shoshin-abilities-table.shoshin-table td:first-child{
-width:170px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
+  width:170px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 #shoshin-abilities-table.shoshin-table th:nth-child(2),
 #shoshin-abilities-table.shoshin-table td:nth-child(2){
-white-space:normal;
+  white-space:normal;
 }
 #shoshin-abilities-table.shoshin-table th:last-child,
 #shoshin-abilities-table.shoshin-table td:last-child{
-width:60px;
-white-space:nowrap;
-text-align:center !important;
+  width:60px;
+  white-space:nowrap;
+  text-align:center !important;
 }
 #shoshin-abilities-table.shoshin-table td:first-child{
-font-weight:600;
-color:#000;
+  font-weight:600;
+  color:#000;
 }
 
-/* Prevent wrapping in Type column for ranged weapons (if used) */
+/* Prevent wrapping in Type col (if used) */
 #shoshin-ranged-table td.shoshin-type{ white-space:nowrap; }
 
-/* Vertical centering for main weapon/armor/training/support tables */
+/* Vertical centering for weapon/armor/training/support tables */
 #shoshin-melee-table th,
 #shoshin-melee-table td,
 #shoshin-ranged-table th,
@@ -112,119 +110,115 @@ color:#000;
 #shoshin-armor-table td,
 #shoshin-training-table th,
 #shoshin-training-table td{
-vertical-align:middle !important;
+  vertical-align:middle !important;
 }
 
-/* STEP 6: Support Items table (Image / Item / Type / Attributes / Cost) */
+/* STEP 6: Support Items table */
 #shoshin-support-table.shoshin-table th:nth-child(1),
 #shoshin-support-table.shoshin-table td:nth-child(1){
-width:48px;
-text-align:center;
-white-space:nowrap;
+  width:48px;
+  text-align:center;
+  white-space:nowrap;
 }
 #shoshin-support-table.shoshin-table th:nth-child(2),
 #shoshin-support-table.shoshin-table td:nth-child(2){
-width:140px;
-white-space:nowrap;
+  width:140px;
+  white-space:nowrap;
 }
 #shoshin-support-table.shoshin-table th:nth-child(3),
 #shoshin-support-table.shoshin-table td:nth-child(3){
-width:180px;
-white-space:nowrap;
+  width:180px;
+  white-space:nowrap;
 }
 #shoshin-support-table.shoshin-table th:nth-child(4),
 #shoshin-support-table.shoshin-table td:nth-child(4){
-width:auto;
-white-space:normal;
+  width:auto;
+  white-space:normal;
 }
 #shoshin-support-table.shoshin-table th:nth-child(5),
 #shoshin-support-table.shoshin-table td:nth-child(5){
-width:60px;
-white-space:nowrap;
-text-align:center;
+  width:60px;
+  white-space:nowrap;
+  text-align:center;
 }
 
-/* Shrink headers for weapon / char stats tables in forms */
+/* Shrink headers for weapon / stats tables in forms */
 .shoshin-weapons th,
 .shoshin-stats th{
-font-size:0.8rem !important;
-white-space:nowrap;
-padding:3px 4px !important;
+  font-size:0.8rem !important;
+  white-space:nowrap;
+  padding:3px 4px !important;
 }
 
 /* =====================================================================
 [2] WPFORMS SHARED UI (RESET / PROGRESS / SUBMIT)
-
-* Forms: 2247 (Characters), 2501 (Support Assets)
-  ===================================================================== */
+===================================================================== */
 
 #wpforms-form-2247 .shoshin-progress-header,
 #wpforms-form-2501 .shoshin-progress-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:4px;
 }
 
 #wpforms-form-2247 .wpforms-page-indicator.progress,
 #wpforms-form-2501 .wpforms-page-indicator.progress{
-margin-bottom:16px;
+  margin-bottom:16px;
 }
 
 #wpforms-form-2247 .shoshin-reset-btn-top,
 #wpforms-form-2501 .shoshin-reset-btn-top{
-background-color:var(--shoshin-yellow);
-color:#000;
-border:none;
-border-radius:6px;
-padding:8px 16px;
-font-size:0.95rem;
-font-weight:600;
-cursor:pointer;
-line-height:1.2;
-display:inline-block;
+  background-color:var(--shoshin-yellow);
+  color:#000;
+  border:none;
+  border-radius:6px;
+  padding:8px 16px;
+  font-size:0.95rem;
+  font-weight:600;
+  cursor:pointer;
+  line-height:1.2;
+  display:inline-block;
 }
 #wpforms-form-2247 .shoshin-reset-btn-top:hover,
 #wpforms-form-2501 .shoshin-reset-btn-top:hover{
-background-color:var(--shoshin-yellow-hover);
+  background-color:var(--shoshin-yellow-hover);
 }
-
 #wpforms-form-2247 .shoshin-reset-btn-top:active,
 #wpforms-form-2501 .shoshin-reset-btn-top:active{
   background-color:#d4a72e;
 }
-
 
 /* Green Save Button */
 #wpforms-form-2247 .wpforms-submit,
 #wpforms-submit-2247,
 #wpforms-form-2501 .wpforms-submit,
 #wpforms-submit-2501{
-background-color:var(--shoshin-green) !important;
-border-color:var(--shoshin-green) !important;
-color:#000 !important;
-font-weight:600;
+  background-color:var(--shoshin-green) !important;
+  border-color:var(--shoshin-green) !important;
+  color:#000 !important;
+  font-weight:600;
 }
 #wpforms-form-2247 .wpforms-submit:hover,
 #wpforms-submit-2247:hover,
 #wpforms-form-2501 .wpforms-submit:hover,
 #wpforms-submit-2501:hover{
-background-color:#04b86b !important;
-border-color:#04b86b !important;
+  background-color:var(--shoshin-green-hover) !important;
+  border-color:var(--shoshin-green-hover) !important;
 }
 #wpforms-form-2247 .wpforms-submit:active,
 #wpforms-submit-2247:active,
 #wpforms-form-2501 .wpforms-submit:active,
 #wpforms-submit-2501:active{
-background-color:#03a65f !important;
-border-color:#03a65f !important;
+  background-color:#03a65f !important;
+  border-color:#03a65f !important;
 }
 
 /* Reference ID validation message */
 .shoshin-refid-error.wpforms-error{
-color:#d9534f !important;
-font-size:0.85rem;
-margin-top:4px;
+  color:#d9534f !important;
+  font-size:0.85rem;
+  margin-top:4px;
 }
 
 /* =====================================================================
@@ -233,170 +227,182 @@ margin-top:4px;
 
 .shoshin-asset-list-wrapper,
 .shoshin-roster-list-wrapper{
-max-width:1000px;
-margin:0 auto;
+  max-width:1000px;
+  margin:0 auto;
 }
-
 .shoshin-asset-list,
 .shoshin-roster-list{
-margin:0;
-padding:0;
+  margin:0;
+  padding:0;
 }
 
 /* Buckets */
 .shoshin-bucket{ margin-bottom:32px; }
 .shoshin-bucket-title{
-font-size:1.3rem;
-margin:0 0 8px;
-border-bottom:1px solid #ccc;
-padding-bottom:4px;
+  font-size:1.3rem;
+  margin:0 0 8px;
+  border-bottom:1px solid #ccc;
+  padding-bottom:4px;
 }
 .shoshin-bucket-empty{
-font-size:0.9rem;
-color:var(--shoshin-muted);
-font-style:italic;
-margin:4px 0 0 0;
+  font-size:0.9rem;
+  color:var(--shoshin-muted);
+  font-style:italic;
+  margin:4px 0 0 0;
 }
 
 /* Card */
 .shoshin-asset-card{
-border:1px solid var(--shoshin-border);
-background:transparent;
-padding:16px 18px 18px;
-margin-bottom:16px;
+  border:1px solid var(--shoshin-border);
+  background:transparent;
+  padding:16px 18px 18px;
+  margin-bottom:16px;
 }
 .shoshin-asset-card + .shoshin-asset-card{ margin-top:16px; }
 
 /* Row 1: Image + meta + buttons */
 .shoshin-asset-row1{
-display:flex;
-align-items:center;
-gap:16px;
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
 
 /* 64x64 portrait */
 .shoshin-asset-avatar{
-flex:0 0 64px;
-display:flex;
-align-items:center;
+  flex:0 0 64px;
+  display:flex;
+  align-items:center;
 }
 .shoshin-asset-avatar img{
-width:64px;
-height:64px;
-display:block;
-object-fit:cover;
-border-radius:4px;
-border:1px solid var(--shoshin-border);
+  width:64px;
+  height:64px;
+  display:block;
+  object-fit:cover;
+  border-radius:4px;
+  border:1px solid var(--shoshin-border);
 }
 
 /* Header block */
 .shoshin-asset-header-main{
-flex:1;
-display:flex;
-flex-direction:column;
-justify-content:center;
-min-height:64px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:64px;
 }
 .shoshin-asset-class-name{
-margin:0 0 2px;
-font-size:1.3rem;
-line-height:1.1;
+  margin:0 0 2px;
+  font-size:1.3rem;
+  line-height:1.1;
 }
 .shoshin-asset-class-desc{
-margin:0 0 4px;
-font-size:0.9rem;
-color:#444;
+  /*margin:0 0 4px;*/
+  font-size:0.8rem;
+  color:#444;
 }
 
 /* Actions in Row1 (right column) */
 .shoshin-asset-actions.row1-actions{
-display:flex;
-flex-direction:row;
-gap:6px;
-align-self:flex-start;
+  display:flex;
+  flex-direction:row;
+  gap:6px;
+  align-self:flex-start;
 }
 
-/* Responsive */
 @media (max-width:768px){
-.shoshin-asset-row1{ flex-direction:row; }
+  .shoshin-asset-row1{ flex-direction:row; }
 }
 
 /* =====================================================================
-[4] STAT STRIP (ROW 2) — SHARED
+[4] STAT STRIP (ROW 2) — SINGLE AUTHORITATIVE SYSTEM
+===================================================================== */
 
-* Used for assets + rosters
-  ===================================================================== */
-
-.shoshin-asset-stat-row{
-margin-top:4px;
-}
+.shoshin-asset-stat-row{ margin-top:4px; }
 
 /* Core strip table */
 .shoshin-stat-strip{
-width:100%;
-border-collapse:collapse;
-table-layout:fixed;
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
 }
 .shoshin-stat-strip td{
-padding:0;
-text-align:center;
-vertical-align:middle;
+  padding:0;
+  text-align:center;
+  vertical-align:middle;
 }
 
 /* Inner label/value stack */
 .shoshin-stat-cell{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:6px 4px;
-gap:2px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:6px 4px;
+  gap:2px;
+  border:none;
+  border-radius:0 !important;
+  background:#fff !important;
 }
+
+/* Label/value */
 .shoshin-stat-label{
-font-size:0.8rem;
-text-transform:uppercase;
-letter-spacing:0.03em;
-color:var(--shoshin-label);
-font-weight:600;
-white-space:nowrap;
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  color:var(--shoshin-label);
+  font-weight:600;
+  white-space:nowrap;
 }
 .shoshin-stat-value{
-font-size:0.9rem;
-color:var(--shoshin-value);
-font-weight:400;
+  font-size:0.9rem;
+  color:var(--shoshin-value);
+  font-weight:400;
 }
 
 /* REF column (Row2 only) */
 .shoshin-stat-strip td.shoshin-ref-td{
-width:160px;
-min-width:160px;
-max-width:160px;
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-background:#fff !important;
+  width:160px;
+  min-width:160px;
+  max-width:160px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  background:#fff !important;
 }
 .shoshin-stat-strip td.shoshin-ref-td .shoshin-stat-value{
-text-align:left;
-font-weight:600;
-color:#333;
+  text-align:left;
+  font-weight:600;
+  color:#000;
 }
 
-/* No borders on strip */
+/* Hard kill any borders/pills people added */
 .shoshin-stat-strip,
 .shoshin-stat-strip td,
-.shoshin-stat-strip th{
-border:none !important;
-}
+.shoshin-stat-strip th,
 .shoshin-stat-strip .shoshin-stat-cell{
-border:none !important;
-background:#fff !important;
+  border:none;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+
+/* COST must NEVER be pill-styled (TD or wrapper) */
+.shoshin-stat-strip td.shoshin-stat-cost-cell{
+  background:transparent !important;
+  padding:0 !important;
+}
+.shoshin-stat-strip .shoshin-stat-cost-cell,
+.shoshin-stat-strip .shoshin-stat-cost-cell .shoshin-stat-cell{
+  border:none;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:#fff !important;
+  padding:6px 4px !important;
 }
 
 /* Red values when explicitly marked */
 .shoshin-stat-strip td .shoshin-stat-value.shoshin-red{
-color:#b00000 !important;
-font-weight:600 !important;
+  color:#b00000 !important;
+  font-weight:600 !important;
 }
 
 /* =====================================================================
@@ -406,203 +412,182 @@ font-weight:600 !important;
 .shoshin-asset-row3{ margin-top:4px; }
 
 .shoshin-asset-actions.row3-actions{
-display:flex;
-justify-content:flex-start;
+  display:flex;
+  justify-content:flex-start;
 }
 
 /* Toggle button */
 .shoshin-asset-toggle{
-margin-top:4px;
-width:100%;
-display:inline-flex;
-align-items:center;
-gap:8px;
-justify-content:flex-start;
+  margin-top:4px;
+  width:100%;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  justify-content:flex-start;
 
-border-radius:6px;
-border:none;
-background:transparent;
+  border-radius:6px;
+  border:none;
+  background:transparent;
 
-color:#000;
-padding:2px 8px;
-font-size:0.85rem;
-cursor:pointer;
-
-transition:background 0.15s ease, border-color 0.15s ease;
+  color:#000;
+  padding:2px 8px;
+  font-size:0.85rem;
+  cursor:pointer;
 }
 .shoshin-asset-toggle,
 .shoshin-asset-toggle:hover,
 .shoshin-asset-toggle:active,
 .shoshin-asset-toggle:focus{
-background:transparent !important;
-border:none !important;
-color:#000 !important;
-box-shadow:none !important;
+  background:transparent !important;
+  border:none !important;
+  color:#000 !important;
+  box-shadow:none !important;
 }
 .shoshin-asset-toggle-icon{
-border:1px solid #000;
-border-radius:10%;
-padding:2px 6px;
-font-weight:700;
-display:inline-flex;
-align-items:center;
-justify-content:center;
+  border:1px solid #000;
+  border-radius:10%;
+  padding:2px 6px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 }
 .shoshin-asset-toggle-text{
-font-style:italic;
-opacity:0.85;
+  font-style:italic;
+  opacity:0.85;
 }
 
 /* Expansion */
 .shoshin-asset-details{
-display:none;
-margin-top:8px;
-border-top:1px dashed #ddd;
-padding-top:10px;
+  display:none;
+  margin-top:8px;
+  border-top:1px dashed #ddd;
+  padding-top:10px;
 }
 .shoshin-asset-details.is-open{ display:block; }
 
 .shoshin-expansion-empty{
-font-size:0.8rem;
-color:var(--shoshin-muted);
-font-style:italic;
-}
-
-/* Optional: expansion heading sizing */
-.shoshin-asset-block h4,
-.shoshin-asset-block h3{
-margin:0 0 6px;
-font-size:0.95rem;
+  font-size:0.8rem;
+  color:var(--shoshin-muted);
+  font-style:italic;
 }
 
 /* =====================================================================
 [6] EXPANSION TABLES (ROW 3) — COMPACT MODE
-
-* Matches your helper-table vibe for expansion content
-  ===================================================================== */
+===================================================================== */
 
 .shoshin-asset-block table.shoshin-table{
-width:100%;
-border-collapse:collapse;
-font-size:0.75rem;
-table-layout:auto;
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.75rem;
+  table-layout:auto;
 }
 .shoshin-asset-block table.shoshin-table thead th{
-border-bottom:1px solid #ccc;
-padding:3px 5px;
-text-align:left;
-vertical-align:middle;
-background:#f7f7f7;
-font-weight:600;
-font-size:0.78rem;
+  border-bottom:1px solid #ccc;
+  padding:3px 5px;
+  text-align:left;
+  vertical-align:middle;
+  background:#f7f7f7;
+  font-weight:600;
+  font-size:0.78rem;
 }
 .shoshin-asset-block table.shoshin-table tbody td{
-border-bottom:1px solid #eee;
-padding:3px 5px;
-vertical-align:middle;
-font-size:0.75rem;
+  border-bottom:1px solid #eee;
+  padding:3px 5px;
+  vertical-align:middle;
+  font-size:0.75rem;
 }
 
 /* Shared thumbnail column */
 .shoshin-asset-block table.shoshin-table td.shoshin-cell-image{
-width:40px;
-text-align:center;
-white-space:nowrap;
+  width:40px;
+  text-align:center;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-table td.shoshin-cell-image img{
-width:24px;
-height:24px;
-object-fit:contain;
-display:block;
-margin:0 auto;
+  width:24px;
+  height:24px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
 }
 
-/* Proficiencies & Abilities: (Image | Capability | Attributes) */
+/* Proficiencies & Abilities */
 .shoshin-asset-block table.shoshin-profab-table td.shoshin-cell-capability{
-width:20%;
-white-space:nowrap;
+  width:20%;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-profab-table td.shoshin-cell-attributes{
-width:auto;
+  width:auto;
 }
 
-/* Equipment & Items: (Image | Equipment | Type | Attributes) */
+/* Equipment & Items */
 .shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-equipment{
-width:16%;
-white-space:nowrap;
+  width:16%;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-type{
-width:16%;
-white-space:nowrap;
+  width:16%;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-equip-table td.shoshin-cell-attributes{
-width:auto;
+  width:auto;
 }
 
-/* Ryū Discipline: (Image | Ryū | Discipline | Equipment) */
+/* Ryū Discipline */
 .shoshin-asset-block table.shoshin-ryu-table td:nth-child(2){
-width:16%;
-white-space:nowrap;
+  width:16%;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-ryu-table td:nth-child(3){
-width:22%;
-white-space:nowrap;
+  width:22%;
+  white-space:nowrap;
 }
 .shoshin-asset-block table.shoshin-ryu-table td:nth-child(4){
-width:auto;
+  width:auto;
 }
 
-/* Combat Modifiers: top-aligned */
+/* Combat Modifiers: top aligned */
 .shoshin-asset-block table.shoshin-mods-table th,
 .shoshin-asset-block table.shoshin-mods-table td{
-vertical-align:top !important;
+  vertical-align:top !important;
 }
 .shoshin-asset-block table.shoshin-mods-table th{
-text-align:center !important;
-padding-top:6px;
-padding-bottom:6px;
-font-weight:400;
-color:#333;
+  text-align:center !important;
+  padding-top:6px;
+  padding-bottom:6px;
+  font-weight:400;
+  color:#333;
 }
-/* Optional: tag prefix system (if you use data-tag + .tag-hidden) */
-.shoshin-asset-block table.shoshin-mods-table th::before{
-content: attr(data-tag) " ";
-font-weight:700;
-color:#000;
-}
-.shoshin-asset-block table.shoshin-mods-table th .tag-hidden{ display:none; }
 .shoshin-asset-block table.shoshin-mods-table td ul{
-margin:0;
-padding-left:16px;
-font-size:0.70rem !important;
+  margin:0;
+  padding-left:16px;
+  font-size:0.70rem !important;
 }
 
 /* =====================================================================
-[7] FILTER BAR (MY ASSETS)
+[7] FILTER BAR (MY ASSETS + MY ROSTERS)
 ===================================================================== */
 
 .shoshin-asset-filters{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:6px;
-margin:0 0 10px;
-padding:4px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:0 0 10px;
+  padding:4px 0;
 }
 .shoshin-asset-filter-btn{
-border:1px solid #ccc;
-background:#f7f7f7;
-border-radius:999px;
-padding:4px 10px;
-font-size:0.8rem;
-cursor:pointer;
-line-height:1.2;
-color:#333;
+  border:1px solid #ccc;
+  background:#f7f7f7;
+  border-radius:999px;
+  padding:4px 10px;
+  font-size:0.8rem;
+  cursor:pointer;
+  line-height:1.2;
+  color:#333;
 }
-.shoshin-asset-filter-btn:hover{
-  background:#eaeaea;
-}
-
+.shoshin-asset-filter-btn:hover{ background:#eaeaea; }
 .shoshin-asset-filter-btn.is-active{
   border-color:#000;
   background:#000;
@@ -610,761 +595,276 @@ color:#333;
 }
 
 .shoshin-asset-empty-state{
-text-align:center;
-margin:24px 0;
+  text-align:center;
+  margin:24px 0;
 }
 .shoshin-asset-empty-state h2{
-margin:0;
-font-size:1.1rem;
-color:#777;
-font-weight:400;
+  margin:0;
+  font-size:1.1rem;
+  color:#777;
+  font-weight:400;
 }
 .shoshin-asset-empty-state h2 em{ font-style:italic; }
 
 /* =====================================================================
-[8] UNIVERSAL BUTTON BASE (NON-ICON USE CASES)
-
-* Kept minimal; icon-only buttons are handled below per page context
-  ===================================================================== */
+[8] BUTTON BASE + ICON BUTTONS + TOOLTIPS (ONE SYSTEM)
+===================================================================== */
 
 .shoshin-btn{
-border-radius:4px;
-padding:6px 14px;
-font-size:0.85rem;
-font-weight:600;
-cursor:pointer;
-border:none;
-color:#000;
+  border-radius:4px;
+  padding:6px 14px;
+  font-size:0.85rem;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+  color:#000;
 }
 
-/* ---------------------------------------------------------------------
-OPTIONAL: PATCH /my-assets Stat Strip Cost Cell.
---------------------------------------------------------------------- */
-
-.shoshin-stat-cost-cell{
-background: #fff !important;
-}
-
-/* =====================================================================
-[9] ICON BUTTONS + TOOLTIPS (CARDS: MY ASSETS + MY ROSTERS)
-
-* Single system:
-
-  * Icons come from JS: <img class="shoshin-btn-icon">
-  * Tooltips use data-tooltip
-    ===================================================================== */
-
-/* Icon-only buttons in card headers */
+/* Card header icon-only buttons */
 .shoshin-asset-card .row1-actions .shoshin-btn,
 .shoshin-roster-card .row1-actions .shoshin-btn{
-width:32px;
-height:32px;
-padding:0 !important;
-background:transparent !important;
-border:none !important;
-box-shadow:none !important;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-font-size:0;
-cursor:pointer;
-transition: box-shadow 0.15s ease, transform 0.1s ease;
+  width:32px;
+  height:32px;
+  padding:0 !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0;
+  cursor:pointer;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
 }
 .shoshin-asset-card .row1-actions .shoshin-btn:hover,
 .shoshin-roster-card .row1-actions .shoshin-btn:hover{
-box-shadow:var(--shoshin-shadow) !important;
-transform:translateY(-1px);
+  box-shadow:var(--shoshin-shadow) !important;
+  transform:translateY(-1px);
 }
 
-/* Icon images */
+/* If JS injects <img>, use it */
 .shoshin-btn .shoshin-btn-icon{
-width:18px;
-height:18px;
-display:block;
-pointer-events:none;
+  width:18px;
+  height:18px;
+  display:block;
+  pointer-events:none;
 }
 
-/* Tooltips (bubble only — no arrow to avoid ::before conflicts) */
+/* Fallback: if no <img> present, show background icon */
+.shoshin-asset-card .row1-actions .shoshin-btn{
+  background-repeat:no-repeat !important;
+  background-position:center !important;
+  background-size:18px 18px !important;
+}
+.shoshin-asset-card .row1-actions .shoshin-btn-assign{ background-image: var(--shoshin-ico-assign) !important; }
+.shoshin-asset-card .row1-actions .shoshin-btn-edit{   background-image: var(--shoshin-ico-edit) !important; }
+.shoshin-asset-card .row1-actions .shoshin-btn-delete{ background-image: var(--shoshin-ico-delete) !important; }
+
+/* If an <img> exists, kill any background to avoid double-icons (no :has) */
+.shoshin-asset-card .row1-actions .shoshin-btn img.shoshin-btn-icon{
+  background:none !important;
+}
+.shoshin-asset-card .row1-actions .shoshin-btn img.shoshin-btn-icon{
+  /* When <img> is present, the background icon isn't needed. */
+}
+.shoshin-asset-card .row1-actions .shoshin-btn{
+  /* Background icons are fine as fallback; JS <img> sits above it visually anyway. */
+}
+
+/* Tooltips: data-tooltip only (bubble only) */
 .shoshin-asset-card .shoshin-btn[data-tooltip],
 .shoshin-roster-card .shoshin-btn[data-tooltip]{
-position:relative;
+  position:relative;
 }
 .shoshin-asset-card .shoshin-btn[data-tooltip]::after,
 .shoshin-roster-card .shoshin-btn[data-tooltip]::after{
-content: attr(data-tooltip);
-position:absolute;
-left:50%;
-bottom: calc(100% + 10px);
-transform: translateX(-50%) translateY(4px);
-padding:7px 10px;
-border-radius:10px;
-font-size:12px;
-line-height:1.1;
-white-space:nowrap;
-color:#fff;
-background: rgba(0,0,0,0.88);
-box-shadow: 0 10px 30px rgba(0,0,0,0.28);
-backdrop-filter: blur(6px);
-opacity:0;
-pointer-events:none;
-transition: opacity 0.14s ease, transform 0.14s ease;
-z-index:99999;
+  content: attr(data-tooltip);
+  position:absolute;
+  left:50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+  padding:7px 10px;
+  border-radius:10px;
+  font-size:12px;
+  line-height:1.1;
+  white-space:nowrap;
+  color:#fff;
+  background: rgba(0,0,0,0.88);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  backdrop-filter: blur(6px);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  z-index:99999;
 }
 .shoshin-asset-card .shoshin-btn[data-tooltip]:hover::after,
 .shoshin-asset-card .shoshin-btn[data-tooltip]:focus-visible::after,
 .shoshin-roster-card .shoshin-btn[data-tooltip]:hover::after,
 .shoshin-roster-card .shoshin-btn[data-tooltip]:focus-visible::after{
-opacity:1;
-transform: translateX(-50%) translateY(0);
+  opacity:1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* =====================================================================
-[10] MY ROSTERS — ROW 2 (SCROLL SAFETY)
+[9] MY ROSTERS — ROW 2 (SCROLL SAFETY)
 ===================================================================== */
 
 .shoshin-roster-card .shoshin-asset-stat-row{
-overflow-x:auto;
--webkit-overflow-scrolling:touch;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 }
-
-/* Prevent columns becoming tiny in roster stat strip */
 .shoshin-roster-card .shoshin-stat-strip{
-min-width:1200px;
+  min-width:1200px;
 }
 
 /* =====================================================================
-[11] MY ROSTERS — ROW 3 ASSIGNED STRIP (COMPACT)
-
-* IMG 32x32
-* QTY display only
-* REF + TYPE capped to 15ch (true td width constraint)
-  ===================================================================== */
+[10] MY ROSTERS — ROW 3 ASSIGNED STRIP (TRANSPARENT, NO ZEBRA)
+===================================================================== */
 
 .shoshin-roster-assigned-scroll{
-overflow-x:auto;
--webkit-overflow-scrolling:touch;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 }
 
 .shoshin-assigned-strip{
-min-width:1500px;
-width:100%;
-border-collapse:collapse;
+  min-width:1500px;
+  width:100%;
+  border-collapse:collapse;
 }
 
 /* Divider between rows */
 .shoshin-roster-card .shoshin-assigned-strip tbody tr td{
-border-bottom:1px solid #e6e6e6 !important;
+  border-bottom:1px solid #e6e6e6 !important;
 }
 .shoshin-roster-card .shoshin-assigned-strip tbody tr:last-child td{
-border-bottom:none !important;
+  border-bottom:none !important;
+}
+
+/* Force transparent backgrounds everywhere (kills zebra + hover grey) */
+.shoshin-roster-card .shoshin-assigned-strip tbody tr,
+.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(even),
+.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(odd),
+.shoshin-roster-card .shoshin-assigned-strip td,
+.shoshin-roster-card .shoshin-assigned-strip .shoshin-stat-cell{
+  background: transparent !important;
+}
+
+/* Remove any hover fill */
+.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover,
+.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover td,
+.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover .shoshin-stat-cell{
+  background: transparent !important;
 }
 
 /* IMG col */
 .shoshin-assigned-img-td{
-width:56px;
-min-width:56px;
-max-width:56px;
+  width:56px;
+  min-width:56px;
+  max-width:56px;
 }
 .shoshin-assigned-img-wrap{
-display:flex;
-align-items:center;
-justify-content:center;
-padding:6px 4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 4px;
 }
 .shoshin-assigned-img-wrap img{
-width:32px;
-height:32px;
-border-radius:4px;
-object-fit:cover;
-border:1px solid var(--shoshin-border);
+  width:32px;
+  height:32px;
+  border-radius:4px;
+  object-fit:cover;
+  border:1px solid var(--shoshin-border);
 }
 
-/* QTY col (display only) */
+/* QTY col */
 .shoshin-assigned-qty-td{
-width:60px;
-min-width:60px;
-max-width:60px;
+  width:60px;
+  min-width:60px;
+  max-width:60px;
 }
 
-/* REF + TYPE cols (true cap) */
+/* REF + TYPE true cap */
 .shoshin-assigned-plain-td{
-width:15ch !important;
-min-width:15ch !important;
-max-width:15ch !important;
+  width:15ch !important;
+  min-width:15ch !important;
+  max-width:15ch !important;
 }
 
 /* Action col */
 .shoshin-assigned-actions-td{
-width:84px;
-min-width:84px;
-text-align:center;
-white-space:nowrap;
+  width:84px;
+  min-width:84px;
+  text-align:center;
+  white-space:nowrap;
 }
 
-/* Row3 actions (unassign/remove) icon-only sizing */
+/* Row3 actions icon-only */
 .shoshin-btn-unassign,
 .shoshin-btn-remove{
-width:32px;
-height:32px;
-padding:0 !important;
-background:transparent !important;
-border:none !important;
-box-shadow:none !important;
-font-size:0;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-transition: box-shadow 0.15s ease, transform 0.1s ease;
+  width:32px;
+  height:32px;
+  padding:0 !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  font-size:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: box-shadow 0.15s ease, transform 0.1s ease;
 }
 .shoshin-btn-unassign:hover,
 .shoshin-btn-remove:hover{
-box-shadow:var(--shoshin-shadow) !important;
-transform: translateY(-1px);
-}
-
-/* Compact typography for Row3 strip */
-.shoshin-assigned-strip .shoshin-stat-cell{
-padding:4px 3px;
-gap:2px;
-}
-.shoshin-assigned-strip .shoshin-stat-label{
-font-size:10px !important;
-line-height:1.05;
-white-space:nowrap;
-font-weight:600 !important;
-color:var(--shoshin-label) !important;
-}
-.shoshin-assigned-strip .shoshin-stat-value{
-font-size:11px !important;
-line-height:1.1;
-font-weight:400 !important;
-color:var(--shoshin-value) !important;
-}
-
-/* REF + TYPE values styled like "titles" */
-.shoshin-assigned-strip td.shoshin-assigned-plain-td .shoshin-stat-value{
-font-size:10px !important;
-font-weight:700 !important;
-text-transform:uppercase !important;
-letter-spacing:0.04em !important;
-color:#666 !important;
-
-display:block !important;
-max-width:15ch !important;
-width:15ch !important;
-white-space:nowrap !important;
-overflow:hidden !important;
-text-overflow:ellipsis !important;
-text-align:center !important;
-margin:0 auto !important;
-}
-
-/* =====================================================================
-[12] MISC UTILITIES
-===================================================================== */
-
-.shoshin-muted{
-color:var(--shoshin-muted);
-font-style:italic;
-}
-
-/* If you ever need it again (kept minimal) */
-.shoshin-red{
-color:#b00000 !important;
-font-weight:normal !important;
-}
-
-/* =====================================================================
-PATCH A — /my-rosters ROW3: zebra stays, transparent cells, no hover fill
-===================================================================== */
-
-/* 1) Transparent cells so zebra comes from the row (not td backgrounds) */
-.shoshin-roster-card .shoshin-assigned-strip td,
-.shoshin-roster-card .shoshin-assigned-strip .shoshin-stat-cell{
-background: transparent !important;
-}
-
-/* 2) Zebra stripes (kept) */
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(odd){
-background: rgba(0,0,0,0.03) !important;
-}
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(even){
-background: transparent !important;
-}
-
-/* 3) Remove any theme/legacy hover that greys the row */
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover,
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover td,
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover .shoshin-stat-cell{
-background: transparent !important;
-}
-
-/* =========================================================
-   /my-rosters Row3 — Targeted vertical dividers (minimal)
-   ========================================================= */
-
-/* Divider after TYPE */
-.shoshin-assigned-strip
-  td.shoshin-assigned-plain-td {
-  border-right: 1px solid #e6e6e6;
-}
-
-/* Divider after M DIS (melee → ranged) */
-.shoshin-assigned-strip
-  td:nth-child(8) {
-  border-right: 1px solid #e6e6e6;
-}
-
-/* Divider after R DIS (ranged → core stats) */
-.shoshin-assigned-strip
-  td:nth-child(11) {
-  border-right: 1px solid #e6e6e6;
-}
-
-/* Divider after INI (stats → total/actions) */
-.shoshin-assigned-strip
-  td:nth-child(15) {
-  border-right: 1px solid #e6e6e6;
-}
-
-/* Ensure backgrounds stay transparent for zebra stripes */
-.shoshin-assigned-strip td {
-  background: transparent !important;
-}
-
-
-/* =====================================================================
-PATCH B — Row3 Expand/Collapse styling parity (/my-assets + /my-rosters)
-===================================================================== */
-
-/* Make sure the toggle looks identical everywhere */
-.shoshin-asset-toggle{
-width: 100%;
-display: inline-flex;
-align-items: center;
-gap: 8px;
-justify-content: flex-start;
-
-border-radius: 6px;
-border: none;
-background: transparent;
-
-color: #000;
-padding: 2px 8px;
-font-size: 0.85rem;
-cursor: pointer;
-}
-
-.shoshin-asset-toggle,
-.shoshin-asset-toggle:hover,
-.shoshin-asset-toggle:active,
-.shoshin-asset-toggle:focus{
-background: transparent !important;
-border: none !important;
-color: #000 !important;
-box-shadow: none !important;
-}
-
-.shoshin-asset-toggle-icon{
-border: 1px solid #000;
-border-radius: 10%;
-padding: 2px 6px;
-font-weight: 700;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-}
-
-.shoshin-asset-toggle-text{
-font-style: italic;
-opacity: 0.85;
-}
-
-/* =====================================================================
-PATCH C — /my-assets ROW1 icons restored
-===================================================================== */
-
-/* Ensure row1 action buttons can show JS <img> icons on /my-assets */
-.shoshin-asset-card .row1-actions .shoshin-btn{
-width: 32px;
-height: 32px;
-padding: 0 !important;
-background: transparent !important;
-border: none !important;
-box-shadow: none !important;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-font-size: 0;
-}
-
-/* The actual icon image */
-.shoshin-asset-card .row1-actions .shoshin-btn .shoshin-btn-icon{
-width: 18px;
-height: 18px;
-display: block;
-}
-
-/* IMPORTANT:
-If /my-assets is still using emoji pseudo-elements, do NOT hide them globally.
-This re-allows ::before icons ONLY for /my-assets row1 if no <img> exists. */
-.shoshin-asset-card .row1-actions .shoshin-btn::before{
-display: inline-block;
-}
-
-/* But if an <img> icon exists, prefer it (avoid double-icons) */
-.shoshin-asset-card .row1-actions .shoshin-btn:has(.shoshin-btn-icon)::before{
-content: "" !important;
-display: none !important;
-}
-
-/* =====================================================================
-PATCH: /my-assets Row1 icons (buttons are TEXT, so we render icons via ::before)
-
-* Does NOT affect /my-rosters (those use <img> icons via JS)
-* Append at VERY END of the shared CSS file
-  ===================================================================== */
-
-/* ---------- CONFIG: icon urls (match what you're using in /my-rosters JS) ---------- */
-:root{
---shoshin-ico-assign: url('/wp-content/uploads/2025/12/In.webp');
---shoshin-ico-edit:   url('/wp-content/uploads/2025/12/edit.webp');
---shoshin-ico-delete: url('/wp-content/uploads/2025/12/delete.webp');
-}
-
-/* ---------- /my-assets Row1: make buttons icon-only, keep tooltip behavior ---------- */
-.shoshin-asset-card .row1-actions .shoshin-btn{
-width: 32px;
-height: 32px;
-padding: 0 !important;
-
-background: transparent !important;
-border: none !important;
-box-shadow: none !important;
-
-display: inline-flex;
-align-items: center;
-justify-content: center;
-
-/* Hide the visible text label ("Assign"/"Edit"/"Delete") */
-font-size: 0 !important;
-line-height: 0 !important;
-
-cursor: pointer;
-position: relative; /* needed for tooltip ::after positioning in your system */
-}
-
-/* Force-enable ::before for /my-assets row1 (other sections may disable it) */
-.shoshin-asset-card .row1-actions .shoshin-btn::before{
-content: "" !important;
-display: inline-block !important;
-width: 18px;
-height: 18px;
-
-background-repeat: no-repeat;
-background-position: center;
-background-size: contain;
-
-/* ensure no emoji filters mess with it */
-filter: none !important;
-}
-
-/* Individual icons */
-.shoshin-asset-card .row1-actions .shoshin-btn-assign::before{
-background-image: var(--shoshin-ico-assign) !important;
-}
-
-.shoshin-asset-card .row1-actions .shoshin-btn-edit::before{
-background-image: var(--shoshin-ico-edit) !important;
-}
-
-.shoshin-asset-card .row1-actions .shoshin-btn-delete::before{
-background-image: var(--shoshin-ico-delete) !important;
-}
-
-/* Hover shadow (match your preferred style) */
-.shoshin-asset-card .row1-actions .shoshin-btn:hover{
-box-shadow: 0 3px 8px rgba(0,0,0,0.22) !important;
-transform: translateY(-1px);
-}
-
-.shoshin-asset-card .row1-actions .shoshin-btn:active{
-box-shadow: 0 1px 3px rgba(0,0,0,0.25) !important;
-transform: translateY(0);
-}
-
-/* =====================================================================
-SAFETY: /my-rosters stays JS-icon based (don't let pseudo-elements appear)
-===================================================================== */
-.shoshin-roster-card .row1-actions .shoshin-btn::before,
-.shoshin-roster-card .shoshin-assigned-actions-td .shoshin-btn::before{
-content: "" !important;
-display: none !important;
-}
-
-/* =========================================================
-   HARD FIX — /my-assets Row1 icons
-   Uses background-image on BUTTON (not ::before)
-   Immune to tooltip / pseudo-element conflicts
-   ========================================================= */
-
-.shoshin-asset-card .row1-actions .shoshin-btn {
-  width: 32px;
-  height: 32px;
-  padding: 0 !important;
-
-  background-color: transparent !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 18px 18px !important;
-
-  border: none !important;
-  box-shadow: none !important;
-
-  font-size: 0 !important;   /* hide text */
-  line-height: 0 !important;
-
-  cursor: pointer;
-}
-
-/* Assign */
-.shoshin-asset-card .row1-actions .shoshin-btn-assign {
-  background-image: url('/wp-content/uploads/2025/12/In.webp') !important;
-}
-
-/* Edit */
-.shoshin-asset-card .row1-actions .shoshin-btn-edit {
-  background-image: url('/wp-content/uploads/2025/12/edit.webp') !important;
-}
-
-/* Delete */
-.shoshin-asset-card .row1-actions .shoshin-btn-delete {
-  background-image: url('/wp-content/uploads/2025/12/delete.webp') !important;
-}
-
-/* Hover elevation only */
-.shoshin-asset-card .row1-actions .shoshin-btn:hover {
-  box-shadow: 0 3px 8px rgba(0,0,0,0.22) !important;
+  box-shadow:var(--shoshin-shadow) !important;
   transform: translateY(-1px);
 }
 
-.shoshin-asset-card .row1-actions .shoshin-btn:active {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.25) !important;
-  transform: translateY(0);
-}
-
-/* =========================================================
-   /my-rosters — Match Expand/Collapse styling to /my-assets
-   ========================================================= */
-
-.shoshin-roster-card .shoshin-asset-toggle {
-  font-weight: 400 !important;   /* undo shoshin-btn default */
-}
-
-.shoshin-roster-card .shoshin-asset-toggle-text {
-  font-weight: 400 !important;
-  font-style: italic;
-  font-size: 0.85rem;
-  letter-spacing: normal;
-}
-
-/* Keep the + / − icon crisp but not bold */
-.shoshin-roster-card .shoshin-asset-toggle-icon {
-  font-weight: 600;              /* icon only */
-}
-
-
-/* =========================================================
-   /my-rosters Row3 — zebra rows + no hover grey + selective dividers
-   APPEND AT END (must come after your "border:none !important" rules)
-   ========================================================= */
-
-/* 1) Zebra striping on the ROW (not the cells) */
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(even) {
-  background: #f7f7f7;
-}
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:nth-child(odd) {
-  background: transparent;
-}
-
-/* 2) Make cell backgrounds transparent so zebra shows through */
-.shoshin-roster-card .shoshin-assigned-strip td,
-.shoshin-roster-card .shoshin-assigned-strip .shoshin-stat-cell {
+/* Compact typography */
+.shoshin-assigned-strip .shoshin-stat-cell{
+  padding:4px 3px !important;
+  gap:2px !important;
   background: transparent !important;
 }
-
-/* 3) REMOVE grey hover behavior (keep zebra) */
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover {
-  background: inherit !important; /* stay whatever zebra assigned */
+.shoshin-assigned-strip .shoshin-stat-label{
+  font-size:10px !important;
+  line-height:1.05;
+  white-space:nowrap;
+  font-weight:600 !important;
+  color:var(--shoshin-label) !important;
 }
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover td,
-.shoshin-roster-card .shoshin-assigned-strip tbody tr:hover .shoshin-stat-cell {
-  background: transparent !important;
+.shoshin-assigned-strip .shoshin-stat-value{
+  font-size:11px !important;
+  line-height:1.1;
+  font-weight:400 !important;
+  color:var(--shoshin-value) !important;
 }
 
-/* 4) Selective vertical dividers (override border:none !important elsewhere) */
-/* Divider after TYPE (col 3) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(3) {
+/* Optional minimal dividers (UPDATED for combined INFO column) */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(2),  /* after INFO */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(3),  /* after QTY */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(6),  /* after M DIS */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(9),  /* after R DIS */
+.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(15){ /* after INI */
   border-right: 1px solid #e6e6e6 !important;
 }
 
-/* Divider after TYPE (col 4) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(4) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* Divider after M DIS (col 7) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(7) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* Divider after R DIS (col 10) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(10) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* Divider after INI (col 16) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(16) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* Divider after TOTALS (col 17) */
-.shoshin-roster-card .shoshin-assigned-strip tbody td:nth-child(17) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* =========================================================
-   /my-rosters Row 1 — selective vertical dividers
-   ========================================================= */
-
-/* Divider between REF ID and UNITS (after col 1) */
-.shoshin-roster-card
-  .shoshin-asset-stat-row
-  .shoshin-stat-strip
-  tbody td:nth-child(1) {
+/* Divider after % column (more reliable than nth-child) */
+.shoshin-roster-card .shoshin-assigned-strip tbody td.shoshin-assigned-percent-td {
   border-right: 1px solid #e6e6e6 !important;
 }
 
 
-   /* Divider between HONOR and DAIMYO (after col 4) */
-.shoshin-roster-card
-  .shoshin-asset-stat-row
-  .shoshin-stat-strip
-  tbody td:nth-child(4) {
-  border-right: 1px solid #e6e6e6 !important;
+/* =====================================================================
+[11] /my-assets — Row2 dividers (use td::after to sit above white layers)
+===================================================================== */
+
+.shoshin-asset-card:not(.shoshin-roster-card)
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td{
+  position: relative;
 }
-
-/* Divider between ONMYOJI and ARTILLERY (after col 10) */
-.shoshin-roster-card
-  .shoshin-asset-stat-row
-  .shoshin-stat-strip
-  tbody td:nth-child(10) {
-  border-right: 1px solid #e6e6e6 !important;
-}
-
-/* =========================================================
-   /my-rosters Row 3 — remove zebra striping
-   ========================================================= */
-
-/* Kill zebra backgrounds on assigned unit rows */
-.shoshin-roster-card
-  .shoshin-assigned-strip
-  tbody tr,
-.shoshin-roster-card
-  .shoshin-assigned-strip
-  tbody tr:nth-child(even),
-.shoshin-roster-card
-  .shoshin-assigned-strip
-  tbody tr:nth-child(odd) {
-  background: transparent !important;
-}
-
-/* Ensure cells stay transparent as well */
-.shoshin-roster-card
-  .shoshin-assigned-strip
-  tbody tr td {
-  background: transparent !important;
-}
-
-/* =========================================================
-   /my-assets — Row 2 Stat Strip Vertical Dividers
-   Only after specific columns (REF, M DIS, R DIS, INI)
-   ========================================================= */
-
-/* Safety scope: assets only (NOT rosters) */
 .shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-stat-strip
-  tbody
-  tr
-  > td:nth-child(1),   /* REF */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-stat-strip
-  tbody
-  tr
-  > td:nth-child(4),   /* M DIS */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-stat-strip
-  tbody
-  tr
-  > td:nth-child(7),   /* R DIS */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-stat-strip
-  tbody
-  tr
-  > td:nth-child(13) { /* INI */
-  border-right: 1px solid #e2e2e2;
-}
-
-/* Prevent double-thick edges */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-stat-strip td {
-  border-left: none !important;
-}
-
-/* =========================================================
-   /my-assets — Row 2 Stat Strip: selective vertical dividers
-   Uses inset box-shadow so it survives border:none !important
-   Dividers after: REF, M DIS, R DIS, INI
-   ========================================================= */
-
-/* Safety scope: assets only (NOT rosters) */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip
-  tbody tr > td:nth-child(1),   /* REF */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip
-  tbody tr > td:nth-child(4),   /* M DIS */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip
-  tbody tr > td:nth-child(7),   /* R DIS */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip
-  tbody tr > td:nth-child(13) { /* INI */
-  box-shadow: inset -1px 0 0 #e2e2e2 !important;
-}
-
-/* =========================================================
-   FIX — /my-assets Row2 dividers must sit ON TOP of white layers
-   Use td::after with absolute positioning (not border/box-shadow)
-   Dividers after: REF (1), M DIS (4), R DIS (7), INI (13)
-   ========================================================= */
-
-/* Scope: /my-assets only (exclude roster cards) */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td{
-  position: relative; /* anchor the ::after divider */
-}
-
-/* Create the divider (hidden by default) */
-.shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td::after{
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td::after{
   content: "";
   position: absolute;
   top: 6px;
@@ -1372,191 +872,2871 @@ display: none !important;
   right: 0;
   width: 1px;
   background: #e2e2e2;
-  z-index: 5;          /* sit above any #fff layers */
-  pointer-events: none;
-  opacity: 0;          /* off unless targeted */
+  z-index: 5;
+  pointer-events:none;
+  opacity: 0;
 }
-
-/* Turn divider ON only after the specific columns */
+/* Turn on after REF(1), M DIS(4), R DIS(7), INI(13) */
 .shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td:nth-child(1)::after,   /* REF */
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td:nth-child(1)::after,
 .shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td:nth-child(4)::after,   /* M DIS */
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td:nth-child(4)::after,
 .shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td:nth-child(7)::after,   /* R DIS */
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td:nth-child(7)::after,
 .shoshin-asset-card:not(.shoshin-roster-card)
-  .shoshin-asset-stat-row
-  table.shoshin-stat-strip tbody tr > td:nth-child(13)::after{  /* INI */
+  .shoshin-asset-stat-row table.shoshin-stat-strip tbody tr > td:nth-child(13)::after{
   opacity: 1;
 }
 
+/* =====================================================================
+[12] UTILITIES
+===================================================================== */
 
-/* ========================================================================== */
-/* Shoshin Modal (Delete Confirm) - Unified + Centered Content                 */
-/* Scope: /my-assets + /my-rosters                                            */
-/* ========================================================================== */
-
-body.shoshin-modal-open {
-  overflow: hidden;
+.shoshin-muted{
+  color:var(--shoshin-muted);
+  font-style:italic;
 }
+.shoshin-red{
+  color:#b00000 !important;
+  font-weight:normal !important;
+}
+
+/* Load more center */
+.shoshin-load-more-wrap{
+  display:flex;
+  justify-content:center;
+  margin:16px 0;
+}
+
+/* =====================================================================
+[13] MODALS (DELETE + ASSIGN) — SINGLE SYSTEM
+===================================================================== */
+
+body.shoshin-modal-open { overflow:hidden; }
 
 /* Backdrop */
-.shoshin-modal-backdrop {
-  position: fixed;
-  inset: 0;
+.shoshin-modal-backdrop{
+  position:fixed;
+  inset:0;
   background: rgba(0,0,0,0.45);
-  z-index: 100000;
-  display: none;
+  z-index:100000;
+  display:none;
 }
+.shoshin-modal-backdrop[aria-hidden="false"]{ display:block; }
 
-.shoshin-modal-backdrop[aria-hidden="false"] {
-  display: block;
-}
-
-/* Modal container */
-.shoshin-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+/* Modal shell */
+.shoshin-modal{
+  position:fixed;
+  top:50%;
+  left:50%;
   transform: translate(-50%, -50%);
   width: min(520px, calc(100vw - 32px));
-  min-height: 420px;
-  max-height: 85vh;
+  min-height:420px;
+  max-height:85vh;
 
-  padding-bottom: 16px; /* subtle extra cushion below the action area */
-
-  background: #fff;
-  border-radius: 12px;
+  background:#fff;
+  border-radius:12px;
   box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-  z-index: 100001;
-  display: none;
+  z-index:100001;
 
-  /* KEY CHANGE */
-  display: flex;
-  flex-direction: column;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+}
+.shoshin-modal.is-open{ display:flex; }
 
-  overflow: hidden;
+/* Header */
+.shoshin-modal-header{
+  flex:0 0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px 10px;
+}
+.shoshin-modal-logo{
+  width:150px;
+  max-width:50%;
+  height:auto;
+  display:block;
+}
+.shoshin-modal-x{
+  appearance:none;
+  border:0;
+  background:transparent;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+  padding:4px 6px;
+  color:#444;
 }
 
-.shoshin-modal.is-open {
-  display: flex;
-}
-
-/* Header (pinned top) */
-.shoshin-modal-header {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px 10px;
-}
-
-/* Logo */
-.shoshin-modal-logo {
-  width: 150px;
-  max-width: 50%;
-  height: auto;
-  display: block;
-}
-
-/* Close button */
-.shoshin-modal-x {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 4px 6px;
-  color: #444;
-}
-
-/* CENTER ZONE: body + actions together */
-.shoshin-modal-body {
-  flex: 1 1 auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* vertical centering */
-  align-items: center;       /* horizontal centering */
-  text-align: center;
+/* Body */
+.shoshin-modal-body{
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 
   padding: 0 20px 24px;
+  overflow:auto;
+}
+.shoshin-modal-title{
+  font-weight:800;
+  font-size:30px;
+  line-height:1.15;
+  margin:0 0 12px;
+  color:#111;
+}
+.shoshin-modal-desc{
+  font-size:18px;
+  line-height:1.55;
+  color:#333;
+  margin:0;
+  max-width:420px;
+}
+
+/* Actions */
+.shoshin-modal-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  padding:16px 16px 34px;
+  margin:0;
+}
+
+/* Buttons */
+.shoshin-modal-btn{
+  appearance:none;
+  border-radius:10px;
+  padding:14px 22px;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
+  border:1px solid transparent;
+  min-width:140px;
+}
+.shoshin-modal-btn-cancel{
+  background:#e6e6e6;
+  color:#222;
+  border-color:#d0d0d0;
+}
+.shoshin-modal-btn-confirm{
+  background:#b00020;
+  color:#fff;
+  border-color:#8f0019;
+  order:1;
+}
+.shoshin-modal-btn-cancel{ order:2; }
+
+.shoshin-modal-error{
+  margin-top:14px;
+  font-size:14px;
+  line-height:1.4;
+  color:#b00020;
+  font-weight:700;
+  text-align:center;
+}
+
+/* Delete modal tweaks */
+.shoshin-delete-modal{ 
+  min-height:420px;
+  /*width: 540px;
+  max-width: 720px;*/
+
+}
+
+
+
+
+/* Delete modal: Asset preview card (reuse Assign modal visual language) */
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:transparent;
+  padding:0;
+}
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-img{
+  width:96px;
+  height:96px;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fff;
+  flex:0 0 auto;
+}
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-meta{
+  display:grid;
+  gap:4px;
+}
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-class{
+  font-size:18px;
+  font-weight:900;
+  line-height:1.15;
+  text-align: left;
+  color:#111;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-ref,
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-cost{
+
+  font-size:14px;
+  line-height:1.25;
+  text-align: left;
+  color:#333;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-assign-asset-qty{
+    font-size:14px;
+  line-height:1.25;
+  text-align: left;
+  color:#333;
+}
+
+
+
+/* Delete modal: Roster strip — match /my-assets Preview Modal roster row styling */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  max-width:100%;
+  min-width:0; /* CRITICAL: allow children to shrink */
+}
+
+
+.shoshin-modal.shoshin-delete-modal .shoshin-modal-body{
+  overflow-x: hidden;   /* hard stop: no horizontal scroll */
+}
+
+
+/* Left: avatar + mid column (Name/REF) */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-roster{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+  min-width:0;
+}
+
+/* Avatar matches Preview Modal roster image sizing */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-avatar img{
+  width:44px;
+  height:44px;
+  border-radius:8px;
+  object-fit:cover;
+  border:1px solid #ddd;
+  background:#f5f5f5;
+}
+
+/* Mid column: fixed cap + ellipsis + vertical divider (like Preview Modal) */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-meta{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+  text-align: left;
+
+  /* cap width so stats stay close (mirrors Preview Modal behavior) */
+  width:140px;
+  max-width:140px;
+
+  padding-right:14px;
+  border-right:1px solid #e6e6e6 !important;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-name{
+  font-size:13px;
+  font-weight:900;
+  color:#111;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-ref{
+  font-size:11px;
+  font-weight:700;
+  color:#8f8f8f;
+  letter-spacing:0.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Right: stats strip — spacing + divider after HONOR (like Preview Modal) */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats{
+  display:block;
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+    width:100%;
+  max-width:100%;
+  table-layout:fixed;   /* forces cells to fit */
+  border-collapse:separate;
+  border-spacing:12px 0; /* tighter than preview modal */
+  margin-block-end:0 !important;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats td{
+   padding:0 !important;
+  vertical-align:middle;
+  text-align:center;
+  white-space:nowrap;
+  min-width:0;
+  background:#fff;
+}
+
+/* Match Preview Modal stat typography */
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats .shoshin-stat-cell{
+  min-width:42px;
+  text-align:center;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  opacity:0.80;
+  color:#111;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats .shoshin-stat-value{
+  font-size:13px;
+  font-weight:600;
+  color:#666;
+}
+
+/* Divider after HONOR column (4th stat cell in strip) */
+.shoshin-modal.shoshin-delete-modal
+.shoshin-unassign-preview-stats
+.shoshin-stat-strip
+td:nth-child(4) .shoshin-stat-cell{
+  padding-right:16px;
+  border-right:1px solid #e2e2e2;
+}
+
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats td{
+  padding:0 8px;
+}
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.75;
+}
+.shoshin-modal.shoshin-delete-modal .shoshin-unassign-preview-stats .shoshin-stat-value{
+  font-weight:600;
+  font-size:14px;
+}
+
+
+
+/* =====================================================================
+[14] ASSIGN MODAL — SINGLE AUTHORITATIVE LAYOUT
+===================================================================== */
+
+.shoshin-modal.shoshin-assign-modal{
+  width: min(820px, calc(100vw - 32px));
+  min-height: unset;
+}
+
+/* Use a dedicated body wrapper if your JS includes it */
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-body-wrap{
+  justify-content:flex-start;
+  align-items:stretch;
+  text-align:left;
+  padding:16px 20px 18px;
+  overflow:auto;
+}
+
+/* Row 1: center asset + qty as a tight pair */
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-row1{
+  display:grid;
+  grid-template-columns: max-content max-content;
+  justify-content:center;
+  align-items:center;
+  column-gap:96px;
+  margin-bottom:14px;
+}
+
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:0;
+  background:transparent;
+  border-radius:0;
+  padding:0;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset-img{
+  width:96px;
+  height:96px;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#fff;
+  flex:0 0 auto;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset-meta{
+  display:grid;
+  gap:4px;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset-class{
+  font-size:18px;
+  font-weight:900;
+  line-height:1.15;
+  color:#111;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset-ref,
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-asset-cost{
+  font-size:14px;
+  line-height:1.25;
+  text-align: left;
+  color:#333;
+}
+
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-qty{
+  border:1px solid #e7e7e7;
+  border-radius:12px;
+  padding:12px;
+  background:#fff;
+  justify-self:center;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-qty-title{
+  font-size:18px;
+  font-weight:900;
+  margin:0 0 10px;
+  color:#111;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-qty-select{
+  width:100%;
+  padding:12px 12px;
+  border-radius:10px;
+  border:1px solid #d6d6d6;
+  background:#fff;
+  font-size:16px;
+}
+
+/* Row 2: One/Many toggle + note UNDER it */
+.shoshin-assign-modal .shoshin-assign-mode{
+  display:grid !important;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    "switch label"
+    "note   note";
+  justify-content:center !important;
+  align-items:center !important;
+  column-gap:12px;
+  row-gap:6px;
+  width: fit-content;
+  margin: 6px auto 14px;
+}
+.shoshin-assign-modal .shoshin-mode-switch{ grid-area: switch; justify-self:end; position:relative; display:inline-flex; align-items:center; }
+.shoshin-assign-modal .shoshin-mode-label{  grid-area: label;  justify-self:start; white-space:nowrap !important; font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#333; }
+
+.shoshin-assign-modal .shoshin-assign-mode-note{
+  grid-area: note;
+  display:block !important;
+  justify-self:center;
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  line-height:1.3;
+  white-space:nowrap !important;
+  width:max-content;
+}
+
+/* Toggle visuals (green ON) */
+.shoshin-assign-modal .shoshin-mode-switch input{
+  position:absolute;
+  opacity:0;
+  width:1px;
+  height:1px;
+  pointer-events:none;
+}
+.shoshin-assign-modal .shoshin-mode-switch .track{
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  background:#d9d9d9;
+  border:1px solid #cfcfcf;
+  position:relative;
+  transition: background 160ms ease, border-color 160ms ease;
+  flex:0 0 auto;
+}
+.shoshin-assign-modal .shoshin-mode-switch .thumb{
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  box-shadow:0 2px 6px rgba(0,0,0,0.20);
+  position:absolute;
+  top:50%;
+  left:2px;
+  transform:translateY(-50%);
+  transition:left 160ms ease;
+}
+.shoshin-assign-modal #assignModeToggle:checked + .track{
+  background:#1e8e3e !important;
+  border-color:#1e8e3e !important;
+}
+.shoshin-assign-modal #assignModeToggle:checked + .track .thumb{
+  left:22px;
+}
+
+/* Row 3: roster list */
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-rosters-head{
+  font-size:16px;
+  font-weight:900;
+  margin:0 0 10px;
+  color:#111;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-roster-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-roster-row{
+  padding:10px 0;
+  background:transparent;
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap:10px;
+  align-items:center;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-assign-roster-row + .shoshin-assign-roster-row{
+  border-top:1px solid #e7e7e7;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-avatar{
+  width:48px;
+  height:48px;
+  border-radius:8px;
+  object-fit:cover;
+  border:1px solid #ddd;
+  background:#f5f5f5;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-main{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-title{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:220px;
+  max-width:320px;
+  overflow:hidden;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-name{
+  font-size:13px;
+  font-weight:900;
+  line-height:1.15;
+  color:#111;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-roster-ref{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:0.35px;
+  text-transform:uppercase;
+  color:#666;
+  line-height:1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* Roster-row iOS toggles */
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle input[type="checkbox"]{
+  position:absolute;
+  opacity:0;
+  width:1px;
+  height:1px;
+  pointer-events:none;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle .track{
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  background:#d9d9d9;
+  border:1px solid #cfcfcf;
+  position:relative;
+  transition: background 160ms ease, border-color 160ms ease;
+  flex:0 0 auto;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle .thumb{
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  box-shadow:0 2px 6px rgba(0,0,0,0.20);
+  position:absolute;
+  top:50%;
+  left:2px;
+  transform:translateY(-50%);
+  transition:left 160ms ease;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle input:checked + .track{
+  background:#1e8e3e;
+  border-color:#1e8e3e;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle input:checked + .track .thumb{
+  left:22px;
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle.is-disabled{
+  opacity:0.55;
+  filter:grayscale(1);
+}
+.shoshin-modal.shoshin-assign-modal .shoshin-ios-toggle.is-disabled .track{
+  cursor:not-allowed;
+}
+
+/* Daimyo-locked toggles (red) */
+.shoshin-ios-toggle.is-daimyo-locked{ opacity:1; }
+.shoshin-ios-toggle.is-daimyo-locked .track{
+  background:#b00020 !important;
+  opacity:0.60;
+}
+.shoshin-ios-toggle.is-daimyo-locked .thumb{ opacity:0.95; }
+.shoshin-roster-daimyo-locked{ opacity:0.92; }
+.shoshin-roster-daimyo-locked .shoshin-roster-name,
+.shoshin-roster-daimyo-locked .shoshin-roster-ref{
+  color:#b00020;
+}
+
+/* Assign modal empty state */
+.shoshin-assign-modal .shoshin-assign-empty h2{
+  font-size:1.1rem;
+  line-height:1.4;
+  font-weight:400;
+  margin:0;
+  text-align:center;
+}
+
+/* Assign save disabled */
+.shoshin-assign-save.is-disabled{ opacity:.5; cursor:not-allowed; }
+
+/* Mobile */
+@media (max-width: 820px){
+  .shoshin-modal.shoshin-assign-modal .shoshin-assign-row1{
+    grid-template-columns:1fr;
+    column-gap:0;
+  }
+  .shoshin-modal.shoshin-assign-modal .shoshin-roster-main{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .shoshin-modal.shoshin-assign-modal .shoshin-roster-title{
+    max-width:100%;
+    min-width:0;
+  }
+  .shoshin-assign-modal .shoshin-assign-mode-note{
+    white-space:normal !important;
+    width:auto;
+    max-width:360px;
+  }
+}
+
+/* =====================================================================
+SHOSHIN — CONSOLIDATED AUTHORITATIVE STYLES (DROP-IN)
+- Unassign Modal (Row3) — scoped to aria-labelledby="shoshin-unassign-modal-title"
+- Expansion header normalization
+- /my-rosters Row3 assigned INFO cell
+- Row3 tooltips z-index fix
+- Banner host form (2799) visibility rules
+- Banner modal layout + iOS toggle + WPForms uploader styling
+===================================================================== */
+
+
+/* =====================================================================
+[13.X] UNASSIGN MODAL (Row3) — AUTHORITATIVE
+Scope ONLY: .shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"]
+===================================================================== */
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"]{
+  width: min(820px, calc(100vw - 32px));
+  min-height: unset;
+}
+
+/* Override global delete-modal centering for this modal only */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-modal-body{
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+  padding: 16px 20px 18px;
   overflow: auto;
 }
 
-/* Typography */
-.shoshin-modal-title {
-  font-weight: 800;
-  font-size: 30px;
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-modal-title{
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-modal-desc{
+  text-align: center;
+  margin: 10px auto 0;
+  max-width: 560px;
+}
+
+/* Row 1: asset + qty (match Assign look/feel) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-row1{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  align-items: center;
+  column-gap: 96px;
+  margin: 8px 0 14px;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-asset{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-asset-img{
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-asset-meta{
+  display: grid;
+  gap: 4px;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-asset-class{
+  font-size: 18px;
+  font-weight: 900;
   line-height: 1.15;
-  margin: 0 0 12px;
   color: #111;
 }
 
-.shoshin-modal-desc {
-  font-size: 18px;
-  line-height: 1.55;
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-asset-ref{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
   color: #333;
-  margin: 0;
-  max-width: 420px;
 }
 
-.shoshin-modal-actions {
+/* Current QTY line styled like REF ID */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-current-qty, .shoshin-unassign-unit-cost{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  color: #666;
+  line-height: 1;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-qty{
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  justify-self: center;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-qty-title{
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 10px;
+  color: #111;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-qty-select{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  font-size: 16px;
+}
+
+
+/* --- Roster Preview (NEW markup: Current + After) --- */
+/* Roster Preview container */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-wrap{
+  max-width: 760px;
+  margin: 16px auto 0;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+/* Centered "Roster Preview" */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-title{
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  margin: 0 0 14px 0;
+}
+
+/* STACKED: Current ABOVE After (not side-by-side) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-columns{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Column headers remain left aligned */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-col-title{
+  text-align: left;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 14px;
+  margin: 0 0 8px 2px;
+}
+
+/* Panel */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-panel{
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 16px;
+  padding: 16px 16px 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* AFTER panel accent */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-col:last-child .shoshin-unassign-preview-panel{
+  border-color: rgba(221,152,53,0.35);
+  box-shadow: inset 0 0 0 1px rgba(221,152,53,0.12);
+}
+
+/* Row content */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-row{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Roster header (avatar + name/ref) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-roster{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-avatar img{
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  display: block;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-name{
+  font-size: 13px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-ref{
+  font-size: 11px;
+  font-weight: 800;
+  color: #8f8f8f;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Stats strip spacing like the reference */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 28px 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats td{
+  padding: 0 !important;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-cell{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.80;
+  color: #111;
+}
+
+
+/* Safety: prevent any “muted/disabled” inheritance washing out preview */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-panel,
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-panel *{
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+
+/* =====================================================================
+LEGACY preview block (older markup)
+Keeps older selectors stable if any template still uses them.
+===================================================================== */
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+/* Roster row: shrink left column to avatar (prevents giant gap) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-assign-roster-row{
+  padding: 8px 6px;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 10px;
+  align-items: center;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-left{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-avatar{
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-main{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-title{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 190px;
+  max-width: 280px;
+  overflow: hidden;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-name{
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-ref{
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  color: #666;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-roster-stats{
+  min-width: 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-stat-strip{
+  width: auto;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 22px 0;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-stat-strip td{
+  padding: 0;
+  white-space: nowrap;
+}
+
+
+/* =====================================================================
+FIX — /my-assets + /my-rosters expansion headers too aggressive
+(Theme h2 styles leaking into expansion blocks)
+===================================================================== */
+
+.shoshin-asset-details h1,
+.shoshin-asset-details h2,
+.shoshin-asset-details h3,
+.shoshin-asset-details h4,
+.shoshin-asset-details h5{
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  color: #111 !important;
+}
+
+/* Optional: first header in a block gets a touch more separation */
+.shoshin-asset-details .shoshin-asset-block > h1:first-child,
+.shoshin-asset-details .shoshin-asset-block > h2:first-child,
+.shoshin-asset-details .shoshin-asset-block > h3:first-child,
+.shoshin-asset-details .shoshin-asset-block > h4:first-child{
+  margin-top: 2px !important;
+}
+
+
+/* =====================================================================
+MY ROSTERS — Row3 Assigned Units: combined INFO cell
+===================================================================== */
+
+.shoshin-assigned-strip td.shoshin-assigned-info-td{
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.shoshin-assigned-strip td.shoshin-assigned-info-td .shoshin-stat-cell{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.1;
+  align-items: flex-start;
+}
+
+/* Hide the empty label div so it doesn't consume space */
+.shoshin-assigned-strip td.shoshin-assigned-info-td .shoshin-stat-label{
+  display: none;
+}
+
+/* TOP line (Class/Type) */
+.shoshin-assigned-strip td.shoshin-assigned-info-td .shoshin-stat-value{
+  font-weight: 700 !important;
+  font-size: 10px !important;
+  color: #111 !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+/* BOTTOM line (Ref ID) */
+.shoshin-assigned-strip td.shoshin-assigned-info-td .shoshin-stat-subvalue{
+  display: block;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+
+
+/* =====================================================================
+FIX — Row3 first-row tooltips clipped by assigned-scroll wrapper
+Root cause: .shoshin-roster-assigned-scroll has overflow:auto which clips ::after
+Solution: keep horizontal scrolling, allow vertical overflow for tooltips
+===================================================================== */
+
+/* 1) Keep X scroll but allow Y overflow (tooltips) */
+.shoshin-roster-card .shoshin-roster-assigned-scroll{
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  position: relative;         /* establishes a predictable layer */
+  z-index: 5;                 /* sit above surrounding blocks */
+}
+
+/* 2) Make sure the table itself doesn't reintroduce clipping */
+.shoshin-roster-card .shoshin-assigned-strip,
+.shoshin-roster-card .shoshin-assigned-strip tbody,
+.shoshin-roster-card .shoshin-assigned-strip tr,
+.shoshin-roster-card .shoshin-assigned-strip td{
+  overflow: visible !important;
+}
+
+/* 3) Ensure the tooltip button cell is above nearby UI */
+.shoshin-roster-card td.shoshin-assigned-actions-td{
+  position: relative;
+  z-index: 50;
+}
+
+/* 4) Ensure the tooltip pseudo-element is on top */
+.shoshin-roster-card .shoshin-btn[data-tooltip]{
+  position: relative;
+  overflow: visible !important;
+  z-index: 100;
+}
+.shoshin-roster-card .shoshin-btn[data-tooltip]::after{
+  z-index: 999999 !important;
+}
+
+
+
+/* =====================================================================
+/my-rosters: hidden host form for banner upload (Form 2799)
+- host is hidden
+- keep form mounted so JS can move field_8 into modal
+===================================================================== */
+
+#shoshin-banner-form-host{ display:none; }
+#shoshin-banner-form-host #wpforms-form-2799{ display:block; }
+
+/* Hide everything by default */
+#shoshin-banner-form-host #wpforms-form-2799 .wpforms-field-container > .wpforms-field{ display:none; }
+#shoshin-banner-form-host #wpforms-form-2799 .wpforms-submit-container{ display:none !important; }
+
+/* But keep Field #8 visible to JS (it will be moved into modal) */
+#shoshin-banner-form-host #wpforms-2799-field_8-container{ display:block !important; }
+
+
+/* =======================================================================
+SHOSHIN — Clan Banner (WPForms file upload) inside modal
+AUTHORITATIVE — Scope: ONLY inside .shoshin-clan-banner-slot
+======================================================================= */
+
+.shoshin-modal .shoshin-clan-banner-slot{
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* Keep WPForms container from inheriting margins/width limits */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-container,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field{
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Hide field label (WPForms sometimes prints it above uploader) */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-label,
+.shoshin-modal .shoshin-clan-banner-slot label.wpforms-field-label{
+  display: none !important;
+}
+
+/* Force uploader to span full width */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-file-upload,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-file-upload .wpforms-field-row,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-uploader,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-uploader.dz-clickable,
+.shoshin-modal .shoshin-clan-banner-slot .dz-clickable{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Dropzone box */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-uploader,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-uploader.dz-clickable,
+.shoshin-modal .shoshin-clan-banner-slot .dz-clickable{
+  border: 2px dashed #cfcfcf !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  padding: 34px 22px !important;
+  box-sizing: border-box !important;
+}
+
+/* Center message + roomy layout */
+.shoshin-modal .shoshin-clan-banner-slot .dz-message{
+  margin: 0 !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+}
+
+/* Icon sizing */
+.shoshin-modal .shoshin-clan-banner-slot .dz-message svg,
+.shoshin-modal .shoshin-clan-banner-slot .dz-message img{
+  width: 64px !important;
+  height: 64px !important;
+}
+
+/* “Drag & Drop / Choose Files…” line */
+.shoshin-modal .shoshin-clan-banner-slot .dz-message,
+.shoshin-modal .shoshin-clan-banner-slot .dz-message *{
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  color: #6c6c6c !important;
+  font-weight: 500 !important;
+}
+
+/* Make "Choose Files…" look like a link */
+.shoshin-modal .shoshin-clan-banner-slot .dz-message a,
+.shoshin-modal .shoshin-clan-banner-slot .dz-message .dz-button{
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+/* Max filesize / extensions line */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-description,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-description *{
+  margin-top: 16px !important;
+  text-align: center !important;
+  font-size: 11px !important;
+  line-height: 1.25 !important;
+  color: #6c6c6c !important;
+}
+
+/* Hover accent */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-uploader:hover{
+  border-color: #dd9835 !important;
+  background: #fffdf9 !important;
+}
+
+/* Fade-in when modal opens */
+.shoshin-modal.is-open .shoshin-clan-banner-slot .wpforms-uploader{
+  animation: shoshin-banner-fade-in 0.2s ease-out;
+}
+@keyframes shoshin-banner-fade-in{
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Safety: images in uploader previews */
+.shoshin-modal .shoshin-clan-banner-slot img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* Error styling inside the banner slot */
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-error,
+.shoshin-modal .shoshin-clan-banner-slot .wpforms-field-description + .wpforms-error{
+  margin-top: 10px !important;
+  padding: 10px 12px !important;
+  border-radius: 12px !important;
+  background: rgba(176,0,32,0.08) !important;
+  color: #b00020 !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  border: 1px solid rgba(176,0,32,0.18) !important;
+}
+
+
+/* =====================================================================
+[14A] /my-rosters — ASSIGN UNITS MODAL (Row1 Assign Units)
+STYLE TARGET: Match /my-assets Assign modal look (toggles, rows, spacing)
+===================================================================== */
+
+/* Modal sizing consistent with other Shoshin modals */
+.shoshin-modal.shoshin-assign-units-modal{
+  width: min(860px, calc(100vw - 32px));
+  min-height: unset;
+  overflow-x: hidden;
+}
+
+/* Keep the content compact and predictable */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-modal-body{
+  overflow-y: hidden;
+}
+
+
+/* If your JS includes this wrapper, keep it column-based */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-modal-body-wrap{
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+
+/* ---------------------------------------------
+BLOCK 1 — Roster strip (top)
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-roster{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+  min-width:0;
+  padding: 28px 20px 4px 20px;
+}
+
+/* Ensure roster strip never creates horizontal scroll */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-roster *{
+  min-width:0;
+}
+
+/* =========================================================
+[14A.BLOCK1] Assign Units — Roster strip row
+GOAL: mimic /my-rosters Row3 Unassign modal roster row exactly
+Scope ONLY: .shoshin-modal.shoshin-assign-units-modal
+========================================================= */
+
+/* If Block1 reuses the same preview markup as Unassign:
+   .shoshin-unassign-preview-panel > .shoshin-unassign-preview-row
+   containing:
+   - .shoshin-unassign-preview-roster (avatar + meta)
+   - .shoshin-unassign-preview-stats (stat strip table)
+*/
+
+/* Panel wrapper (same feel as Unassign) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-panel{
+  background:#fff;
+  border:1px solid #e4e4e4;
+  border-radius:16px;
+  padding:10px 12px;
+  box-sizing:border-box;
+  width:100%;
+}
+
+/* FORCE: single-line row (avatar/meta + stats on one line) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-row{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:14px !important;
+  min-width:0;
+}
+
+/* Left cluster (avatar + name/ref) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-roster{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  flex:0 0 auto !important;
+  min-width:240px;
+}
+
+/* Avatar sizing matches the Unassign look */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-avatar img{
+  width:64px !important;
+  height:64px !important;
+  border-radius:12px !important;
+  object-fit:cover !important;
+  border:1px solid #ddd !important;
+  background:#f5f5f5 !important;
+  display:block !important;
+}
+
+/* Meta (name/ref) truncation */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-meta{
+  min-width:0 !important;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-name,
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-ref{
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+/* Right cluster (stats) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-stats{
+  flex:1 1 auto !important;
+  min-width:0 !important;
+}
+
+/* Stat strip spacing = Unassign “row3” look */
+.shoshin-modal.shoshin-assign-units-modal
+  .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+  width:100% !important;
+  border-collapse:separate !important;
+  border-spacing:22px 0 !important;
+  margin-block-end:0 !important;
+  margin-bottom:0 !important;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-stats td{
+  padding:0 !important;
+  vertical-align:middle;
+  text-align:center;
+  white-space:nowrap !important;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size:11px !important;
+  font-weight:900 !important;
+  letter-spacing:0.08em !important;
+  text-transform:uppercase !important;
+  color:#111 !important;
+  opacity:0.80 !important;
+  line-height:1.1 !important;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-stats .shoshin-stat-value{
+  font-size:14px !important;
+  font-weight:600 !important;
+  color:#666 !important;
+  line-height:1.1 !important;
+}
+
+/* Responsive: allow stats to drop below only on small widths */
+@media (max-width: 740px){
+  .shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-row{
+    flex-wrap:wrap !important;
+  }
+  .shoshin-modal.shoshin-assign-units-modal .shoshin-unassign-preview-stats{
+    flex:1 1 100% !important;
+  }
+  .shoshin-modal.shoshin-assign-units-modal
+    .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+    border-spacing:14px 0 !important;
+  }
+}
+
+
+/* ---------------------------------------------
+Restriction note — ALWAYS visible (grey)
+Turns red when .is-blocked is present
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-restriction{
+  display:block;
+  border:none;
+  background:transparent;
+  color:#666;
+  padding: 20px;   /* 👈 more breathing room */
+  margin: 2px 0;        /* 👈 separation from roster + filters */
+  font-size:13px;
+  line-height:1.25;
+}
+
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-restriction.is-blocked{
+  color: #b00020;
+  padding:20px;
+}
+
+
+/* ---------------------------------------------
+BLOCK 2 — Filters + list
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-controls{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  min-width:0;
+}
+
+/* Filter pills: inherit your global pill system; just ensure spacing */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* List container: same “in-modal list” behavior as /my-assets */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-list{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-width:100%;
+  max-height: min(52vh, 520px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+
+
+/* ---------------------------------------------
+Row layout: transparent rows with dividers
+(no card backgrounds)
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row{
+  display:grid;
+  grid-template-columns:
+    56px                 /* Toggle */
+    56px                 /* Image */
+    minmax(140px, 1fr)   /* Name / Ref (flex) */
+    minmax(56px, 72px)   /* Current */
+    minmax(72px, 88px)   /* Add */
+    minmax(60px, 72px)   /* Total */
+    minmax(60px, 72px)   /* Initiative */
+    minmax(60px, 72px);  /* Honor / Leadership */
+  align-items:center;
+  column-gap:10px;
+  padding:12px 6px;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row + .shoshin-assign-units-row{
+  border-top: 1px solid #e7e7e7;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row.is-disabled{
+  opacity:0.55;
+}
+
+/* ---------------------------------------------
+Toggle (iOS style) — force consistent sizing
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-toggle{
+  width:56px;
+  min-width:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* ---------------------------------------------
+iOS Toggle — Assign Units (supports BOTH markups)
+Markup A:
+<label class="shoshin-ios-toggle">
+  <input type="checkbox">
+  <span class="track"><span class="thumb"></span></span>
+</label>
+
+Markup B:
+<label class="shoshin-ios-toggle">
+  <input type="checkbox">
+  <span class="shoshin-ios-slider"></span>
+</label>
+---------------------------------------------- */
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:46px;
+  height:26px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input[type="checkbox"]{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  margin:0;
+  width:46px;
+  height:26px;
+  cursor:pointer;
+}
+
+/* ---------- Markup A: track/thumb ---------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle .track{
+  display:block;
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  background:#d9d9d9;
+  border:1px solid #cfcfcf;
+  position:relative;
+  box-sizing:border-box;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle .thumb{
+  display:block;
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  box-shadow:0 2px 6px rgba(0,0,0,0.20);
+  position:absolute;
+  top:50%;
+  left:2px;
+  transform:translateY(-50%);
+  transition:left 160ms ease;
+}
+
+/* Checked state (Markup A) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:checked + .track{
+  background:#1e8e3e;
+  border-color:#1e8e3e;
+}
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:checked + .track .thumb{
+  left:22px;
+}
+
+/* ---------- Markup B: single slider element ---------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle .shoshin-ios-slider{
+  display:block;
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  background:#d9d9d9;
+  border:1px solid #cfcfcf;
+  position:relative;
+  box-sizing:border-box;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle .shoshin-ios-slider:before{
+  content:"";
+  display:block;
+  width:22px;
+  height:22px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.10);
+  box-shadow:0 2px 6px rgba(0,0,0,0.20);
+  position:absolute;
+  top:50%;
+  left:2px;
+  transform:translateY(-50%);
+  transition:left 160ms ease;
+}
+
+/* Checked state (Markup B) */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:checked + .shoshin-ios-slider{
+  background:#1e8e3e;
+  border-color:#1e8e3e;
+}
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:checked + .shoshin-ios-slider:before{
+  left:22px;
+}
+
+/* Disabled */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:disabled{
+  cursor:not-allowed;
+}
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:disabled + .track,
+.shoshin-modal.shoshin-assign-units-modal .shoshin-ios-toggle input:disabled + .shoshin-ios-slider{
+  opacity:0.55;
+  filter:grayscale(1);
+  cursor:not-allowed;
+}
+
+
+/* ---------------------------------------------
+Image — HARD CLAMP (prevents Elementor/global img rules)
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal img.shoshin-assign-units-img{
+  width:48px !important;
+  height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  object-fit:cover !important;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#f5f5f5;
+  display:block !important;
+  margin:0 auto;
+}
+
+
+/* Safety: if any older markup uses a wrapper like .shoshin-assign-units-image img */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-image img{
+  width:48px !important;
+  height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  object-fit:cover !important;
+  border-radius:10px;
+  border:1px solid #ddd;
+  background:#f5f5f5;
+  display:block !important;
+}
+
+/* ---------------------------------------------
+Info block (Type / Ref)
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-info{
+  flex:1 1 240px;
+    min-width: 0;
+  max-width: 100%;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  text-align:left;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-type{
+  font-size:13px;
+  font-weight:900;
+  line-height:1.15;
+  color:#111;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-ref{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:0.35px;
+  text-transform:uppercase;
+  color:#666;
+  line-height:1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-align:left;
+}
+
+/* Vertical divider inside row */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-divider{
+  flex:0 0 1px;
+  align-self:stretch;
+  background:#e7e7e7;
+}
+
+/* ---------------------------------------------
+Current / Add QTY / Metrics — fixed widths
+---------------------------------------------- */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-current,
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty,
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-metric{
+  text-align:center;
+  justify-self:center;
+}
+
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-current .label{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#111;
+  margin-bottom:4px;
+  line-height:1.1;
+}
+
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-current .value{
+  display:block;
+  font-weight:900;
+  font-size:12px;
+  color:#111;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty{
+  flex:0 0 auto;
+  width:96px;
+  text-align:center;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty .label{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#111;
+  margin-bottom:4px;
+  line-height:1.1;
+}
+
+
+
+
+/* QTY select (Assign Units modal only) — hard override to defeat global select padding/width */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty select{
+  /* Beat global rule: padding + width:100% */
+  padding: 0 8px !important;
+  width: 88px !important;
+  max-width: 88px !important;
+  min-width: 88px !important;
+
+  /* Compact height (global padding was inflating it) */
+  height: 28px !important;
+  min-height: 28px !important;
+  line-height: 28px !important;
+
+  /* Visual consistency */
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  color: #111 !important;
+
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  box-sizing: border-box !important;
+
+  /* Ensure it doesn't behave like a full-width block */
+  display: inline-block !important;
+
+  /* Avoid theme transitions fighting sizing */
+  transition: none !important;
+}
+
+
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty select:disabled{
+  opacity:0.55;
+  cursor:not-allowed;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-metric{
+  flex:0 0 auto;
+  width:86px;
+  text-align:center;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-metric .label{
+   display:block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#111;
+  margin-bottom:4px;
+  line-height:1.1;
+}
+
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-metric .value{
+  display:block;
+  font-weight:900;
+  font-size:12px;
+  color:#111;
+}
+
+/* ---------------------------------------------------------
+Assign Units rows — add missing labels for last two metrics
+(works even if markup has only numbers in those cells)
+--------------------------------------------------------- */
+
+/* Column 7 (Initiative) label */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row > :nth-child(7){
+  position:relative;
+  padding-top:15px;
+}
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row > :nth-child(7)::before{
+   content:"INI";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#111;
+  line-height:1.1;
+}
+
+/* Column 8 (Leadership) label */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row > :nth-child(8){
+  position:relative;
+  padding-top:15px;
+}
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-row > :nth-child(8)::before{
+ content:"LDR";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:#111;
+  line-height:1.1;
+}
+
+
+
+/* =======================================================================
+[15] BANNER MODAL — LAYOUT (Row1 Preview / Row2 Remove Toggle / Row3 Upload)
+Scope ONLY: .shoshin-modal.shoshin-banner-modal
+======================================================================= */
+
+.shoshin-modal.shoshin-banner-modal{
+  min-height: unset;
+}
+
+/* Body: not vertically centered like delete modal */
+.shoshin-modal.shoshin-banner-modal .shoshin-modal-body{
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+  padding: 16px 20px 18px;
+}
+
+/* Row 1: vertical stack (header then preview) */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-row1{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin: 6px 0 14px;
+}
+
+/* "Banner Preview" header (if present) */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-row1-title{
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 0 0 10px 0 !important;
+  font-weight: 600;
+  font-size: 26px;
+}
+
+/* Preview block */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-preview{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #fff;
+  justify-content: center !important;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-img{
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  flex: 0 0 auto;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-meta{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-name{
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-ref{
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #666;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Row 2: Remove toggle (centered) */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-row2{
+  display: flex;
+  justify-content: center;
+  margin: 2px 0 14px;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-remove{
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-remove-title{
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-remove-note{
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.35;
+}
+
+/* Locked state when there is no existing banner to remove */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-remove.is-locked{
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-remove.is-locked .track{
+  cursor: not-allowed;
+}
+
+/* Row 3 spacing */
+.shoshin-modal.shoshin-banner-modal .shoshin-banner-row3{
+  margin-top: 4px;
+}
+
+/* Mobile tightening */
+@media (max-width: 520px){
+  .shoshin-modal.shoshin-banner-modal .shoshin-banner-preview{
+    width: 100%;
+    justify-content: center;
+  }
+  .shoshin-modal.shoshin-banner-modal .shoshin-banner-name{
+    max-width: 210px;
+    font-size: 20px;
+  }
+}
+
+
+/* =======================================================================
+Banner modal — iOS toggle (green)
+Scope ONLY: .shoshin-modal.shoshin-banner-modal
+======================================================================= */
+
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hide native checkbox */
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle input[type="checkbox"]{
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* track + thumb */
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle .track{
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: #d9d9d9;
+  border: 1px solid #cfcfcf;
+  position: relative;
+  transition: background 160ms ease, border-color 160ms ease;
+  flex: 0 0 auto;
+}
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle .thumb{
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.20);
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  transition: left 160ms ease;
+}
+
+/* ON state (green) */
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle input:checked + .track{
+  background: #1e8e3e !important;
+  border-color: #1e8e3e !important;
+}
+.shoshin-modal.shoshin-banner-modal .shoshin-ios-toggle input:checked + .track .thumb{
+  left: 22px;
+}
+
+
+/* =======================================================================
+WPForms uploader — “file selected” preview parity
+Scope ONLY: .shoshin-clan-banner-slot
+======================================================================= */
+
+/* When a file is added, hide the big "Drag & Drop" message */
+.shoshin-modal .shoshin-clan-banner-slot .dz-started .dz-message{
+  display: none !important;
+}
+
+/* Make previews look like a clean row inside the bordered dropzone */
+.shoshin-modal .shoshin-clan-banner-slot .dz-preview{
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 14px 14px !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Thumbnail box */
+.shoshin-modal .shoshin-clan-banner-slot .dz-image{
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border: 1px solid #e1e1e1 !important;
+  flex: 0 0 auto !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-image img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* File details stack */
+.shoshin-modal .shoshin-clan-banner-slot .dz-details{
+  position: static !important;
+  opacity: 1 !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-size{
+  font-size: 12px !important;
+  color: #777 !important;
+  margin: 0 0 2px !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-filename{
+  font-size: 16px !important;
+  color: #111 !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Kill huge success/error marks */
+.shoshin-modal .shoshin-clan-banner-slot .dz-success-mark,
+.shoshin-modal .shoshin-clan-banner-slot .dz-error-mark{
+  display: none !important;
+}
+
+/* Progress bar: subtle */
+.shoshin-modal .shoshin-clan-banner-slot .dz-progress{
+  position: absolute !important;
+  left: 76px !important;
+  right: 44px !important;
+  bottom: 10px !important;
+  margin: 0 !important;
+  height: 8px !important;
+  border-radius: 999px !important;
+  background: #efefef !important;
+  overflow: hidden !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-upload{
+  height: 100% !important;
+  border-radius: 999px !important;
+  background: #1e8e3e !important;
+}
+
+/* Replace "Remove file" link with a clean top-right X */
+.shoshin-modal .shoshin-clan-banner-slot .dz-remove{
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  width: 28px !important;
+  height: 28px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  font-size: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  cursor: pointer !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-remove::before{
+  content: "×" !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+  color: #777 !important;
+}
+.shoshin-modal .shoshin-clan-banner-slot .dz-remove:hover::before{
+  color: #111 !important;
+}
+
+/* Error line in preview */
+.shoshin-modal .shoshin-clan-banner-slot .dz-error-message{
+  position: static !important;
+  display: block !important;
+  margin-top: 6px !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+  color: #b00020 !important;
+  font-weight: 800 !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* =====================================================================
+UNASSIGN MODAL — Preview row must be SINGLE LINE (avatar/meta + stats)
+Scope: aria-labelledby="shoshin-unassign-modal-title"
+Drop this AFTER the existing Unassign modal block.
+===================================================================== */
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-row{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:14px !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+}
+
+/* Left cluster: avatar + name/ref */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-roster{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  flex:0 0 auto !important;
+  min-width: 240px; /* keeps the left info stable */
+}
+
+/* Prevent avatar from shrinking */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-avatar{
+  flex:0 0 auto !important;
+}
+
+/* Meta can truncate instead of forcing wrap */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-meta{
+  min-width:0 !important;
+}
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-name,
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-ref{
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+/* Right cluster: stats */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats{
+  flex:1 1 auto !important;
+  min-width: 0 !important;
+}
+
+/* Tighten stat spacing to fit in modal */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+  width:100% !important;
+  border-collapse:separate !important;
+  border-spacing:16px 0 !important; /* tighter than 28px */
+}
+
+/* Keep stats from wrapping and compressing weirdly */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats td{
+  white-space:nowrap !important;
+}
+
+/* Slightly smaller labels/values if needed for fit */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size:12px !important;
+}
+
+/* Responsive: if modal is narrow, allow the stats to drop below cleanly */
+@media (max-width: 740px){
+  .shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-row{
+    flex-wrap:wrap !important;
+  }
+  .shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats{
+    flex: 1 1 100% !important;
+  }
+  .shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+    border-spacing:14px 0 !important;
+  }
+}
+
+/* =====================================================================
+UNASSIGN MODAL — Move instruction text above Roster Preview
+Scope: aria-labelledby="shoshin-unassign-modal-title"
+===================================================================== */
+
+/* Ensure modal body is a vertical flow */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-modal-body{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Instruction text */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-modal-desc{
+  order: 3;                /* after row1 (asset/qty), before preview */
+  margin: 6px auto 14px;   /* tighter spacing above preview */
+  text-align: center;
+}
+
+/* Roster preview comes AFTER the instruction */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-wrap{
+  order: 4;
+}
+
+/* /my-rosters Row3 assigned strip: percent column */
+.shoshin-assigned-strip td.shoshin-assigned-percent-td{
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.shoshin-assigned-strip td.shoshin-assigned-percent-td .shoshin-stat-cell{
+  align-items: center;
+}
+
+/* % column – no label, tighter vertical spacing */
+.shoshin-assigned-percent-td .shoshin-stat-label {
+  display: none;
+}
+
+/* Unassign modal: percent in Current/After headers */
+.shoshin-unassign-modal .shoshin-unassign-preview-pct{
+  font-weight: 900;
+  letter-spacing: .02em;
+  opacity: .75;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* ======================================================================
+[UNASSIGN MODAL] Preview panels — COMPACT MODE (Current / After)
+GOAL: reduce vertical height + avoid excessive modal scroll
+- Keeps "Current" / "After" headers unchanged
+- Shrinks panel padding, avatar, typography, and stat strip spacing
+Scope: ONLY aria-labelledby="shoshin-unassign-modal-title"
+====================================================================== */
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-panel{
+  padding: 10px 12px !important;   /* tighter */
+  border-radius: 14px !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-row{
+  gap: 10px !important;            /* less vertical spacing */
+    align-items: center !important;
+}
+
+/* Left cluster (avatar + meta) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-roster{
+  gap: 10px !important;
+  min-width: 220px !important;     /* slightly smaller than before */
+    align-items: center !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-avatar img{
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-name{
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-ref{
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+
+/* Right cluster (stats) */
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats table.shoshin-stat-strip{
+  border-spacing: 14px 0 !important; /* tighter than 16/28 */
+  align-items: center !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-cell{
+  padding: 0 !important;            /* remove extra height */
+  gap: 2px !important;
+  justify-content: center !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-label{
+  font-size: 10px !important;
+  letter-spacing: .05em !important;
+  line-height: 1.05 !important;
+}
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"] .shoshin-unassign-preview-stats .shoshin-stat-value{
+  font-size: 12px !important;
+  line-height: 1.05 !important;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #666;
+}
+
+/* ======================================================================
+[UNASSIGN MODAL] — KILL GLOBAL TABLE MARGIN LEAK
+Fixes vertical misalignment caused by theme rule:
+table { margin-block-end: 15px; }
+Scope: ONLY Unassign modal
+====================================================================== */
+
+.shoshin-modal[aria-labelledby="shoshin-unassign-modal-title"]
+  table.shoshin-stat-strip{
+  margin-block-end: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   UNASSIGN MODAL — DAIMYO RESTRICTION (DISPLAY ONLY)
+   ========================================================= */
+.shoshin-unassign-daimyo-restriction {
+  color: #c62828; /* red, accessible, non-flashy */
+  font-weight: 600;
+}
+
+
+/* =======================================================================
+[14.X] PREVIEW MODAL — “Clan Roster Assignments”
+Scope ONLY: .shoshin-modal.shoshin-preview-modal
+Matches Assign/Unassign modal body flow + button footer
+======================================================================= */
+
+.shoshin-modal.shoshin-preview-modal{
+  min-height: unset; /* do not force delete-modal height */
+    width: min(720px, 92vw);
+  max-width: 850px;
+}
+
+/* Body: not vertically centered like delete modal */
+.shoshin-modal.shoshin-preview-modal .shoshin-modal-body{
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: left;
+  padding: 16px 20px 18px;
+  overflow: auto;
+}
+
+/* Match Assign modal header styling for section heads inside Preview modal */
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-rosters-head{
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0 0 10px;
+  color: #111;
+}
+
+
+/* Title spacing (matches other modals) */
+.shoshin-modal.shoshin-preview-modal #shoshin-preview-modal-title{
+  text-align: center;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  color: #111;
+}
+
+/* Row A: asset summary (reuse Assign modal styling outside assign scope) */
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  justify-content: center; /* matches Assign look */
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset-img{
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset-meta{
+  display: grid;
+  gap: 4px;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset-class{
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #111;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset-ref,
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-asset-cost{
+  font-size: 14px;
+  line-height: 1.25;
+  text-align: left;
+  color: #333;
+}
+
+/* Row B: assignments container placeholder */
+.shoshin-modal.shoshin-preview-modal .shoshin-preview-assignments{
+  width: 100%;
+  max-width: 760px;
+  margin: 10px auto 0;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+/* =======================================================================
+[14.X.B] PREVIEW MODAL — Roster list styles (mirror Assign modal)
+Applies to:
+- .shoshin-assign-rosters-head
+- .shoshin-assign-roster-filters
+- .shoshin-assign-roster-row
+======================================================================= */
+
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-rosters-head{
+  font-size: 16px;
+  font-weight: 900;
+  margin: 0 0 10px;
+  color: #111;
+}
+
+/* Filters row (same structural treatment as assign modal) */
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-roster-filters{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 10px;
+}
+
+/* Roster row layout */
+.shoshin-modal.shoshin-preview-modal .shoshin-assign-roster-row{
+  display: grid;
+  grid-template-columns: max-content minmax(120px, 1fr) max-content;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 6px;
+  border-radius: 12px;
+  box-sizing: border-box;
+    position: relative;
+}
+
+/* Divider between roster rows (Preview Modal only) */
+.shoshin-modal.shoshin-preview-modal
+.shoshin-assign-roster-row:not(:last-child)::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #e2e2e2;
+}
+
+
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-name{
+  font-size: 14px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-ref{
+  font-size: 12px;
+  font-weight: 800;
+  color: #8f8f8f;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+/* Left cluster: qty + % + avatar (match Assign modal) */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-left{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-preview-qty,
+.shoshin-modal.shoshin-preview-modal .shoshin-preview-pct{
+  min-width: 40px;
+  height: 26px;
+  font-size: 12px;
+  font-weight: 900;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-avatar{
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+/* Middle: name/ref */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-mid{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+
+    /* NEW: cap mid column width so stats stay closer */
+  max-width: 220px;
+
+/* Divider */
+  padding-right: 16px;
+  border-right: 1px solid #e6e6e6 !important;
+
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-name{
+  font-size: 13px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-ref{
+  font-size: 11px;
+  font-weight: 800;
+  color: #8f8f8f;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right: stat strip (keep it tight like assign modal) */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-stats table.shoshin-stat-strip{
+  border-collapse: separate;
+  border-spacing: 18px 0;
+  margin-block-end: 0px;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-stats td{
+  padding: 0 !important;
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  background: #fff;
+}
+
+
+.shoshin-modal.shoshin-preview-modal .shoshin-preview-empty{
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--shoshin-muted);
+  font-style: italic;
+  padding: 12px 0 2px;
+}
+
+/* Footer: match modal action spacing */
+.shoshin-modal.shoshin-preview-modal .shoshin-modal-footer{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-
-  /* KEY FIX: add bottom breathing room */
-  padding: 16px 16px 34px;  /* <-- bottom padding creates the lift */
+  padding: 16px 16px 34px;
   margin: 0;
 }
 
-
-/* Buttons */
-.shoshin-modal-btn {
-  appearance: none;
-  border-radius: 10px;
-  padding: 14px 22px;
-  font-weight: 800;
-  font-size: 16px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  min-width: 140px;
-}
-
-.shoshin-modal-btn-cancel {
-  background: #e6e6e6;
-  color: #222;
-  border-color: #d0d0d0;
-}
-
-.shoshin-modal-btn-confirm {
-  background: #b00020;
-  color: #fff;
-  border-color: #8f0019;
-}
-
-/* Swap visual order: Confirm first, Cancel second */
-.shoshin-modal-btn-confirm {
-  order: 1;
-}
-
-.shoshin-modal-btn-cancel {
-  order: 2;
+/* Preview Modal: Quantity + % should match roster stat-strip styling (not pills) */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-left{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 
-.shoshin-modal-error {
-  margin-top: 14px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #b00020;
-  font-weight: 700;
+.shoshin-modal.shoshin-preview-modal .shoshin-stat-no-label .shoshin-stat-label{
+  display: none;
+}
+
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-stats{
+  display: block;
+  min-width: 0;
+}
+
+
+/* Preview Modal: stat strip spacing must only apply to roster stats (not all stat-strip tables) */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-stats table.shoshin-stat-strip{
+  width: auto;
+  max-width: 100%;
+  table-layout: auto;
+  border-collapse: separate;
+  border-spacing: 18px 0;
+}
+
+
+.shoshin-modal.shoshin-preview-modal .shoshin-stat-cell{
+  min-width: 42px;
   text-align: center;
 }
+
+.shoshin-modal.shoshin-preview-modal .shoshin-stat-label{
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-stat-value{
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Divider after HONOR column (Preview Modal only) */
+.shoshin-modal.shoshin-preview-modal
+.shoshin-roster-stats
+.shoshin-stat-strip
+td:nth-child(4) .shoshin-stat-cell{
+  padding-right: 16px;
+  border-right: 1px solid #e2e2e2;
+}
+
+
+/* =======================================================================
+[14.X.C] PREVIEW MODAL — OVERRIDE: constrain Name/REF column width
+Reason: max-width on .shoshin-roster-mid does not constrain a 1fr grid track.
+This forces the middle grid column to a fixed cap and enables ellipsis.
+======================================================================= */
+
+
+/* Ensure truncation works inside the fixed grid track */
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-mid{
+  width: 160px;
+  max-width: 220px;
+  min-width: 0;
+}
+
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-name,
+.shoshin-modal.shoshin-preview-modal .shoshin-roster-ref{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* =======================================================================
+[14A.Z] ASSIGN UNITS — HARD OVERRIDE FOR ADD QTY SELECT
+Reason: site-wide rule applies to all <select>:
+select { padding: .5rem 1rem; width:100%; ... }
+This override MUST be last in file to win the cascade.
+Scope ONLY: Assign Units modal QTY selector.
+======================================================================= */
+
+.shoshin-modal.shoshin-assign-units-modal select.shoshin-assign-units-qty-select{
+  /* Beat global padding/width */
+  padding: 0 8px !important;
+  width: 88px !important;
+  max-width: 88px !important;
+
+  /* Beat global control height created by padding */
+  height: 28px !important;
+  min-height: 28px !important;
+  line-height: 28px !important;
+
+  /* Keep it visually consistent */
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  color: #111 !important;
+
+  font-size: 13px !important;
+  box-sizing: border-box !important;
+  display: inline-block !important;
+  transition: none !important;
+}
+
+/* If the select does NOT have .shoshin-assign-units-qty-select, still force compact sizing */
+.shoshin-modal.shoshin-assign-units-modal .shoshin-assign-units-qty select{
+  padding: 0 8px !important;
+  width: 88px !important;
+  max-width: 88px !important;
+  min-width: 88px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  line-height: 28px !important;
+  display: inline-block !important;
+  box-sizing: border-box !important;
+}
+
+

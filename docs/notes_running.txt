@@ -1,0 +1,58 @@
+Daimyo max 1 for /my-rosters asset assignment.
+
+
+
+Create Another button Yellow
+After character/asset/roster creation upon submit/save, reset display form
+
+Assignments and Unassignment modals should have a load more.
+All Units in filter
+
+
+
+
+[  {"kind": "support",    "cls": "Ozutsu",    "refId": "ART-002",    "name": "Heavy Ozutsu",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 55,    "qty": 1,    "r_dmg": "3",    "r_crt": "4+",    "r_dis": "14",    "atk": "—",    "def": "2",    "mov": "3",    "bod": "4",    "ldr": "—",    "ini": "1",    "unitKey": "support|Ozutsu|ART-002|Heavy Ozutsu|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Samurai",    "refId": "SAM-001",    "name": "Veteran Samurai",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 35,    "qty": 3,    "m_dmg": "2",    "m_crt": "5+",    "m_dis": "1",    "r_dmg": "—",    "r_crt": "—",    "r_dis": "—",    "atk": "4",    "def": "4",    "mov": "6",    "bod": "3",    "ldr": "2",    "ini": "3",    "unitKey": "character|Samurai|SAM-001|Veteran Samurai|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Ashigaru",    "refId": "ASH-014",    "name": "Yari Ashigaru",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 18,    "qty": 5,    "m_dmg": "1",    "m_crt": "6+",    "m_dis": "1",    "r_dmg": "—",    "r_crt": "—",    "r_dis": "—",    "atk": "3",    "def": "2",    "mov": "6",    "bod": "2",    "ldr": "1",    "ini": "2",    "unitKey": "character|Ashigaru|ASH-014|Yari Ashigaru|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Ninja",    "refId": "NIN-007",    "name": "Shadow Operative",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 42,    "qty": 2,    "m_dmg": "2",    "m_crt": "4+",    "m_dis": "1",    "r_dmg": "1",    "r_crt": "5+",    "r_dis": "6",    "atk": "4",    "def": "3",    "mov": "7",    "bod": "2",    "ldr": "1",    "ini": "4",    "unitKey": "character|Ninja|NIN-007|Shadow Operative|/wp-content/uploads/2025/12/Helmet-grey.jpg"}]
+
+
+DIGITAL PAID
+Barth Kelly = [Addon: 10555263] Crimson Shadows Gang - Digital
+Cristina Portie= [Addon: 10532069] Iron Lotus Clan - Digital
+Joseph  Albanese = [Addon: 10555264] Whispering Wind Clan - Digital
+Shane T Bennett = 
+
+DIGITAL OUTSTAND AR
+Joshua Bohling = 
+Glenn Mochon =
+Gary F Graham = 
+
+
+PHYSICAL PAID  <-- CHANGE  ADDONS TO PHYSICAL BEFORE SUBMITTING
+Natahn Keczmer = 
+Mark Cunningham = [Addon: 10555263] Crimson Shadows Gang - Digital
+Joseph Zipperich =[Addon: 10532088] Broken Blade Brotherhood - Digital
+Waynaik = 
+Justin Pederson = [Addon: 10532088] Broken Blade Brotherhood - Digital
+Walter Lam = 
+
+
+PHYSICAL OUTSTANDING AR
+Jared = [Addon: 10555263] Crimson Shadows Gang - Digital
+Dave Shields = 
+Jonathan Thornhill = 
+
+
+
+
+
+[Addon: 10532069] Iron Lotus Clan - Digital
+[Addon: 10532088] Broken Blade Brotherhood - Digital
+[Addon: 10555263] Crimson Shadows Gang - Digital
+[Addon: 10555264] Whispering Wind Clan - Digital
+
+
+
+Base44 
+
+Loveable
+
+CHATGPT - prompt to Base44
