@@ -1,0 +1,209 @@
+/* =========================================================
+   SHOSHIN CHECKOUT BASELINE — STABLE SHELL + EXPRESS RESET
+   Scope:
+   - Only the Checkout block with class: .shoshin-checkout
+   - Stable 2-column Woo Blocks baseline
+   - Flat card shells
+   - Compact original express button feel
+   - Right summary column flattened at outer layer
+   ========================================================= */
+
+/* -----------------------------------------
+   1) DESKTOP CHECKOUT LAYOUT BASELINE
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout.wc-block-checkout
+  .wc-block-components-sidebar-layout.wc-block-checkout.is-large {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 32px !important;
+    column-gap: 32px !important;
+  }
+
+  .shoshin-checkout.wc-block-checkout
+  .wc-block-components-main.wc-block-checkout__main {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .shoshin-checkout.wc-block-checkout
+  .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 320px !important;
+    flex: 0 0 360px !important;
+    margin: 0 !important;
+  }
+}
+
+/* -----------------------------------------
+   2) CHECKOUT CARD SHELLS — LEFT COLUMN
+   ----------------------------------------- */
+
+.shoshin-checkout.wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout.wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout.wc-block-checkout .wc-block-checkout__actions {
+  background: #fff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10) !important;
+  margin-bottom: 16px !important;
+  padding: 18px 18px !important;
+}
+
+/* normalize internal step spacing */
+.shoshin-checkout.wc-block-checkout .wc-block-components-checkout-step__heading-container,
+.shoshin-checkout.wc-block-checkout .wc-block-components-checkout-step__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout.wc-block-checkout .wc-block-components-checkout-step__heading-container {
+  margin-bottom: 12px !important;
+}
+
+/* flatten any nested panels */
+.shoshin-checkout.wc-block-checkout .wc-block-components-panel,
+.shoshin-checkout.wc-block-checkout .wc-block-components-totals-coupon,
+.shoshin-checkout.wc-block-checkout .wc-block-components-checkout-order-summary__content {
+  border-radius: 0 !important;
+}
+
+/* -----------------------------------------
+   3) EXPRESS CHECKOUT — STABLE BASELINE
+   ----------------------------------------- */
+
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment {
+  background: #fff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10) !important;
+  margin-bottom: 16px !important;
+  padding: 16px 14px 14px !important;
+}
+
+/* title formatting */
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__title-container {
+  margin: 0 0 12px 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__title {
+  margin: 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+}
+
+/* remove any cart-derived inner wrapper styling */
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__content {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* compact multi-button layout */
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+}
+
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 calc(25% - 8px) !important;
+  min-width: 132px !important;
+}
+
+/* keep provider buttons natural */
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons > li > div,
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons .StripeElement,
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons .paypal-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* divider text below express buttons */
+.shoshin-checkout.wc-block-checkout .wc-block-components-express-payment-continue-rule {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 14px 0 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+/* -----------------------------------------
+   4) RESPONSIVE EXPRESS
+   ----------------------------------------- */
+
+@media (max-width: 1024px) {
+  .shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(33.333% - 7px) !important;
+    min-width: 132px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shoshin-checkout.wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(50% - 5px) !important;
+    min-width: 0 !important;
+  }
+}
+
+/* -----------------------------------------
+   5) RIGHT SIDEBAR — FLATTEN OUTER SHELL
+   ----------------------------------------- */
+
+.shoshin-checkout.wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block {
+  background: #ffffff !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* inner summary modules remain as cards */
+.shoshin-checkout.wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-cart-items-block.wc-block-components-totals-wrapper,
+.shoshin-checkout.wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper,
+.shoshin-checkout.wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-subtotal-block.wc-block-components-totals-wrapper,
+.shoshin-checkout.wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-shipping-block.wc-block-components-totals-wrapper,
+.shoshin-checkout.wc-block-checkout
+.wc-block-components-totals-wrapper:last-child {
+  background: #ffffff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10) !important;
+  padding-bottom: 16px !important;
+}

@@ -1,0 +1,169 @@
+
+   /* =========================
+   SHOSHIN: Amazon-Style Cart
+   ========================= */
+
+/* Make icon clean and minimal */
+.hdr-right .elementor-menu-cart__toggle{
+  position: relative !important;
+}
+
+.hdr-right .elementor-menu-cart__toggle i,
+.hdr-right .elementor-menu-cart__toggle svg{
+  font-size: 20px !important;
+  stroke-width: 1.5px !important;
+}
+
+/* Remove any extra spacing */
+.hdr-right .elementor-menu-cart__toggle a{
+  padding: 4px 6px !important;
+}
+
+/* Badge (Amazon-style) */
+.hdr-right .elementor-menu-cart__counter{
+  position: absolute !important;
+  top: -4px !important;
+  right: -10px !important;
+
+  background: #f08804 !important;     /* Amazon orange */
+  color: #111 !important;
+
+  font-size: 11px !important;
+  font-weight: 700 !important;
+
+  min-width: 16px !important;
+  height: 16px !important;
+  line-height: 16px !important;
+
+  border-radius: 50% !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Optional: subtle hover like Amazon */
+.hdr-right .elementor-menu-cart__toggle:hover svg,
+.hdr-right .elementor-menu-cart__toggle:hover i{
+  opacity: .75;
+}
+
+/* =========================
+   SHOSHIN_MENU_CART_AMAZONISH_V1
+   ========================= */
+
+   /* =========================
+   SHOSHIN_SIDE_CART_CONTRAST_FIX_V1
+   Improves readability inside Elementor side cart
+   ========================= */
+
+/* Main side cart text */
+.elementor-menu-cart__container .woocommerce-mini-cart,
+.elementor-menu-cart__container .woocommerce-mini-cart *{
+  color: #222 !important;   /* strong readable dark */
+}
+
+/* Product name */
+.elementor-menu-cart__container .woocommerce-mini-cart-item__title{
+  color: #111 !important;
+  font-weight: 600 !important;
+}
+
+/* Quantity + price line */
+.elementor-menu-cart__container .woocommerce-mini-cart-item .quantity,
+.elementor-menu-cart__container .woocommerce-mini-cart-item .amount{
+  color: #222 !important;
+  font-weight: 500 !important;
+}
+
+/* Subtotal */
+.elementor-menu-cart__container .woocommerce-mini-cart__total{
+  color: #111 !important;
+  font-weight: 700 !important;
+}
+
+
+/* =========================
+   SHOSHIN_SIDE_CART_BUTTONS_V3 (EXACT MATCH)
+   Matches:
+   .elementor-menu-cart__footer-buttons
+   .elementor-button--view-cart
+   .elementor-button--checkout
+   ========================= */
+
+/* Button row layout */
+.elementor-menu-cart__main .elementor-menu-cart__footer-buttons{
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 16px !important;
+}
+
+/* Base button styling */
+.elementor-menu-cart__main .elementor-menu-cart__footer-buttons a.elementor-button{
+  flex: 1 1 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 12px 14px !important;
+  min-height: 44px !important;
+
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+
+/* View cart = secondary */
+.elementor-menu-cart__main .elementor-menu-cart__footer-buttons a.elementor-button--view-cart{
+  background: #f2f2f2 !important;
+  color: #111 !important;
+  border: 1px solid #d6d6d6 !important;
+}
+
+/* Checkout = primary */
+.elementor-menu-cart__main .elementor-menu-cart__footer-buttons a.elementor-button--checkout{
+  background: #f08804 !important;
+  color: #111 !important;
+  border: none !important;
+}
+
+/* Optional: subtle hover clarity */
+.elementor-menu-cart__main .elementor-menu-cart__footer-buttons a.elementor-button:hover{
+  filter: brightness(0.98) !important;
+}
+
+/* =========================
+   SHOSHIN_SIDE_CART_REMOVE_X_V2
+   Matches your remove links:
+   .elementor_remove_from_cart_button + .remove_from_cart_button
+   ========================= */
+
+/* Make the remove "x" visible */
+.elementor-menu-cart__main a.elementor_remove_from_cart_button,
+.elementor-menu-cart__main a.remove_from_cart_button{
+  opacity: 1 !important;
+  color: #111 !important;
+}
+
+/* Elementor often uses ::before for the x icon */
+.elementor-menu-cart__main a.elementor_remove_from_cart_button::before,
+.elementor-menu-cart__main a.remove_from_cart_button::before{
+  color: #111 !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
+}
+
+/* Make the remove target easier to click */
+.elementor-menu-cart__main .elementor-menu-cart__product-remove a{
+  width: 22px !important;
+  height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

@@ -1,0 +1,237 @@
+/* ========================================
+   MULTI-PACKAGE SHIPPING — CART/CHECKOUT UI
+======================================== */
+
+/* Hide package titles only */
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-package-name,
+body.woocommerce-checkout #order_review .shipping .woocommerce-shipping-package-name {
+	display: none !important;
+}
+
+/* Hide itemization / package contents */
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents,
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents small,
+body.woocommerce-checkout #order_review .shipping p.woocommerce-shipping-contents,
+body.woocommerce-checkout #order_review .shipping p.woocommerce-shipping-contents small {
+	display: none !important;
+}
+
+/* Keep package blocks visually separated */
+body.woocommerce-cart .cart_totals .shipping ul#shipping_method,
+body.woocommerce-checkout #order_review .shipping ul#shipping_method {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+/* Hide truly empty package headings if Woo outputs them */
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-package-name:empty,
+body.woocommerce-checkout #order_review .shipping .woocommerce-shipping-package-name:empty {
+	display: none !important;
+}
+
+/* =========================================
+   CHECKOUT — SHIPPING ROW STABILIZATION
+   ========================================= */
+
+/* Make totals table behave predictably */
+.woocommerce-checkout-review-order-table tfoot th,
+.woocommerce-checkout-review-order-table tfoot td {
+  vertical-align: top;
+}
+
+/* Tighten the label column */
+.woocommerce-checkout-review-order-table tfoot th {
+  width: 140px;
+  white-space: nowrap;
+}
+
+/* Force shipping value column to behave */
+.woocommerce-checkout-review-order-table tfoot td {
+  text-align: right;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Normalize shipping rows */
+.woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Stack shipping content cleanly */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-methods,
+.woocommerce-checkout-review-order-table .woocommerce-shipping-may-be-available-html,
+.woocommerce-checkout-review-order-table .woocommerce-shipping-contents {
+  display: block;
+  text-align: right;
+  max-width: 100%;
+}
+
+/* Prevent long message from blowing layout */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-may-be-available-html {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+/* Product list under shipment */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-contents small {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Remove default UL spacing */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-methods {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================
+   MULTI-PACKAGE — Shipment subtitles + batch link polish
+   ========================================= */
+
+body.woocommerce-cart .cart_totals .shipping th .shoshin-shipment-subtitle,
+body.woocommerce-checkout #order_review .shipping th .shoshin-shipment-subtitle {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #666;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-link-wrap,
+body.woocommerce-checkout #order_review .shipping .shoshin-batch-estimate-link-wrap {
+  display: block;
+  width: 100%;
+  text-align: right !important;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-link,
+body.woocommerce-checkout #order_review .shipping .shoshin-batch-estimate-link {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 600;
+  text-align: right;
+}
+
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-destination,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-known-address,
+body.woocommerce-checkout #order_review .shipping .woocommerce-shipping-destination,
+body.woocommerce-checkout #order_review .shipping .shoshin-batch-known-address {
+  text-align: right !important;
+}
+
+/* =========================================
+   CART — Multi-shipment batch bucket polish
+   Keep single-address-on-last-bucket, normalize estimate/link styling
+   ========================================= */
+
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents,
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents small {
+  display: none !important;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-shell,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-link-wrap,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-value,
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-destination,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-known-address {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  text-align: right !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-link-wrap {
+  margin: 0 0 6px 0;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-link {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 600;
+  text-align: right;
+}
+
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-estimate-value {
+  color: #111;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-destination,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-known-address {
+  margin-top: 6px;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-destination strong,
+body.woocommerce-cart .cart_totals .shipping .shoshin-batch-known-address strong {
+  font-weight: 600;
+}
+
+/* =========================================
+   SHIPPING — ESTIMATE FORMAT NORMALIZATION
+   Scope: Cart + Checkout
+   ========================================= */
+
+/* 1) Remove bold from entire estimate string */
+body.woocommerce-cart .shoshin-batch-estimate-value,
+body.woocommerce-checkout .shoshin-batch-estimate-value {
+  font-weight: 400 !important;
+  color: #444;
+}
+
+/* 2) Only price should be bold */
+body.woocommerce-cart .shoshin-batch-estimate-value .amount,
+body.woocommerce-cart .shoshin-batch-estimate-value .woocommerce-Price-amount,
+body.woocommerce-checkout .shoshin-batch-estimate-value .amount,
+body.woocommerce-checkout .shoshin-batch-estimate-value .woocommerce-Price-amount {
+  font-weight: 600 !important;
+  color: #111;
+}
+
+/* 3) Ensure address styling matches (bold but not heavy) */
+body.woocommerce-cart .woocommerce-shipping-destination strong,
+body.woocommerce-checkout .woocommerce-shipping-destination strong {
+  font-weight: 600 !important;
+  color: #111;
+}
+
+/* Hide PayPal Pay Later messaging site-wide */
+.ppcp-messages {
+    display: none !important;
+}
+
+/* Normalize custom batch authorize checkbox to Woo style */
+.woocommerce-checkout .shoshin-classic-batch-authorize-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.woocommerce-checkout .shoshin-classic-batch-authorize-row input[type="checkbox"] {
+    margin-top: 3px;
+    transform: scale(1.1);
+}
+
+.woocommerce-checkout .shoshin-classic-batch-authorize-row label {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #222;
+    cursor: pointer;
+}

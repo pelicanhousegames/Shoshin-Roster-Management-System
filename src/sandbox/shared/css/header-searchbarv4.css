@@ -1,0 +1,431 @@
+/* ============================================================================
+   HEADER CSS ONLY (AUTHORITATIVE)
+   - Preserves header layout + sticky behavior
+   - Search widget + dropdown styling
+   - Deduplicated search CSS
+   ============================================================================ */
+
+
+/* =========================
+   BEGIN SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   Purpose:
+   - Force true 3-column flex header (logo | elastic middle | hard-right menu)
+   - OVERRIDES Elementor inline widths (%/px) that are breaking flex
+   - Middle region expands when space exists and yields first when tight
+   - Right cluster never wraps
+   ========================= */
+
+/* =========================
+   SHOSHIN: Disable Header Expand/Collapse (Sticky Shrink)
+   Targets your header wrapper (hdr-wrap)
+   ========================= */
+
+/* When Elementor applies sticky/shrink classes, force same sizing */
+.hdr-wrap.elementor-sticky--effects,
+.hdr-wrap.elementor-sticky--active{
+  transform: none !important;
+  top: 0 !important;
+}
+
+/* Remove “smooth shrink” transitions (optional but usually necessary) */
+.hdr-wrap,
+.hdr-wrap *{
+  transition: none !important;
+}
+
+/* 0) Safety: prevent any horizontal spill from header */
+.hdr-wrap{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+
+  width: 100% !important;
+  max-width: 100vw !important;
+
+  gap: 16px !important;
+  overflow-x: clip !important;
+}
+
+/* 1) LEFT (logo): ignore Elementor width, keep it compact + clamped */
+.hdr-wrap > .hdr-left{
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+  flex-basis: auto !important;
+
+  max-inline-size: clamp(120px, 14vw, 220px) !important;
+}
+
+/* 2) RIGHT (menus): hard-right, never wrap, never overlap */
+.hdr-wrap > .hdr-right{
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+
+  white-space: nowrap !important;
+  min-width: 0 !important;
+}
+
+/* Elementor menus often wrap via flex, not whitespace — force no-wrap */
+.hdr-right .elementor-nav-menu__container,
+.hdr-right .elementor-nav-menu,
+.hdr-right .elementor-nav-menu > ul{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 18px !important;
+  white-space: nowrap !important;
+}
+.hdr-right .elementor-nav-menu > ul > li{ flex: 0 0 auto !important; }
+.hdr-right .elementor-nav-menu a{ white-space: nowrap !important; }
+
+/* 3) MIDDLE (elastic region): width:auto + flex-basis:0 + min-width:0 so it can grow AND shrink */
+.hdr-wrap > .hdr-search{
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+
+/* 4) Force the middle container content and wrappers to fill the region */
+.hdr-search-slot{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Make the immediate widget wrapper expand */
+.hdr-search-slot > *{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Common wrappers + forms: full width */
+.hdr-search-slot form,
+.hdr-search-slot .rms-gs,
+.hdr-search-slot .betterdocs-searchform,
+.hdr-search-slot .betterdocs-search{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* If the middle region uses flex internally, prevent min-content collapse */
+.hdr-search,
+.hdr-search *{
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Inputs fill the available space (generic; does not style appearance) */
+.hdr-search-slot input[type="search"],
+.hdr-search-slot input[type="text"]{
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+}
+
+/* 5) When tight: reduce gaps */
+@media (max-width: 1180px){
+  .hdr-wrap{ gap: 10px !important; }
+  .hdr-wrap > .hdr-right{ gap: 12px !important; }
+  .hdr-right .elementor-nav-menu > ul{ gap: 12px !important; }
+}
+@media (max-width: 980px){
+  .hdr-wrap{ gap: 8px !important; }
+}
+
+/* =========================
+   END SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   ========================= */
+
+
+/* =========================
+   SHOSHIN_HEADER_SEARCH_WIDGET_V2
+   Force Elementor Search icon INSIDE input and vertically centered
+   ========================= */
+
+/* Anchor positioning to the wrapper that contains the input */
+.hdr-search .elementor-widget-search .e-search-input-wrapper{
+  position: relative !important;
+}
+
+/* Put the label+icon on top of the input */
+.hdr-search .elementor-widget-search .e-search-label{
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+/* Style the icon itself */
+.hdr-search .elementor-widget-search .e-search-label svg.e-font-icon-svg{
+  width: 16px !important;
+  height: 16px !important;
+  opacity: 0.75 !important;
+  display: block !important;
+}
+
+/* Make room for the icon */
+.hdr-search .elementor-widget-search .e-search-input{
+  padding-left: 50px !important;
+}
+
+/* ========================= SHOSHIN_SEARCH_INPUT_RADIUS_V1 ========================= */
+
+.hdr-search .elementor-widget-search .e-search-input{
+  border-radius: 10px !important;
+}
+
+.hdr-search .elementor-widget-search .e-search-input{
+  border: 1px solid rgba(0,0,0,.18);
+}
+
+/* ========================= SHOSHIN_HEADER_SEARCH_DROPDOWN_V2 ========================= */
+/* Target: Elementor Pro Search widget live results dropdown rendering Loop Items */
+
+.hdr-search output.e-search-results-container{
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999999 !important;
+
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18) !important;
+
+  padding: 6px !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.hdr-search .e-search-results{
+  display: block !important;
+}
+
+.hdr-search .e-search-results .e-loop-item{
+  display: block !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.hdr-search .e-search-results .e-loop-item:hover{
+  background: rgba(0,0,0,0.04) !important;
+}
+
+.hdr-search .e-search-results .e-loop-item .e-con-inner{
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 12px !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-theme-post-featured-image img{
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  background: rgba(0,0,0,0.03);
+}
+
+.hdr-search .e-search-results .elementor-widget-theme-post-featured-image a{
+  pointer-events: none !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-theme-post-title h1{
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-theme-post-title a{
+  color: #111 !important;
+  text-decoration: none !important;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hdr-search .e-search-results .woocommerce-product-price .price{
+  margin: 3px 0 0 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Inner nested Woo price wrapper used by header search results */
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price{
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Final / live price, including plain-text fallback like "See Pricing" */
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > ins,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > .woocommerce-Price-amount,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > .amount,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > ins .woocommerce-Price-amount,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > ins .amount{
+  color: #2e7d32 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  font-style: normal !important;
+}
+
+/* Regular / struck price */
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > del,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > del .woocommerce-Price-amount,
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price > del .amount{
+  color: #9a9a9a !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+}
+
+/* Savings text */
+.hdr-search .e-search-results .woocommerce-product-price p.price > .price .shoshin-sale-percent{
+  color: #9a9a9a !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+}
+
+.hdr-search .e-search-results .elementor-element-3de7d7d{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price .price,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > ins,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > .woocommerce-Price-amount,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > .amount,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > ins .woocommerce-Price-amount,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > ins .amount {
+  color: #2e7d32 !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price {
+  display: flex !important;
+  align-items: baseline !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > del,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > del .woocommerce-Price-amount,
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price p.price > .price > del .amount {
+  color: #9a9a9a !important;
+}
+
+.hdr-search .e-search-results .elementor-widget-woocommerce-product-price .shoshin-sale-percent {
+  color: #9a9a9a !important;
+}
+
+
+/* ========================= SHOSHIN_HEADER_SEARCH_RESULTS_EMPTY_FIX_V1 ========================= */
+
+/* Hide Elementor search results shell by default */
+.hdr-search .e-search-results-container,
+.hdr-search-slot .e-search-results-container{
+  display: none;
+}
+
+/* Show only when Elementor actually populates results */
+.hdr-search .e-search-results-container:not(:empty),
+.hdr-search-slot .e-search-results-container:not(:empty){
+  display: block;
+}
+
+/* If results div itself is empty, suppress the shell entirely */
+.hdr-search .e-search-results-container:has(.e-search-results:empty),
+.hdr-search-slot .e-search-results-container:has(.e-search-results:empty){
+  display: none !important;
+}
+
+/* Hide the loader when inactive */
+.hdr-search .e-search-loader,
+.hdr-search-slot .e-search-loader{
+  display: none !important;
+}
+
+
+/* ========================= SHOSHIN_SEARCH_RESULT_EMOJI_SCALE_V1 ========================= */
+
+/* Emoji images in search result titles */
+.hdr-search .e-search-results img.emoji,
+.hdr-search-slot .e-search-results img.emoji{
+  width: 1.25em !important;
+  height: 1.25em !important;
+  min-width: 1.25em !important;
+  max-width: 1.25em !important;
+  vertical-align: -0.12em !important;
+  margin-right: 6px !important;
+}
+
+
+/* ========================= SHOSHIN_SEARCH_PRODUCT_THUMBNAIL_SCALE_V1 ========================= */
+
+.hdr-search .e-search-results img.attachment-thumbnail,
+.hdr-search-slot .e-search-results img.attachment-thumbnail{
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: cover !important;
+  border-radius: 4px;
+}
+
+
+/* ========================= SHOSHIN_SEARCH_TEXT_HOVER_BG_REMOVE_V1 ========================= */
+
+/* Remove nested gray hover/background on title/text blocks inside results */
+.hdr-search .e-search-results a,
+.hdr-search-slot .e-search-results a{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep text area transparent on hover/focus/active */
+.hdr-search .e-search-results a:hover,
+.hdr-search-slot .e-search-results a:hover,
+.hdr-search .e-search-results a:focus,
+.hdr-search-slot .e-search-results a:focus,
+.hdr-search .e-search-results a:active,
+.hdr-search-slot .e-search-results a:active{
+  background: transparent !important;
+  box-shadow: none !important;
+}

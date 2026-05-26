@@ -1,0 +1,91 @@
+/* ========================================
+   MULTI-PACKAGE SHIPPING — CART/CHECKOUT UI
+======================================== */
+
+/* Hide package titles only */
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-package-name,
+body.woocommerce-checkout #order_review .shipping .woocommerce-shipping-package-name {
+	display: none !important;
+}
+
+/* Hide itemization / package contents */
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents,
+body.woocommerce-cart .cart_totals .shipping p.woocommerce-shipping-contents small,
+body.woocommerce-checkout #order_review .shipping p.woocommerce-shipping-contents,
+body.woocommerce-checkout #order_review .shipping p.woocommerce-shipping-contents small {
+	display: none !important;
+}
+
+/* Keep package blocks visually separated */
+body.woocommerce-cart .cart_totals .shipping ul#shipping_method,
+body.woocommerce-checkout #order_review .shipping ul#shipping_method {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+/* Hide truly empty package headings if Woo outputs them */
+body.woocommerce-cart .cart_totals .shipping .woocommerce-shipping-package-name:empty,
+body.woocommerce-checkout #order_review .shipping .woocommerce-shipping-package-name:empty {
+	display: none !important;
+}
+
+/* =========================================
+   CHECKOUT — SHIPPING ROW STABILIZATION
+   ========================================= */
+
+/* Make totals table behave predictably */
+.woocommerce-checkout-review-order-table tfoot th,
+.woocommerce-checkout-review-order-table tfoot td {
+  vertical-align: top;
+}
+
+/* Tighten the label column */
+.woocommerce-checkout-review-order-table tfoot th {
+  width: 140px;
+  white-space: nowrap;
+}
+
+/* Force shipping value column to behave */
+.woocommerce-checkout-review-order-table tfoot td {
+  text-align: right;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Normalize shipping rows */
+.woocommerce-checkout-review-order-table tr.woocommerce-shipping-totals td {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Stack shipping content cleanly */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-methods,
+.woocommerce-checkout-review-order-table .woocommerce-shipping-may-be-available-html,
+.woocommerce-checkout-review-order-table .woocommerce-shipping-contents {
+  display: block;
+  text-align: right;
+  max-width: 100%;
+}
+
+/* Prevent long message from blowing layout */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-may-be-available-html {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+/* Product list under shipment */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-contents small {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Remove default UL spacing */
+.woocommerce-checkout-review-order-table .woocommerce-shipping-methods {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

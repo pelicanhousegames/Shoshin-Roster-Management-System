@@ -1,0 +1,1510 @@
+/* =========================================
+   SHOSHIN AUTH SYSTEM — AUTHORITATIVE
+   Scope:
+   - /login/
+   - /my-account/lost-password/
+   - /membership-checkout/
+========================================= */
+
+/* =========================================
+   SHARED AUTH LOGO
+========================================= */
+body.page-id-297 .elementor-element-4253ba6b .woocommerce::before,
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 18px;
+    background: url('/wp-content/uploads/2025/11/SPOA.webp') no-repeat center center;
+    background-size: contain;
+}
+
+/* =========================================
+   LOGIN PAGE ONLY
+   page-id-297
+========================================= */
+body.page-id-297 .elementor-element-4253ba6b .woocommerce {
+    max-width: 440px;
+    width: 100%;
+    background: #fff;
+    padding: 28px 28px 30px;
+    border: 1px solid #e9e4d8;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+    margin: 40px auto 60px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce > h2 {
+    display: none;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce form.login {
+    border: 1px solid #e6dfd2;
+    border-radius: 8px;
+    padding: 20px 18px 18px;
+    margin: 0;
+    box-shadow: none;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .form-row {
+    margin-bottom: 18px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #241f17;
+    margin-bottom: 6px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-form-row--wide,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .form-row-wide,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .input-text,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .password-input {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce input[type="text"],
+body.page-id-297 .elementor-element-4253ba6b .woocommerce input[type="password"],
+body.page-id-297 .elementor-element-4253ba6b .woocommerce input[type="email"] {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d8d2c4;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #241f17;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce input:focus {
+    border-color: #c59a3d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197,154,61,.15);
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce input::placeholder {
+    color: #8a8376;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .password-input {
+    display: block;
+    width: 100%;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .password-input input {
+    padding-right: 40px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .password-input .show-password-input {
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-form-login__rememberme {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-form-login__rememberme input[type="checkbox"] {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-form-login__submit {
+    margin-top: 12px !important;
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    margin-bottom: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    min-height: 52px !important;
+    padding: 13px 10px !important;
+    background: #f58624 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    text-decoration: none !important;
+    letter-spacing: .3px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-form-login__submit:hover {
+    background: #e27716 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.24) !important;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .lost_password,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-LostPassword {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce a:hover {
+    text-decoration: underline;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-notices-wrapper {
+    margin-bottom: 18px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-message,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-error {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #e6dcc8;
+    background: #fffaf0;
+    padding: 14px 16px 14px 42px;
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-message::before,
+body.page-id-297 .elementor-element-4253ba6b .woocommerce .woocommerce-error::before {
+    left: 14px;
+    top: 14px;
+    margin: 0;
+}
+
+/* =========================================
+   LOST PASSWORD ONLY
+========================================= */
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce {
+    max-width: 420px;
+    width: 100%;
+    background: #fff;
+    padding: 28px 28px 30px;
+    border: 1px solid #e9e4d8;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+    margin: 40px auto 60px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce form.lost_reset_password {
+    margin: 0;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-ResetPassword > p:first-of-type {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .form-row {
+    margin-bottom: 18px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #241f17;
+    margin-bottom: 6px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-form-row--first,
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .form-row-first,
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .input-text {
+    width: 100%;
+    max-width: 100%;
+    float: none;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .clear {
+    display: none;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce input[type="text"],
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce input[type="email"] {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d8d2c4;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #241f17;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce input:focus {
+    border-color: #c59a3d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197,154,61,.15);
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce input::placeholder {
+    color: #8a8376;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce button.button {
+    margin-top: 12px !important;
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    margin-bottom: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    min-height: 52px !important;
+    padding: 13px 10px !important;
+    background: #f58624 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    text-decoration: none !important;
+    letter-spacing: .3px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce button.button:hover {
+    background: #e27716 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.24) !important;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce a:hover {
+    text-decoration: underline;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-notices-wrapper {
+    margin-bottom: 18px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-message,
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-error {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #e6dcc8;
+    background: #fffaf0;
+    padding: 14px 16px 14px 42px;
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-message::before,
+body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce .woocommerce-error::before {
+    left: 14px;
+    top: 14px;
+    margin: 0;
+}
+
+/* lost password visibility rules */
+body.woocommerce-lost-password .elementor-element-01554ca {
+    display: none !important;
+}
+
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-e325d4f {
+    display: none !important;
+}
+
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-ae5233f,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-568b5a2,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-049d2c5,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-3078005 {
+    display: none !important;
+}
+
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-8d9195d,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-3bec3d7,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-3caf00e,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-ba0cab7 {
+    display: none !important;
+}
+
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-430788b,
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-dd215d8 {
+    display: none !important;
+}
+
+body.woocommerce-lost-password:not(.logged-in) .elementor-element-b673e9e {
+    margin-top: 40px !important;
+}
+
+/* =========================================
+   REGISTRATION / PMPRO CHECKOUT ONLY
+   page-id-3344
+========================================= */
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro {
+    max-width: 980px;
+    width: 100%;
+    background: #fff;
+    padding: 28px 36px 18px;
+    border: 1px solid #e9e4d8;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+    margin: 40px auto 60px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_card {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields {
+    margin: 0 0 24px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #eee7d8;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_card_title {
+    margin: 0 0 18px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-align: center;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    grid-template-areas:
+        "title logo"
+        "meta  logo";
+    column-gap: 24px;
+    align-items: center;
+    margin: 0 0 24px;
+    padding: 0 0 20px;
+    border-bottom: 1px solid #eee7d8;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields::before {
+    content: "";
+    grid-area: logo;
+    display: block;
+    width: 200px;
+    height: 200px;
+    align-self: start;
+    justify-self: end;
+    margin-top: -8px;
+    margin-right: 48px;
+    background: url('/wp-content/uploads/2025/11/SPOA.webp') no-repeat center center;
+    background-size: contain;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_card_title {
+    grid-area: title;
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-align: left;
+    align-self: end;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_card_content {
+    grid-area: meta;
+    display: block;
+    align-self: start;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_level_name_text,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields #pmpro_level_cost {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #666;
+    margin: 0;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_level_name_text {
+    margin-bottom: 8px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_heading {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 18px;
+    text-align: left;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field {
+    margin-bottom: 18px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #241f17;
+    margin-bottom: 6px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro input[type="text"],
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro input[type="password"],
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro input[type="email"] {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d8d2c4;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #241f17;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro input:focus {
+    border-color: #c59a3d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197,154,61,.15);
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro input::placeholder {
+    color: #8a8376;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-username,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-username input {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_cols-2 {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_cols-2 > .pmpro_form_field {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-bottom: 0;
+    align-self: start;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password {
+    display: block;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > label {
+    margin-bottom: 6px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > .pmpro_form_input,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > input[type="password"],
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > input[type="text"] {
+    margin: 0;
+    padding-right: 124px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password-toggle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 24px 22px -48px 0;
+    min-height: 14px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_btn-password-toggle,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_btn-plain {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    font-size: 11px;
+    line-height: 1;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-decoration: none;
+    pointer-events: auto;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password-toggle .pmpro_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password-toggle .pmpro_icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password-toggle .pmpro_icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_card_actions {
+    margin-top: 18px;
+    padding: 10px 12px;
+    background: #f7f5ef;
+    border: 1px solid #ebe5d8;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-checkbox {
+    margin-top: 8px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-checkbox input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_message,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_message_bottom {
+    margin-bottom: 18px;
+    border-radius: 8px;
+    padding: 12px 14px;
+    line-height: 1.45;
+    font-size: 14px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_submit {
+    margin-top: 18px;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_btn-submit-checkout {
+    margin-top: 12px !important;
+    margin-left: 56px !important;
+    margin-right: 56px !important;
+    margin-bottom: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 112px) !important;
+    min-height: 52px !important;
+    padding: 13px 16px !important;
+    background: #f58624 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    text-decoration: none !important;
+    letter-spacing: .3px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_btn-submit-checkout:hover {
+    background: #e27716 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.24) !important;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    body.page-id-297 .elementor-element-4253ba6b .woocommerce,
+    body.woocommerce-lost-password .elementor-element-b673e9e .woocommerce {
+        padding: 24px 20px 28px;
+        margin: 20px auto 40px;
+        border-radius: 10px;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro {
+        max-width: 100%;
+        padding: 24px 20px 28px;
+        border-radius: 10px;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "logo"
+            "meta";
+        row-gap: 14px;
+        text-align: center;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields::before {
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+        justify-self: center;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_card_title,
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields .pmpro_level_name_text,
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro #pmpro_pricing_fields #pmpro_level_cost {
+        text-align: center;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_cols-2 {
+        display: block;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_cols-2 > .pmpro_form_field {
+        margin-bottom: 18px;
+    }
+
+            body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > .pmpro_form_input,
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > input[type="password"],
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password > input[type="text"] {
+        padding-right: 112px;
+    }
+
+    body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_field-password-toggle {
+        margin-right: 10px;
+    }
+}
+
+/* FORCE LEFT ALIGNMENT FOR ALL SIGNUP LABELS */
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro .pmpro_form_label,
+body.pmpro-checkout.page-id-3344 .elementor-element-e99d548 .pmpro label {
+    text-align: left !important;
+    display: block;
+    width: 100%;
+}
+
+/* Hide PMPro actions nav anywhere PMPro outputs it */
+.pmpro .pmpro_actions_nav,
+.pmpro_confirmation_wrap .pmpro_actions_nav,
+.pmpro_content_message .pmpro_actions_nav {
+  display: none !important;
+}
+
+/* =========================================
+   PMPRO LOGIN ONLY
+   page-id-297
+   New PMPro login replaces old WC login styling
+========================================= */
+body.page-id-297 .elementor-element-78268e7a .pmpro {
+    max-width: 440px;
+    width: 100%;
+    background: #fff;
+    padding: 28px 28px 30px;
+    border: 1px solid #e9e4d8;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(16, 24, 40, 0.08);
+    margin: 40px auto 60px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 18px;
+    background: url('/wp-content/uploads/2025/11/SPOA.webp') no-repeat center center;
+    background-size: contain;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_section {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap.pmpro_card {
+    border: 1px solid #e6dfd2;
+    border-radius: 8px;
+    padding: 20px 18px 18px;
+    margin: 0;
+    box-shadow: none;
+    background: #fff;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_card_content,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_card_actions {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap form {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap p {
+    margin: 0 0 18px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #241f17;
+    margin-bottom: 6px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .input,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input[type="text"],
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input[type="password"],
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input[type="email"] {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d8d2c4;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #241f17;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    box-sizing: border-box;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input:focus {
+    border-color: #c59a3d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197,154,61,.15);
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input::placeholder {
+    color: #8a8376;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-password {
+    position: relative;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-password .input {
+    padding-right: 132px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_form_field-password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    margin: 0;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_btn-plain,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_btn-password-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    font-size: 11px;
+    line-height: 1;
+    color: #6b7280;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-decoration: none;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_btn-plain:hover,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_btn-password-toggle:hover {
+    color: #241f17;
+    background: transparent !important;
+    text-decoration: none;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-remember label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-remember input[type="checkbox"] {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-submit {
+    margin-bottom: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .button.button-primary,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input[type="submit"]#wp-submit {
+    margin-top: 12px !important;
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    margin-bottom: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    min-height: 52px !important;
+    padding: 13px 10px !important;
+    background: #f58624 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    text-decoration: none !important;
+    letter-spacing: .3px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+    cursor: pointer;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .button.button-primary:hover,
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap input[type="submit"]#wp-submit:hover {
+    background: #e27716 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.24) !important;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_card_actions {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_actions_nav {
+    display: block !important;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_actions_nav a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_actions_nav a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    body.page-id-297 .elementor-element-78268e7a .pmpro {
+        padding: 24px 20px 28px;
+        margin: 20px auto 40px;
+        border-radius: 10px;
+    }
+
+    body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap.pmpro_card {
+        padding: 18px 16px 16px;
+    }
+
+    body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .login-password .input {
+        padding-right: 112px;
+    }
+
+    body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap .pmpro_form_field-password-toggle {
+        top: 40px;
+        right: 10px;
+    }
+}
+
+/* =========================================
+   PMPRO LOST PASSWORD
+   page-id-297 inside same auth widget
+========================================= */
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap.pmpro_card {
+    border: 1px solid #e6dfd2;
+    border-radius: 8px;
+    padding: 20px 18px 18px;
+    margin: 0;
+    box-shadow: none;
+    background: #fff;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_card_content,
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_card_actions {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password-instructions {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #666;
+    margin: 0 0 20px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_spacer {
+    display: none;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form_fields {
+    margin: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form_field {
+    margin-bottom: 18px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form_label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: #241f17;
+    margin-bottom: 6px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form_input,
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input[type="text"],
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input[type="email"] {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d8d2c4;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #241f17;
+    font-size: 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    box-sizing: border-box;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input:focus {
+    border-color: #c59a3d;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(197,154,61,.15);
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input::placeholder {
+    color: #8a8376;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_form_submit {
+    margin-top: 0;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_btn-submit,
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input[type="submit"] {
+    margin-top: 12px !important;
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+    margin-bottom: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    min-height: 52px !important;
+    padding: 13px 10px !important;
+    background: #f58624 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    text-transform: capitalize !important;
+    text-decoration: none !important;
+    letter-spacing: .3px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease !important;
+    cursor: pointer;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap .pmpro_btn-submit:hover,
+body.page-id-297 .elementor-element-78268e7a .pmpro .pmpro_lost_password_wrap input[type="submit"]:hover {
+    background: #e27716 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.24) !important;
+}
+
+body.pmpro-checkout.page-id-3344 
+#pmpro_user_fields .pmpro_form_field-password:has(.pmpro_form_field-password-toggle) input {
+    margin-top: -6px;
+}
+
+/* =========================================
+   NEXTEND SOCIAL LOGIN
+========================================= */
+
+/* shared wrapper */
+.shoshin-social-auth {
+    margin-top: 18px;
+}
+
+.shoshin-social-auth__divider {
+    position: relative;
+    margin: 18px 0 16px;
+    text-align: center;
+}
+
+.shoshin-social-auth__divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    right: 24px;
+    border-top: 1px solid #e6dfd2;
+    transform: translateY(-50%);
+}
+
+.shoshin-social-auth__divider span {
+    position: relative;
+    display: inline-block;
+    padding: 0 12px;
+    background: #fff;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+/* -----------------------------------------
+   LOGIN PAGE
+   target live embedded Nextend PMPro login markup
+----------------------------------------- */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 {
+    display: block;
+    width: calc(100% - 48px);
+    margin: 16px 24px 0;
+    position: relative;
+    padding-top: 18px;
+}
+
+/* divider line */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #e6dfd2;
+}
+
+/* centered label */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1::after {
+    content: "Or sign in with";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 12px;
+    background: #fff;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-container {
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-container-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px;
+    padding: 0 !important;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-container-buttons > a {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button {
+    width: 100% !important;
+    min-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.16);
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-default {
+    display: flex !important;
+    align-items: stretch;
+    min-height: 52px;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-svg-container {
+    width: 52px;
+    min-width: 52px;
+    padding: 0 14px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-label-container {
+    flex: 1 1 auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    margin: 0 !important;
+    padding: 13px 16px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .3px !important;
+    text-align: center !important;
+    white-space: nowrap;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.20);
+}
+
+@media (max-width: 640px) {
+    body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 {
+        width: calc(100% - 32px);
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
+/* -----------------------------------------
+   PMPRO REGISTRATION
+   responsive 3-up grid, then 2x2, then 1-up
+----------------------------------------- */
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register {
+    margin-top: 18px;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-container {
+    width: 100%;
+    margin: 0;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-container-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 12px;
+    align-items: stretch;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-default {
+    min-height: 48px;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-svg-container {
+    width: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-label-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-container-buttons {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-container-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    body.page-id-297 .uac-nextend-mount .nsl-container,
+    body.page-id-297 .shoshin-social-auth--login .nsl-container {
+        width: calc(100% - 32px);
+        margin-left: 16px !important;
+        margin-right: 16px !important;
+    }
+
+    .shoshin-social-auth__divider::before {
+        left: 16px;
+        right: 16px;
+    }
+}
+
+/* =========================================
+   NEXTEND SOCIAL LOGIN — LABEL NORMALIZATION
+========================================= */
+
+/* shared provider button typography */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-label-container,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-label-container {
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    letter-spacing: .3px !important;
+    text-rendering: optimizeLegibility;
+}
+
+/* keep provider name emphasis consistent */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-label-container b,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-label-container b {
+    font-weight: 700 !important;
+}
+
+/* prevent awkward wrapping or clipping with longer labels */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-label-container,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-label-container {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* consistent icon sizing across providers */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-svg-container svg,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-svg-container svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* keep all provider buttons visually aligned */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button-default,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button-default {
+    align-items: stretch !important;
+}
+
+/* subtle consistency for hover state across providers */
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button {
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+body.page-id-297 .elementor-element-78268e7a .pmpro_login_wrap #nsl-custom-login-form-1 .nsl-button:hover,
+body.pmpro-checkout.page-id-3344 .shoshin-social-auth--register .nsl-button:hover {
+    filter: brightness(1.02);
+}
+
+/* =========================================
+   WC CHECKOUT LOGIN — NEXTEND SOCIAL LOGIN
+   3-up / 2-up / 1-up + divider
+========================================= */
+
+/* scope: checkout guest login card */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container {
+    display: block;
+    width: 100%;
+    margin: 16px 0 0 !important;
+    position: relative;
+    padding-top: 18px;
+    text-align: left !important;
+}
+
+/* divider line */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #e6dfd2;
+}
+
+/* divider label */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container::after {
+    content: "Or sign in with";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 12px;
+    background: #fff;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* remove the extra paragraph tags Nextend/Woo injects */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container > p,
+body.woocommerce-checkout .woocommerce-form-login .nsl-container-buttons > p {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* grid behavior: max 3 across, then 2x2, then 1 */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container .nsl-container-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 12px;
+    padding: 0 !important;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+/* neutralize default Nextend margins */
+body.woocommerce-checkout .woocommerce-form-login .nsl-container .nsl-container-buttons > a {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    max-width: none !important;
+}
+
+/* buttons */
+body.woocommerce-checkout .woocommerce-form-login .nsl-button {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button-default {
+    display: flex !important;
+    align-items: stretch !important;
+    min-height: 48px;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button-svg-container {
+    width: 44px;
+    min-width: 44px;
+    padding: 0 12px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button-label-container {
+    flex: 1 1 auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin: 0 !important;
+    padding: 12px 14px !important;
+    font-family: inherit !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .3px !important;
+    text-align: center !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button-label-container b {
+    font-weight: 700 !important;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button-svg-container svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+body.woocommerce-checkout .woocommerce-form-login .nsl-button:hover {
+    filter: brightness(1.02);
+}
+
+/* 2x2 */
+@media (max-width: 900px) {
+    body.woocommerce-checkout .woocommerce-form-login .nsl-container .nsl-container-buttons {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+}
+
+/* 1-up */
+@media (max-width: 640px) {
+    body.woocommerce-checkout .woocommerce-form-login .nsl-container .nsl-container-buttons {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,631 @@
+/* =========================================================
+   SHOSHIN CHECKOUT BASELINE — CONSOLIDATED
+   Scope:
+   - Only inside .shoshin-checkout wrapper
+   - Stable 2-column Woo Blocks checkout
+   - Single-shadow outer column shells only
+   - Flat interior modules
+   - Compact express checkout buttons
+   - Balanced right sidebar width
+   ========================================================= */
+
+/* -----------------------------------------
+   1) DESKTOP LAYOUT + OUTER COLUMN SHELLS
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar-layout {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    column-gap: 16px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main,
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,.10) !important;
+    padding: 18px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main {
+    flex: 1 1 0% !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    flex: 0 0 360px !important;
+    width: 360px !important;
+    max-width: 360px !important;
+  }
+}
+
+/* -----------------------------------------
+   2) LEFT COLUMN INNER MODULES
+   Flat interior; no inner shadows
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  background: #fff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 16px !important;
+  padding: 18px 18px !important;
+}
+
+/* normalize step internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container {
+  margin-bottom: 12px !important;
+}
+
+/* flatten any Woo rounded internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-panel,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-order-summary__content {
+  border-radius: 0 !important;
+}
+
+/* -----------------------------------------
+   3) EXPRESS CHECKOUT
+   Flat section, compact buttons, no extra shell
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 16px !important;
+  padding: 16px 14px 14px !important;
+}
+
+/* title spacing + typography */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title-container {
+  margin: 12px 0 12px 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title {
+  margin: 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+}
+
+/* flatten decorative side lines */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::before,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::after {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  height: 1px !important;
+}
+
+/* content spacing + no inherited wrapper styling */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__content {
+  margin: 0 !important;
+  padding: 24px 0 0 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* compact multi-button layout */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 calc(25% - 8px) !important;
+  min-width: 132px !important;
+}
+
+/* keep provider-rendered buttons natural */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li > div,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .StripeElement,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .paypal-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* divider text */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment-continue-rule {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 14px 0 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+/* -----------------------------------------
+   4) RESPONSIVE EXPRESS
+   ----------------------------------------- */
+
+@media (max-width: 1024px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(33.333% - 7px) !important;
+    min-width: 132px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(50% - 5px) !important;
+    min-width: 0 !important;
+  }
+}
+
+/* -----------------------------------------
+   5) RIGHT SIDEBAR INTERIOR
+   Flat outer summary block, flat inner modules
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-sidebar .wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-cart-items-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-subtotal-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-shipping-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-wrapper:last-child {
+  background: #ffffff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 16px !important;
+}
+
+/* -----------------------------------------
+   6) COUPON APPLY BUTTON
+   Remove inherited global checkout min-height
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wc-block-components-button,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wp-element-button {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* =========================================================
+   LEFT COLUMN — FORCE INNER MODULES TO RESPECT SHELL PADDING
+   ========================================================= */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main > * {
+  box-sizing: border-box !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* main checkout cards */
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* belt-and-suspenders: remove any inherited right-side stretch */
+.shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main {
+  overflow: hidden !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — ORDER SUMMARY ITEM CLEANUP
+   Scope:
+   - .shoshin-checkout checkout only
+   - Removes duplicate product info under title
+   - Hides custom cart-injected meta in checkout summary
+   - Styles checkout "Save $" badge to match cart treatment
+   ========================================================= */
+
+/* -----------------------------------------
+   1) REMOVE DUPLICATE / UNWANTED PRODUCT INFO
+   ----------------------------------------- */
+
+/* hide old + discounted individual price under product title */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-cart-item__prices {
+  display: none !important;
+}
+
+/* hide short description */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-metadata__description {
+  display: none !important;
+}
+
+/* hide custom meta/details injected into cart and carried into checkout */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-details {
+  display: none !important;
+}
+
+/* optional cleanup if metadata wrapper becomes empty */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-metadata {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* -----------------------------------------
+   2) PRODUCT TITLE / ROW CLEANUP
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-name {
+  margin: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  font-weight: 600 !important;
+}
+
+/* tighten spacing now that extra lines are removed */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item {
+  align-items: flex-start !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price {
+  margin-left: 12px !important;
+}
+
+/* -----------------------------------------
+   3) STYLE SAVE BADGE LIKE CART
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-cart-item__total-price-and-sale-badge-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 6px !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-sale-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px 8px !important;
+  min-height: 0 !important;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 0 !important;
+  background: #f5f5f5 !important;
+  color: #666 !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-sale-badge
+.wc-block-components-formatted-money-amount {
+  font-weight: 700 !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — ORDER SUMMARY ITEM POLISH (REVISED)
+   Fixes:
+   1) quantity bubble overlapping top border
+   2) product title too large / no ellipsis / overflow
+   ========================================================= */
+
+/* -----------------------------------------
+   1) ORDER SUMMARY ITEM LAYOUT STABILITY
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__image {
+  position: relative !important;
+  flex: 0 0 56px !important;
+  width: 56px !important;
+  min-width: 56px !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price {
+  flex: 0 0 auto !important;
+  min-width: 72px !important;
+  margin-left: 8px !important;
+  text-align: right !important;
+}
+
+/* -----------------------------------------
+   2) PRODUCT TITLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-name {
+  display: block !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+
+  color: #000 !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* -----------------------------------------
+   3) REMOVE EXTRA PRODUCT TEXT UNDER TITLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-cart-item__prices,
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-metadata,
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-metadata__description,
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__description
+.wc-block-components-product-details {
+  display: none !important;
+}
+
+/* -----------------------------------------
+   4) THUMBNAIL + QUANTITY BUBBLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__image img {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  border: 1px solid #e7e7e7 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05) !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__quantity {
+  position: absolute !important;
+  top: -4px !important;
+  right: -4px !important;
+  left: auto !important;
+
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 5px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #f58624 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.16) !important;
+
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  z-index: 2 !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__quantity span[aria-hidden="true"] {
+  color: #fff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+/* -----------------------------------------
+   5) PRICE + SAVE BADGE STACK
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-cart-item__total-price-and-sale-badge-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 4px !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-product-price {
+  white-space: nowrap !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-sale-badge,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-product-badge.wc-block-components-sale-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 5px !important;
+  margin-top: 2px !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  color: #f58624 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-sale-badge::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-product-badge.wc-block-components-sale-badge::before {
+  content: "🏷" !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-sale-badge .wc-block-components-formatted-money-amount,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-order-summary-item__total-price
+.wc-block-components-product-badge.wc-block-components-sale-badge .wc-block-components-formatted-money-amount {
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Remove Woo default top margin */
+
+.shoshin-checkout
+.wp-block-woocommerce-checkout-order-summary-block
+.wc-block-components-checkout-order-summary__title {
+  margin-top: 0 !important;
+}
+
+/* =====================================================
+ORDER SUMMARY ITEM LAYOUT FIX
+Prevents title/price/save from leaving container
+===================================================== */
+
+.shoshin-checkout
+.wc-block-components-order-summary-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout
+.wc-block-components-order-summary-item__image {
+  flex: 0 0 48px !important;
+  width: 48px !important;
+}
+
+.shoshin-checkout
+.wc-block-components-order-summary-item__description {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout
+.wc-block-components-order-summary-item__total-price {
+  flex: 0 0 auto !important;
+  text-align: right !important;
+  margin-left: auto !important;
+}
+
+/* Product title */
+
+.shoshin-checkout
+.wc-block-components-product-name {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  margin: 0 !important;
+
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* prevent price column overflow */
+
+.shoshin-checkout
+.wc-block-components-product-price {
+  white-space: nowrap !important;
+}

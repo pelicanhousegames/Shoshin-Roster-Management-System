@@ -131,6 +131,79 @@ if (!function_exists('shoshin_parse_assigned_units')) {
 }
 
 /**
+ * Return a set of valid WPForms entry IDs for a given user + form.
+ * Used to prune stale assigned_units_json references on roster fetch.
+ */
+if (!function_exists('shoshin_wpforms_get_user_entry_id_set')) {
+  function shoshin_wpforms_get_user_entry_id_set($form_id, $user_id, $limit = 2000) {
+    if (!function_exists('wpforms') || !isset(wpforms()->entry)) return [];
+
+    $rows = wpforms()->entry->get_entries([
+      'form_id' => (int) $form_id,
+      'user_id' => (int) $user_id,
+      'number'  => (int) $limit,
+      'orderby' => 'entry_id',
+      'order'   => 'DESC',
+    ]);
+
+    $set = [];
+    if (is_array($rows)) {
+      foreach ($rows as $r) {
+        $eid = (int) shoshin_get($r, 'entry_id', 0);
+        if ($eid > 0) $set[$eid] = true;
+      }
+    }
+    return $set;
+  }
+}
+
+
+
+/**
+ * Sanitize assigned-unit payload for safe JSON storage.
+ *
+ * Goal: prevent invalid JSON from being persisted into WPForms field #9
+ * (assigned_units_json) due to raw double-quote characters inside string
+ * values (e.g., 12" in weapon ranges or other free-form text).
+ *
+ * Strategy: recursively walk arrays/objects and replace raw '"' characters
+ * within string values with a safe visual equivalent (double-prime).
+ *
+ * IMPORTANT: this does not change keys/shapes; it only alters string values.
+ */
+if (!function_exists('shoshin_sanitize_assigned_payload')) {
+  function shoshin_sanitize_assigned_payload($v) {
+    if ($v === null) return $v;
+
+    if (is_string($v)) {
+      // Replace raw quotes with a safe glyph to preserve meaning without
+      // risking JSON corruption on persistence/display round-trips.
+      $v = str_replace('"', '″', $v);
+      // Guard invalid UTF-8 without stripping content
+      $v = wp_check_invalid_utf8($v, true);
+      return $v;
+    }
+
+    if (is_array($v)) {
+      foreach ($v as $k => $vv) {
+        $v[$k] = shoshin_sanitize_assigned_payload($vv);
+      }
+      return $v;
+    }
+
+    if (is_object($v)) {
+      foreach ($v as $k => $vv) {
+        $v->$k = shoshin_sanitize_assigned_payload($vv);
+      }
+      return $v;
+    }
+
+    return $v;
+  }
+}
+
+
+/**
  * Compute simple roster totals from assigned units.
  * - points: sum(points * qty)
  * - units: sum(qty)
@@ -339,6 +412,23 @@ add_action('wp_ajax_shoshin_get_my_rosters', function () {
 
   $out = [];
 
+    // -----------------------------------------------------------------------
+  // Auto-heal: build valid unit entryId sets for this user (characters + support assets)
+  // If an admin deletes entries in WPForms backend, rosters may retain stale entryIds.
+  // We prune those stale rows on fetch and persist the cleaned assigned_units_json.
+  // -----------------------------------------------------------------------
+  $CHAR_FORM_ID    = 2247;
+  $SUPPORT_FORM_ID = 2501;
+  $ASSIGNED_FIELD_ID = 9;
+  $DIGEST_FIELD_ID   = 10;
+
+  $valid_chars   = shoshin_wpforms_get_user_entry_id_set($CHAR_FORM_ID, $user_id);
+  $valid_support = shoshin_wpforms_get_user_entry_id_set($SUPPORT_FORM_ID, $user_id);
+
+  // union set (for rows missing 'kind')
+  $valid_all = $valid_chars + $valid_support;
+
+
   foreach ($entries as $e) {
     $entry_id = (int) shoshin_get($e, 'entry_id', 0);
     if (!$entry_id) continue;
@@ -347,10 +437,71 @@ add_action('wp_ajax_shoshin_get_my_rosters', function () {
     if (function_exists('shoshin_build_roster')) {
       $r = shoshin_build_roster($e);
 
-      // Ensure assigned is parsed for totals
+      // Ensure assigned is parsed for totals (and auto-heal stale entryId references)
       $assigned_raw = is_array($r) ? ($r['assigned_units_json'] ?? '') : '';
       $assigned_arr = shoshin_parse_assigned_units($assigned_raw);
+
+      // Auto-heal: prune rows whose entryId no longer exists for this user
+      $pruned = [];
+      $did_prune = false;
+
+      foreach ($assigned_arr as $row) {
+        if (!is_array($row)) continue;
+
+        $eid  = (int) shoshin_get($row, 'entryId', 0);
+        $kind = (string) shoshin_get($row, 'kind', '');
+
+        // If no entryId, keep (cannot validate)
+        if ($eid <= 0) {
+          $pruned[] = $row;
+          continue;
+        }
+
+        $ok = true;
+        if ($kind === 'character') {
+          $ok = isset($valid_chars[$eid]);
+        } elseif ($kind === 'support') {
+          $ok = isset($valid_support[$eid]);
+        } else {
+          // Unknown/missing kind: accept if it exists in either set
+          $ok = isset($valid_all[$eid]);
+        }
+
+        if ($ok) $pruned[] = $row;
+        else $did_prune = true;
+      }
+
+      if ($did_prune) {
+        // Persist cleaned JSON back to WPForms (field 9 + digest field 10)
+        $entry_full = wpforms()->entry->get((int) shoshin_get($e, 'entry_id', 0));
+        $fields = shoshin_wpforms_decode_fields($entry_full);
+
+
+        $new_json = wp_json_encode($pruned, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $new_digest = sha1($new_json);
+
+        shoshin_wpforms_set_field_value($fields, $ASSIGNED_FIELD_ID, $new_json);
+        shoshin_wpforms_set_field_value($fields, $DIGEST_FIELD_ID, $new_digest);
+
+        $fields_json = wp_json_encode($fields, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+        // Include form_id for safety (matches other update calls)
+        wpforms()->entry->update((int) shoshin_get($e, 'entry_id', 0), [
+          'fields'  => $fields_json,
+          'form_id' => (int) $ROSTER_FORM_ID,
+        ]);
+
+        // Update returned roster payload to reflect the healed state
+        if (is_array($r)) {
+          $r['assigned_units_json'] = $new_json;
+          $r['assigned_units_digest'] = $new_digest;
+        }
+
+        $assigned_arr = $pruned;
+      }
+
       $totals = shoshin_compute_roster_totals($assigned_arr);
+
 
       if (is_array($r)) {
         // Fill computed totals if placeholders
@@ -369,8 +520,11 @@ add_action('wp_ajax_shoshin_get_my_rosters', function () {
       continue;
     }
 
-    // Fallback legacy mapping
-    $fields = shoshin_wpforms_decode_fields($e);
+// Fallback legacy mapping
+$entry_full = wpforms()->entry->get((int) shoshin_get($e, 'entry_id', 0));
+if (!$entry_full) continue;
+$fields = shoshin_wpforms_decode_fields($entry_full);
+
 
     $refId = '';
     $name  = '';
@@ -395,7 +549,56 @@ add_action('wp_ajax_shoshin_get_my_rosters', function () {
 
     $assigned_json = (string) shoshin_wpforms_get_field_value($fields, 9);
     $assigned_arr = shoshin_parse_assigned_units($assigned_json);
+        // Auto-heal: prune stale unit entryIds (admin-side deletes bypass cascade)
+    $pruned = [];
+    $did_prune = false;
+
+    foreach ($assigned_arr as $row) {
+      if (!is_array($row)) continue;
+
+      $eid  = (int) shoshin_get($row, 'entryId', 0);
+      $kind = (string) shoshin_get($row, 'kind', '');
+
+      if ($eid <= 0) {
+        $pruned[] = $row;
+        continue;
+      }
+
+      $ok = true;
+      if ($kind === 'character') {
+        $ok = isset($valid_chars[$eid]);
+      } elseif ($kind === 'support') {
+        $ok = isset($valid_support[$eid]);
+      } else {
+        $ok = isset($valid_all[$eid]);
+      }
+
+      if ($ok) $pruned[] = $row;
+      else $did_prune = true;
+    }
+
+    if ($did_prune) {
+      $new_json = wp_json_encode($pruned, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+      $new_digest = sha1($new_json);
+
+      shoshin_wpforms_set_field_value($fields, $ASSIGNED_FIELD_ID, $new_json);
+      shoshin_wpforms_set_field_value($fields, $DIGEST_FIELD_ID, $new_digest);
+
+      $fields_json = wp_json_encode($fields, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+      wpforms()->entry->update($entry_id, [
+        'fields'  => $fields_json,
+        'form_id' => (int) $ROSTER_FORM_ID,
+      ]);
+
+      // Ensure subsequent totals + output reflect healed state
+      $assigned_json = $new_json;
+      $assigned_arr  = $pruned;
+    }
+
     $totals = shoshin_compute_roster_totals($assigned_arr);
+    $assigned_digest = $did_prune ? $new_digest : (string) shoshin_wpforms_get_field_value($fields, 10);
+
 
     $out[] = [
       'kind'    => 'roster',
@@ -406,7 +609,8 @@ add_action('wp_ajax_shoshin_get_my_rosters', function () {
       'img'     => $img,
 
       'assigned_units_json'    => $assigned_json,
-      'assigned_units_digest'  => (string) shoshin_wpforms_get_field_value($fields, 10),
+      'assigned_units_digest'  => (string) $assigned_digest,
+
 
       'points'     => (int) $totals['points'],
       'units'      => (int) $totals['units'],
@@ -449,6 +653,12 @@ add_action('wp_ajax_shoshin_assign_asset_to_rosters', function () {
     wp_send_json_error(['message' => 'Invalid unit payload.'], 400);
   }
 
+
+  // Server-side safety: sanitize incoming unit payload so persisted
+// assigned_units_json can always be JSON.parse()'d on refresh.
+$unit = shoshin_sanitize_assigned_payload($unit);
+
+
   $assignments = is_array($assign_raw) ? $assign_raw : json_decode((string) $assign_raw, true);
   if (!is_array($assignments)) $assignments = [];
 
@@ -484,16 +694,27 @@ add_action('wp_ajax_shoshin_assign_asset_to_rosters', function () {
     $assigned_json = (string) shoshin_wpforms_get_field_value($fields, $ASSIGNED_FIELD_ID);
     $assigned = shoshin_parse_assigned_units($assigned_json);
 
-    // set qty for this roster
+
+       // add qty for this roster (my-assets Assign modal behavior)
     $found = false;
     foreach ($assigned as &$u) {
       if (is_array($u) && isset($u['unitKey']) && (string) $u['unitKey'] === (string) $unit['unitKey']) {
-        $u['qty'] = max(1, (int) $qty);
+        $existing_qty = isset($u['qty']) ? (int) $u['qty'] : 1;
+        $incoming_qty = (int) $qty;
+
+        $new_qty = $existing_qty + $incoming_qty;
+
+        // Safety clamp (matches other endpoints using bounded qty semantics)
+        if ($new_qty < 1) $new_qty = 1;
+        if ($new_qty > 99) $new_qty = 99;
+
+        $u['qty'] = $new_qty;
         $found = true;
         break;
       }
     }
     unset($u);
+
 
     if (!$found) {
       $unit_copy = $unit;
@@ -591,6 +812,11 @@ add_action('wp_ajax_shoshin_bulk_assign_units_to_roster', function () {
 
     if (!is_array($unit)) continue;
 
+    // Server-side safety: sanitize incoming unit payload so persisted
+// assigned_units_json can always be JSON.parse()'d on refresh.
+$unit = shoshin_sanitize_assigned_payload($unit);
+
+
     $unitKey = (string) shoshin_get($unit, 'unitKey', '');
     if ($unitKey === '') continue;
 
@@ -616,6 +842,10 @@ add_action('wp_ajax_shoshin_bulk_assign_units_to_roster', function () {
 
   // If nothing valid was provided, still return current state (no changes)
   if ($touched > 0) {
+      // Also sanitize the final array to clean any legacy corrupted string values
+  // and guarantee parseable JSON on refresh.
+  $assigned = shoshin_sanitize_assigned_payload($assigned);
+
     $new_json = wp_json_encode($assigned, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $new_digest = sha1($new_json);
 
@@ -710,6 +940,10 @@ add_action('wp_ajax_shoshin_set_unit_qty', function () {
   if (!$found) {
     wp_send_json_error(['message' => 'Unit not found in roster assignments.'], 404);
   }
+
+  // Sanitize final assigned array to guarantee parseable JSON on refresh.
+$new_assigned = shoshin_sanitize_assigned_payload($new_assigned);
+
 
   $new_json = wp_json_encode($new_assigned, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
   $new_digest = sha1($new_json);

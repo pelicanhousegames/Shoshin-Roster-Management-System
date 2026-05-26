@@ -1,0 +1,1526 @@
+/* =========================================================
+   SHOSHIN CHECKOUT BASELINE — CONSOLIDATED
+   Scope:
+   - Only inside .shoshin-checkout wrapper
+   - Stable 2-column Woo Blocks checkout
+   - Single-shadow outer column shells only
+   - Flat interior modules
+   - Compact express checkout buttons
+   - Balanced right sidebar width
+   ========================================================= */
+
+/* -----------------------------------------
+   1) DESKTOP LAYOUT + OUTER COLUMN SHELLS
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar-layout {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    column-gap: 16px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main,
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .10) !important;
+    padding: 18px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main {
+    flex: 1 1 0% !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: hidden !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    flex: 0 0 360px !important;
+    width: 360px !important;
+    max-width: 360px !important;
+  }
+}
+
+/* -----------------------------------------
+   2) LEFT COLUMN INNER MODULES
+   Flat interior; no inner shadows
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  background: #fff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 16px !important;
+  padding: 18px 18px !important;
+}
+
+/* normalize step internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container {
+  margin-bottom: 12px !important;
+}
+
+/* flatten any Woo rounded internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-panel,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-order-summary__content {
+  border-radius: 0 !important;
+}
+
+/* -----------------------------------------
+   3) EXPRESS CHECKOUT
+   Flat section, compact buttons, no extra shell
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 0 16px 0 !important;
+  padding: 16px 14px 14px !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* title spacing + typography */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title-container {
+  margin: 12px 0 12px 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title {
+  margin: 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+}
+
+/* flatten decorative side lines */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::before,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::after {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  height: 1px !important;
+}
+
+/* content spacing + no inherited wrapper styling */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__content {
+  margin: 0 !important;
+  padding: 24px 0 0 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* compact multi-button layout */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 calc(25% - 8px) !important;
+  min-width: 132px !important;
+}
+
+/* keep provider-rendered buttons natural */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li > div,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .StripeElement,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .paypal-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* divider text */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment-continue-rule {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 14px 0 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+/* -----------------------------------------
+   4) RESPONSIVE EXPRESS
+   ----------------------------------------- */
+
+@media (max-width: 1024px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(33.333% - 7px) !important;
+    min-width: 132px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(50% - 5px) !important;
+    min-width: 0 !important;
+  }
+}
+
+/* -----------------------------------------
+   5) RIGHT SIDEBAR INTERIOR
+   Flat outer summary block, flat inner modules
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-sidebar .wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-cart-items-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-subtotal-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-shipping-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-wrapper:last-child {
+  background: #ffffff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 16px !important;
+}
+
+/* -----------------------------------------
+   6) COUPON APPLY BUTTON
+   Remove inherited global checkout min-height
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wc-block-components-button,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wp-element-button {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* =========================================
+   COUPON INPUT — ORANGE FOCUS HIGHLIGHT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon {
+  border: 1px solid #dcdcdc;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+
+/* focus state */
+
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon:focus,
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon:focus-visible {
+
+  border-color: #f58624 !important;
+
+  box-shadow: 0 0 0 2px rgba(245,134,36,.25) !important;
+
+  outline: none !important;
+}
+
+/* =========================================================
+   LEFT COLUMN — FORCE INNER MODULES TO RESPECT SHELL PADDING
+   ========================================================= */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main > *,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  box-sizing: border-box !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — ORDER SUMMARY ITEM CLEANUP / POLISH
+   Scope:
+   - .shoshin-checkout checkout only
+   - Removes duplicate product info under title
+   - Hides custom cart-injected meta in checkout summary
+   - Stabilizes order summary item layout
+   ========================================================= */
+
+/* -----------------------------------------
+   1) REMOVE DUPLICATE / UNWANTED PRODUCT INFO
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-cart-item__prices,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata__description,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-details {
+  display: none !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* -----------------------------------------
+   2) ORDER SUMMARY ITEM LAYOUT FIX
+   Prevent item rows from blowing out container
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item {
+  display: grid !important;
+  grid-template-columns: 64px minmax(0, 1fr) auto !important;
+  column-gap: 12px !important;
+  align-items: start !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__image {
+  position: relative !important;
+  width: 64px !important;
+  min-width: 64px !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price {
+  min-width: 0 !important;
+  width: auto !important;
+  justify-self: end !important;
+  text-align: right !important;
+}
+
+/* -----------------------------------------
+   3) PRODUCT TITLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-name {
+  display: block !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+}
+
+/* -----------------------------------------
+   4) THUMBNAIL + QUANTITY BUBBLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__image img {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  border: 1px solid #e7e7e7 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05) !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__quantity {
+  position: absolute !important;
+  left: auto !important;
+  z-index: 2 !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f58624 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .16) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__quantity span[aria-hidden="true"] {
+  color: #fff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+/* -----------------------------------------
+   5) PRICE STACK
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-cart-item__total-price-and-sale-badge-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 4px !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .price,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-price {
+  white-space: nowrap !important;
+}
+
+/* Remove Woo default top margin */
+.shoshin-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+  margin-top: 0 !important;
+}
+
+/* Remove Save badge in checkout order summary */
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-badge,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-sale-badge,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-badge.wc-block-components-sale-badge {
+  display: none !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — HEADER STACKING FIX (REVISED)
+   Keeps express buttons under header
+   Preserves native scrolling/sticky behavior of right column
+   ========================================================= */
+
+/* -----------------------------------------
+   1) EXPRESS BUTTONS / IFRAMES MUST STAY BELOW HEADER
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__content,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment iframe,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .paypal-buttons,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .StripeElement,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .__PrivateStripeElement {
+  z-index: 1 !important;
+}
+
+/* -----------------------------------------
+   2) KEEP RIGHT SUMMARY STICKY, JUST OFFSET IT BELOW HEADER
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar {
+    top: 102px !important;
+  }
+}
+
+/* Add spacing above "Save payment info" checkbox */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-payment-methods__save-card-info {
+  margin-top: 14px !important;
+}
+
+/* =========================================
+   CHECKOUT — ACTIVE OPTION BORDER COLOR
+   Override Woo Blocks black highlight
+   ========================================= */
+
+
+.shoshin-checkout .wc-block-checkout 
+.wc-block-components-radio-control--highlight-checked 
+.wc-block-components-radio-control-accordion-option--checked-option-highlighted,
+
+.shoshin-checkout .wc-block-checkout 
+.wc-block-components-radio-control--highlight-checked 
+label.wc-block-components-radio-control__option--checked-option-highlighted {
+    border-color: #f58624 !important;
+    box-shadow: 0 0 0 1px #f58624 !important;
+}
+
+/* =========================================
+   CHECKOUT ACTIONS ROW LAYOUT
+   - Return to Cart pinned left
+   - Place Order centered in right lane
+   - Both buttons equal height
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-checkout__actions_row {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  align-items: center !important;
+  column-gap: 20px !important;
+}
+
+/* =========================================
+   SHARED BUTTON HEIGHT / ALIGNMENT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button {
+  min-height: 64px !important;
+  align-self: center !important;
+  box-sizing: border-box !important;
+}
+
+/* =========================================
+   RETURN TO CART — LEFT ANCHORED
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button {
+  justify-self: start !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  min-width: 220px !important;
+  padding: 0 24px !important;
+
+  background: #f3f4f6 !important;
+  color: #333 !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+
+  border: 1px solid #dcdcdc !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08) !important;
+
+  text-decoration: none !important;
+  transition: all .2s ease !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button:hover {
+  background: #e9eaec !important;
+  border-color: #cfcfcf !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12) !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button svg {
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin-left: 16px !important;
+}
+
+/* =========================================
+   PLACE ORDER — RIGHT LANE / CENTERED
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button {
+  justify-self: center !important;
+
+  width: 100% !important;
+  max-width: 480px !important;
+  min-width: 0 !important;
+
+  background: #f58624 !important;
+  color: #ffffff !important;
+  border: none !important;
+
+  padding: 0 24px !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: .5px !important;
+  text-transform: uppercase !important;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,.15) !important;
+  transition: all .25s ease !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button:hover {
+  background: #e97712 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.20) !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15) !important;
+}
+
+/* keep orange button text centered vertically + horizontally */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button .wc-block-components-button__text,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button .wc-block-components-checkout-place-order-button__text {
+  width: 100% !important;
+  min-height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* =========================================
+   MOBILE FALLBACK
+   ========================================= */
+
+@media (max-width: 767px) {
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-checkout__actions_row {
+    grid-template-columns: 1fr !important;
+    row-gap: 12px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-components-checkout-return-to-cart-button,
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-components-checkout-place-order-button {
+    justify-self: stretch !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+}
+
+/* =========================================
+   CHECKOUT RIGHT COLUMN — HIDE EMPTY TOTALS ROWS
+   Removes blank bordered blocks when no data exists
+   ========================================= */
+
+/* hide empty discount / fee rows */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-discount-block.wc-block-components-totals-wrapper:empty,
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-fee-block.wc-block-components-totals-wrapper:empty {
+  display: none !important;
+}
+
+/* hide any totally empty totals wrapper in the summary area,
+   but keep the final total block visible */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-totals-block
+.wc-block-components-totals-wrapper:empty {
+  display: none !important;
+}
+
+/* remove empty description space inside subtotal / shipping / total rows */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-totals-item__description:empty {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* if Woo leaves an empty block shell that is not literally :empty,
+   collapse it when it has no visible content */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-discount-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-fee-block.wc-block-components-totals-wrapper {
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* tighten borders so adjacent visible rows look continuous */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-totals-block
+> .wc-block-components-totals-wrapper + .wc-block-components-totals-wrapper {
+  margin-top: 0 !important;
+}
+
+/* =========================================
+   PAYMENT OPTIONS — REMOVE GROUP DIVIDER
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked::after,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--last-selected::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--last-selected::after,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--first-selected::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--first-selected::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   BATCH ACK — MOVE ABOVE TERMS TEXT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout .shoshin-batch-ack-mount {
+  margin: 0 0 16px 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .shoshin-batch-ack-mount .wc-block-components-checkbox {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* hide the empty Additional Information shell after move */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-additional-information-block.shoshin-batch-ack-source-empty {
+  display: none !important;
+}
+
+.shoshin-batch-ack-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: .03em;
+}
+
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock,
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock:hover,
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock:focus {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+/* space between native Woo terms text and first custom acknowledgement */
+.shoshin-checkout .shoshin-batch-ack-mount > .wc-block-components-checkbox__label + .wc-block-components-checkbox {
+  margin-top: 12px !important;
+}
+
+/* space between multiple custom acknowledgement checkboxes */
+.shoshin-checkout .shoshin-batch-ack-mount > .wc-block-components-checkbox + .wc-block-components-checkbox {
+  margin-top: 12px !important;
+}
+
+.shoshin-checkout .shoshin-acknowledgements-heading {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  margin: 0 0 10px 0 !important;
+  color: #2b2b2b !important;
+  letter-spacing: .03em !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT BASELINE — CONSOLIDATED
+   Scope:
+   - Only inside .shoshin-checkout wrapper
+   - Stable 2-column Woo Blocks checkout
+   - Single-shadow outer column shells only
+   - Flat interior modules
+   - Compact express checkout buttons
+   - Balanced right sidebar width
+   ========================================================= */
+
+/* -----------------------------------------
+   1) DESKTOP LAYOUT + OUTER COLUMN SHELLS
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar-layout {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    column-gap: 16px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main,
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid #e6e6e6 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .10) !important;
+    padding: 18px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main {
+    flex: 1 1 0% !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: hidden !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar.wc-block-checkout__sidebar {
+    flex: 0 0 360px !important;
+    width: 360px !important;
+    max-width: 360px !important;
+  }
+}
+
+/* -----------------------------------------
+   2) LEFT COLUMN INNER MODULES
+   Flat interior; no inner shadows
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  background: #fff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 16px !important;
+  padding: 18px 18px !important;
+}
+
+/* normalize step internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step__heading-container {
+  margin-bottom: 12px !important;
+}
+
+/* flatten any Woo rounded internals */
+.shoshin-checkout .wc-block-checkout .wc-block-components-panel,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-order-summary__content {
+  border-radius: 0 !important;
+}
+
+/* -----------------------------------------
+   3) EXPRESS CHECKOUT
+   Flat section, compact buttons, no extra shell
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 0 16px 0 !important;
+  padding: 16px 14px 14px !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* title spacing + typography */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title-container {
+  margin: 12px 0 12px 0 !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__title {
+  margin: 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+}
+
+/* flatten decorative side lines */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::before,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment--checkout .wc-block-components-express-payment__title-container::after {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  height: 1px !important;
+}
+
+/* content spacing + no inherited wrapper styling */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__content {
+  margin: 0 !important;
+  padding: 24px 0 0 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* compact multi-button layout */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 calc(25% - 8px) !important;
+  min-width: 132px !important;
+}
+
+/* keep provider-rendered buttons natural */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li > div,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .StripeElement,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons .paypal-buttons {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* divider text */
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment-continue-rule {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 14px 0 0 !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+/* -----------------------------------------
+   4) RESPONSIVE EXPRESS
+   ----------------------------------------- */
+
+@media (max-width: 1024px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(33.333% - 7px) !important;
+    min-width: 132px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li {
+    flex: 0 1 calc(50% - 5px) !important;
+    min-width: 0 !important;
+  }
+}
+
+/* -----------------------------------------
+   5) RIGHT SIDEBAR INTERIOR
+   Flat outer summary block, flat inner modules
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-block {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-sidebar .wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-cart-items-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-subtotal-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-shipping-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-wrapper:last-child {
+  background: #ffffff !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 16px !important;
+}
+
+/* -----------------------------------------
+   6) COUPON APPLY BUTTON
+   Remove inherited global checkout min-height
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wc-block-components-button,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-coupon__form .wp-element-button {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* =========================================
+   COUPON INPUT — ORANGE FOCUS HIGHLIGHT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon {
+  border: 1px solid #dcdcdc;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+
+/* focus state */
+
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon:focus,
+.shoshin-checkout .wc-block-checkout
+#wc-block-components-totals-coupon__input-coupon:focus-visible {
+
+  border-color: #f58624 !important;
+
+  box-shadow: 0 0 0 2px rgba(245,134,36,.25) !important;
+
+  outline: none !important;
+}
+
+/* =========================================================
+   LEFT COLUMN — FORCE INNER MODULES TO RESPECT SHELL PADDING
+   ========================================================= */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-main.wc-block-checkout__main > *,
+.shoshin-checkout .wc-block-checkout .wc-block-components-checkout-step,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__terms,
+.shoshin-checkout .wc-block-checkout .wc-block-checkout__actions {
+  box-sizing: border-box !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — ORDER SUMMARY ITEM CLEANUP / POLISH
+   Scope:
+   - .shoshin-checkout checkout only
+   - Removes duplicate product info under title
+   - Hides custom cart-injected meta in checkout summary
+   - Stabilizes order summary item layout
+   ========================================================= */
+
+/* -----------------------------------------
+   1) REMOVE DUPLICATE / UNWANTED PRODUCT INFO
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-cart-item__prices,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata__description,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-details {
+  display: none !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-metadata {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* -----------------------------------------
+   2) ORDER SUMMARY ITEM LAYOUT FIX
+   Prevent item rows from blowing out container
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item {
+  display: grid !important;
+  grid-template-columns: 64px minmax(0, 1fr) auto !important;
+  column-gap: 12px !important;
+  align-items: start !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__image {
+  position: relative !important;
+  width: 64px !important;
+  min-width: 64px !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price {
+  min-width: 0 !important;
+  width: auto !important;
+  justify-self: end !important;
+  text-align: right !important;
+}
+
+/* -----------------------------------------
+   3) PRODUCT TITLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__description .wc-block-components-product-name {
+  display: block !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+}
+
+/* -----------------------------------------
+   4) THUMBNAIL + QUANTITY BUBBLE
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__image img {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  border: 1px solid #e7e7e7 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .05) !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__quantity {
+  position: absolute !important;
+  left: auto !important;
+  z-index: 2 !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f58624 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .16) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__quantity span[aria-hidden="true"] {
+  color: #fff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+/* -----------------------------------------
+   5) PRICE STACK
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-cart-item__total-price-and-sale-badge-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 4px !important;
+  min-width: 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .price,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-price {
+  white-space: nowrap !important;
+}
+
+/* Remove Woo default top margin */
+.shoshin-checkout .wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+  margin-top: 0 !important;
+}
+
+/* Remove Save badge in checkout order summary */
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-badge,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-sale-badge,
+.shoshin-checkout .wc-block-checkout .wc-block-components-order-summary-item__total-price .wc-block-components-product-badge.wc-block-components-sale-badge {
+  display: none !important;
+}
+
+/* =========================================================
+   SHOSHIN CHECKOUT — HEADER STACKING FIX (REVISED)
+   Keeps express buttons under header
+   Preserves native scrolling/sticky behavior of right column
+   ========================================================= */
+
+/* -----------------------------------------
+   1) EXPRESS BUTTONS / IFRAMES MUST STAY BELOW HEADER
+   ----------------------------------------- */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__content,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment__event-buttons > li,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment iframe,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .paypal-buttons,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .StripeElement,
+.shoshin-checkout .wc-block-checkout .wc-block-components-express-payment .__PrivateStripeElement {
+  z-index: 1 !important;
+}
+
+/* -----------------------------------------
+   2) KEEP RIGHT SUMMARY STICKY, JUST OFFSET IT BELOW HEADER
+   ----------------------------------------- */
+
+@media (min-width: 782px) {
+  .shoshin-checkout .wc-block-checkout .wc-block-components-sidebar {
+    top: 102px !important;
+  }
+}
+
+/* Add spacing above "Save payment info" checkbox */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-payment-methods__save-card-info {
+  margin-top: 14px !important;
+}
+
+/* =========================================
+   CHECKOUT — ACTIVE OPTION BORDER COLOR
+   Override Woo Blocks black highlight
+   ========================================= */
+
+
+.shoshin-checkout .wc-block-checkout 
+.wc-block-components-radio-control--highlight-checked 
+.wc-block-components-radio-control-accordion-option--checked-option-highlighted,
+
+.shoshin-checkout .wc-block-checkout 
+.wc-block-components-radio-control--highlight-checked 
+label.wc-block-components-radio-control__option--checked-option-highlighted {
+    border-color: #f58624 !important;
+    box-shadow: 0 0 0 1px #f58624 !important;
+}
+
+/* =========================================
+   CHECKOUT ACTIONS ROW LAYOUT
+   - Return to Cart pinned left
+   - Place Order centered in right lane
+   - Both buttons equal height
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-checkout__actions_row {
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  align-items: center !important;
+  column-gap: 20px !important;
+}
+
+/* =========================================
+   SHARED BUTTON HEIGHT / ALIGNMENT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button {
+  min-height: 64px !important;
+  align-self: center !important;
+  box-sizing: border-box !important;
+}
+
+/* =========================================
+   RETURN TO CART — LEFT ANCHORED
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button {
+  justify-self: start !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+
+  min-width: 220px !important;
+  padding: 0 24px !important;
+
+  background: #f3f4f6 !important;
+  color: #333 !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+
+  border: 1px solid #dcdcdc !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08) !important;
+
+  text-decoration: none !important;
+  transition: all .2s ease !important;
+  overflow: hidden !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button:hover {
+  background: #e9eaec !important;
+  border-color: #cfcfcf !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12) !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-return-to-cart-button svg {
+  flex: 0 0 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+  margin-left: 16px !important;
+}
+
+/* =========================================
+   PLACE ORDER — RIGHT LANE / CENTERED
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button {
+  justify-self: center !important;
+
+  width: 100% !important;
+  max-width: 480px !important;
+  min-width: 0 !important;
+
+  background: #f58624 !important;
+  color: #ffffff !important;
+  border: none !important;
+
+  padding: 0 24px !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: .5px !important;
+  text-transform: uppercase !important;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,.15) !important;
+  transition: all .25s ease !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button:hover {
+  background: #e97712 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.20) !important;
+}
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15) !important;
+}
+
+/* keep orange button text centered vertically + horizontally */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button .wc-block-components-button__text,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-checkout-place-order-button .wc-block-components-checkout-place-order-button__text {
+  width: 100% !important;
+  min-height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* =========================================
+   MOBILE FALLBACK
+   ========================================= */
+
+@media (max-width: 767px) {
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-checkout__actions_row {
+    grid-template-columns: 1fr !important;
+    row-gap: 12px !important;
+  }
+
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-components-checkout-return-to-cart-button,
+  .shoshin-checkout .wc-block-checkout
+  .wc-block-components-checkout-place-order-button {
+    justify-self: stretch !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+}
+
+/* =========================================
+   CHECKOUT RIGHT COLUMN — HIDE EMPTY TOTALS ROWS
+   Removes blank bordered blocks when no data exists
+   ========================================= */
+
+/* hide empty discount / fee rows */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-discount-block.wc-block-components-totals-wrapper:empty,
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-fee-block.wc-block-components-totals-wrapper:empty {
+  display: none !important;
+}
+
+/* hide any totally empty totals wrapper in the summary area,
+   but keep the final total block visible */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-totals-block
+.wc-block-components-totals-wrapper:empty {
+  display: none !important;
+}
+
+/* remove empty description space inside subtotal / shipping / total rows */
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-totals-item__description:empty {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* if Woo leaves an empty block shell that is not literally :empty,
+   collapse it when it has no visible content */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-discount-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-fee-block.wc-block-components-totals-wrapper {
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* tighten borders so adjacent visible rows look continuous */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-order-summary-totals-block
+> .wc-block-components-totals-wrapper + .wc-block-components-totals-wrapper {
+  margin-top: 0 !important;
+}
+
+/* =========================================
+   PAYMENT OPTIONS — REMOVE GROUP DIVIDER
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked::after,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--last-selected::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--last-selected::after,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--first-selected::before,
+.shoshin-checkout .wc-block-checkout
+.wc-block-components-radio-control--highlight-checked--first-selected::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   BATCH ACK — MOVE ABOVE TERMS TEXT
+   ========================================= */
+
+.shoshin-checkout .wc-block-checkout .shoshin-batch-ack-mount {
+  margin: 0 0 16px 0 !important;
+}
+
+.shoshin-checkout .wc-block-checkout .shoshin-batch-ack-mount .wc-block-components-checkbox {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* hide the empty Additional Information shell after move */
+.shoshin-checkout .wc-block-checkout
+.wp-block-woocommerce-checkout-additional-information-block.shoshin-batch-ack-source-empty {
+  display: none !important;
+}
+
+.shoshin-batch-ack-title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: .03em;
+}
+
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock,
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock:hover,
+.shoshin-checkout .wc-block-components-checkout-place-order-button.shoshin-batch-ack-lock:focus {
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+/* space between native Woo terms text and first custom acknowledgement */
+.shoshin-checkout .shoshin-batch-ack-mount > .wc-block-components-checkbox__label + .wc-block-components-checkbox {
+  margin-top: 12px !important;
+}
+
+/* space between multiple custom acknowledgement checkboxes */
+.shoshin-checkout .shoshin-batch-ack-mount > .wc-block-components-checkbox + .wc-block-components-checkbox {
+  margin-top: 12px !important;
+}
+
+.shoshin-checkout .shoshin-acknowledgements-heading {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  margin: 0 0 10px 0 !important;
+  color: #2b2b2b !important;
+  letter-spacing: .03em !important;
+}
+
+/* Remove borders from all order summary sidebar wrapper blocks */
+
+.shoshin-checkout .wc-block-checkout .wc-block-components-sidebar .wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-cart-items-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-subtotal-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wp-block-woocommerce-checkout-order-summary-shipping-block.wc-block-components-totals-wrapper,
+.shoshin-checkout .wc-block-checkout .wc-block-components-totals-wrapper:last-child {
+    border: none !important;
+}
+
+/* Prevent Elementor drop-cap styling from leaking into Woo cart/checkout notices */
+.woocommerce-cart .wc-block-components-totals-footer-item-shipping .elementor-drop-cap,
+.woocommerce-cart .wc-block-components-totals-footer-item-shipping .elementor-drop-cap-letter,
+.woocommerce-checkout .wc-block-components-totals-footer-item-shipping .elementor-drop-cap,
+.woocommerce-checkout .wc-block-components-totals-footer-item-shipping .elementor-drop-cap-letter,
+.shoshin-checkout .wc-block-components-totals-footer-item-shipping .elementor-drop-cap,
+.shoshin-checkout .wc-block-components-totals-footer-item-shipping .elementor-drop-cap-letter {
+	all: unset !important;
+	display: inline !important;
+	font: inherit !important;
+	color: inherit !important;
+	line-height: inherit !important;
+}

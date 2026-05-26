@@ -1025,7 +1025,7 @@ if (Array.isArray(arr)) {
 
                     <!-- Row B: Current Assignments -->
           <div class="shoshin-preview-assignments">
-            <div class="shoshin-assign-rosters-head">Current Assignments</div>
+            
             <div class="shoshin-assign-roster-filters shoshin-preview-roster-filters"></div>
             <div class="shoshin-assign-roster-list shoshin-preview-roster-list" aria-live="polite"></div>
 
@@ -1207,13 +1207,8 @@ if (Array.isArray(arr)) {
       host.innerHTML = '';
 
       // Match assign modal UX: centered row of buttons
-      host.style.display = 'flex';
-      host.style.justifyContent = 'center';
-      host.style.gap = '10px';
-      host.style.flexWrap = 'wrap';
-      host.style.margin = '0 0 12px 0';
-
-      var filters = ['All Rosters', '~ 500', '~ 1000', '~ 2500', '2500+'];
+  
+      var filters = ['All Rosters', '~500', '~1000', '~2500', '2500+'];
 
       filters.forEach(function (label) {
         var btn = document.createElement('button');
@@ -1416,7 +1411,7 @@ if (Array.isArray(arr)) {
 
     <!-- ROW 3 -->
     <div class="shoshin-assign-row3">
-      <div class="shoshin-assign-rosters-head">Available Clan Rosters</div>
+      
       <div class="shoshin-assign-roster-filters"></div>
       <div class="shoshin-assign-roster-list" aria-live="polite"></div>
 
@@ -1700,18 +1695,76 @@ if (Array.isArray(arr)) {
   // Clear note content
   noteEl.innerHTML = '';
 
-  // Rebuild the base note
-    if (assignState.isDaimyoAsset) {
-    var rosters = Array.isArray(assignState.rosters) ? assignState.rosters : [];
-    var anyAssignable = rosters.some(function (r) { return r && !r.hasDaimyo; });
-    var blocked = (rosters.length > 0) && !anyAssignable;
+function renderAssignModeNote() {
+  if (!assignModal) return;
 
-    if (blocked) {
+  var noteEl = assignModal.querySelector('.shoshin-assign-mode-note');
+  if (!noteEl) return;
+
+  // Keep any existing inline error node, but clear the base note content first.
+  var existingErr = noteEl.querySelector('.shoshin-assign-inline-error');
+
+  // Clear note content
+  noteEl.innerHTML = '';
+
+  // Rebuild the base note
+  if (assignState.isDaimyoAsset) {
+
+    var rosters = Array.isArray(assignState.rosters) ? assignState.rosters : [];
+
+    // "Assignable" means the roster does NOT already have a Daimyo (lock condition)
+    var anyAssignable = rosters.some(function (r) { return r && !r.hasDaimyo; });
+
+    // Determine whether THIS asset is already assigned to 1+ rosters by scanning assigned_units_json
+    var wantRefId = '';
+    try {
+      wantRefId = String(assignState.asset && assignState.asset.refId ? assignState.asset.refId : '').trim();
+    } catch (_) { wantRefId = ''; }
+
+    var hasAnyAssignments = false;
+
+    if (wantRefId) {
+      hasAnyAssignments = rosters.some(function (r) {
+        if (!r) return false;
+
+        // assigned_units_json might be stored on the roster object; be defensive
+        var raw = (r.assigned_units_json != null ? r.assigned_units_json : (r.assigned || r.assignedUnitsJson || ''));
+        if (!raw) return false;
+
+        var arr = [];
+        try {
+          // raw can be JSON string OR already-parsed array
+          arr = Array.isArray(raw) ? raw : JSON.parse(String(raw));
+        } catch (_) {
+          arr = [];
+        }
+
+        if (!Array.isArray(arr) || !arr.length) return false;
+
+        // Match by refId (canonical)
+        return arr.some(function (u) {
+          return u && String(u.refId || '').trim() === wantRefId;
+        });
+      });
+    }
+
+    // State 1: assigned to some, still assignable elsewhere
+    if (hasAnyAssignments && anyAssignable) {
+      noteEl.innerHTML =
+        '<strong style="color:#c0392b;">Restriction:</strong> ' +
+        '<span style="color:#c0392b; font-weight:700;">This Daimyo is already assigned to one or more clans.</span>';
+
+    // State 2: assigned to all available clans (i.e., no roster is assignable)
+    } else if (hasAnyAssignments && !anyAssignable) {
+      noteEl.innerHTML =
+        '<strong style="color:#c0392b;">Restriction:</strong> ' +
+        '<span style="color:#c0392b; font-weight:700;">This Daimyo is already assigned to all available clans.</span>';
+
+    // State 3: not assigned anywhere
+    } else {
       noteEl.innerHTML =
         '<strong style="color:#c0392b;">Restriction:</strong> ' +
         '<span style="color:#c0392b; font-weight:700;">Only one Daimyo is allowed to be assigned to a clan.</span>';
-    } else {
-      noteEl.innerHTML = '<strong>Restriction:</strong> Only one Daimyo is allowed to be assigned to a clan.';
     }
 
   } else if (assignState.mode === 'one_to_many') {
@@ -1725,6 +1778,7 @@ if (Array.isArray(arr)) {
     noteEl.appendChild(existingErr);
   }
 }
+    }
 
 
 function showAssignInlineError(msg) {
@@ -1912,9 +1966,9 @@ function clearAssignInlineError() {
       points = parseInt(points, 10) || 0;
 
       if (label === 'All Rosters') return true;
-      if (label === '~ 500')  return (points >= 0   && points <= 500);
-      if (label === '~ 1000') return (points >= 501 && points <= 1000);
-      if (label === '~ 2500') return (points >= 1001 && points <= 2500);
+      if (label === '~500')  return (points >= 0   && points <= 500);
+      if (label === '~1000') return (points >= 501 && points <= 1000);
+      if (label === '~2500') return (points >= 1001 && points <= 2500);
       if (label === '2500+')  return (points >= 2501);
       return true;
     }
@@ -1944,13 +1998,8 @@ function clearAssignInlineError() {
       host.innerHTML = '';
 
       // Center-aligned like /my-rosters
-      host.style.display = 'flex';
-      host.style.justifyContent = 'center';
-      host.style.gap = '10px';
-      host.style.flexWrap = 'wrap';
-      host.style.margin = '0 0 12px 0';
-
-      var filters = ['All Rosters', '~ 500', '~ 1000', '~ 2500', '2500+'];
+     
+      var filters = ['All Rosters', '~500', '~1000', '~2500', '2500+'];
 
       filters.forEach(function (label) {
         var btn = document.createElement('button');
@@ -1993,7 +2042,16 @@ function clearAssignInlineError() {
 
         if (anyRostersExist && rosterCurrentFilter !== 'All Rosters') {
           // EXACT empty message from /my-rosters for active filter with 0 matches
-          empty.innerHTML = '<h2><em>You currently do not have any clans with these points totals.</em></h2>';
+empty.innerHTML =
+  '<h2 style="text-align:center;"><em>You currently do not have any clans with these points totals.</em></h2>' +
+  '<div class="shoshin-empty-illustration-wrap" style="display:flex; justify-content:center; margin-top:12px;">' +
+    '<img class="shoshin-empty-illustration" ' +
+         'src="/wp-content/uploads/2025/11/SPOA.webp" ' +
+         'alt="Shoshin illustration" loading="lazy" ' +
+         'style="max-width:150px; width:100%; height:auto; display:block;">' +
+  '</div>';
+
+
         } else {
           // Original baseline message
           empty.innerHTML =
@@ -2116,7 +2174,7 @@ function clearAssignInlineError() {
         rosterLoadMoreWrap.style.display = filtered.length > rosterVisibleLimit ? 'flex' : 'none';
         if (rosterLoadMoreBtn) {
           var remaining = Math.max(0, filtered.length - showCount);
-          rosterLoadMoreBtn.textContent = remaining > 0 ? 'Load more (' + remaining + ' more)' : 'Load more';
+          rosterLoadMoreBtn.textContent = remaining > 0 ? 'Load more (' + remaining + ')' : 'Load more';
         }
       }
 
@@ -2289,7 +2347,15 @@ function clearAssignInlineError() {
           if (filterLabel === 'All') htmlMsg = '<h2><em>You have not created any Character or Support Asset entries.</em></h2>';
           else if (filterLabel === 'Support Assets') htmlMsg = '<h2><em>No entries exist for these Support Assets.</em></h2>';
           else htmlMsg = '<h2><em>No entries exist for this Character Class.</em></h2>';
-          msgEl.innerHTML = htmlMsg;
+          // Empty-state message + illustration
+          msgEl.innerHTML =
+            htmlMsg +
+            '<div class="shoshin-empty-illustration-wrap">' +
+              '<img class="shoshin-empty-illustration" ' +
+                   'src="/wp-content/uploads/2025/11/SPOA.webp" ' +
+                   'alt="Shoshin illustration" loading="lazy">' +
+            '</div>';
+
           msgEl.style.display = 'block';
         } else {
           msgEl.style.display = 'none';
@@ -2448,8 +2514,15 @@ function clearAssignInlineError() {
         // Determine kind + cls (mirrors existing logic)
         const cardClass = (card.dataset.className || '').trim();
         const kind = (cardClass === 'Artillery' || cardClass === 'Sailing Ships') ? 'support' : 'character';
-        const cls = cardClass || '';
-        const name = displayName || refId || cls || '';
+const cls = cardClass || '';
+
+// Option A canonical rule:
+// - Characters: name mirrors refId (no separate name field exists)
+// - Supports: name mirrors displayName (e.g., "Ozutsu") when present
+const name = (kind === 'character')
+  ? (refId || '')
+  : (displayName || refId || cls || '');
+
 
                 // Normalize image to a site-relative path so unitKey matches assigned_units_json
 let imgKey = String(img || '').trim();
@@ -2584,13 +2657,15 @@ const unitKey =
         const ldr_raw = getRawStatFromCard(card, 'LDR');
         const ini_raw = getRawStatFromCard(card, 'INI');
 
-        // Numeric-normalized where appropriate (keeps 0 for non-numeric)
-        const atk = toInt(atk_raw);
-        const def = toInt(def_raw);
-        const mov = toInt(mov_raw);  // store as number; UI renders with Core.fmtInches()
-        const bod = toInt(bod_raw);
-        const ldr = toInt(ldr_raw);
-        const ini = toInt(ini_raw);
+                // Preserve raw display values so assigned_units_json can store tokens like:
+        // '--', 'Variable', 'Highest', 'Captain', etc. (matches /my-rosters behavior)
+        const atk = (atk_raw == null ? '' : String(atk_raw)).trim() || '--';
+        const def = (def_raw == null ? '' : String(def_raw)).trim() || '--';
+        const mov = (mov_raw == null ? '' : String(mov_raw)).trim() || '--';
+        const bod = (bod_raw == null ? '' : String(bod_raw)).trim() || '--';
+        const ldr = (ldr_raw == null ? '' : String(ldr_raw)).trim() || '--';
+        const ini = (ini_raw == null ? '' : String(ini_raw)).trim() || '--';
+
 
 
         // Determine kind (characters vs support assets)
@@ -2598,8 +2673,15 @@ const unitKey =
         const kind = (cardClass === 'Artillery' || cardClass === 'Sailing Ships') ? 'support' : 'character';
 
         // cls = bucket/class (Samurai, Artillery, etc.)
-        const cls = cardClass || '';
-        const name = displayName || refId || cls || '';
+const cls = cardClass || '';
+
+// Option A canonical rule:
+// - Characters: name mirrors refId (no separate name field exists)
+// - Supports: name mirrors displayName (e.g., "Ozutsu") when present
+const name = (kind === 'character')
+  ? (refId || '')
+  : (displayName || refId || cls || '');
+
 
         const unitKey =
           String(kind).trim() + '|' +
@@ -3307,7 +3389,7 @@ const unitKey =
         assetLoadMoreWrap.style.display = matching.length > assetVisibleLimit ? 'flex' : 'none';
         if (assetLoadMoreBtn) {
           var remaining = Math.max(0, matching.length - showCount);
-          assetLoadMoreBtn.textContent = remaining > 0 ? 'Load more (' + remaining + ' more)' : 'Load more';
+          assetLoadMoreBtn.textContent = remaining > 0 ? 'Load more (' + remaining + ')' : 'Load more';
         }
       }
 

@@ -1,0 +1,195 @@
+<div id="shoshin-support-summary" class="shoshin-summary"
+     style="border:1px solid #ccc;padding:16px;max-width:520px;">
+  <!-- Row 1: Image + Basic Info -->
+  <div class="shoshin-row shoshin-row-top"
+       style="display:flex;gap:16px;margin-bottom:12px;align-items:flex-start;">
+    <div class="shoshin-avatar" style="flex:0 0 150px;text-align:center;">
+      <img id="shoshin-support-image"
+           src="/wp-content/uploads/2025/12/Helmet-grey.jpg"
+           alt="Support asset portrait"
+           style="width:150px;height:150px;object-fit:cover;border:1px solid #ddd;
+                  border-radius:4px;background:#f5f5f5;" />
+    </div>
+
+    <div class="shoshin-basic" style="flex:1;">
+      <h3 id="shoshin-support-name"
+          style="margin:0 0 4px;font-size:1.1rem;">
+        Select a Support Asset
+      </h3>
+
+      <p id="shoshin-support-description"
+         style="margin:0 0 4px;font-size:0.9rem;color:#555;">
+        Choose the asset to see its stats, cost, and special rules.
+      </p>
+
+      <!-- Asset Type -->
+      <p style="margin:0 0 8px;font-size:0.9rem;">
+        <strong>Size:</strong>
+        <span id="shoshin-support-type">--</span>
+      </p>
+
+      <!-- Extra vertical spacing -->
+      <div style="height:8px;"></div>
+
+      <!-- Total Cost (horizontal alignment) -->
+      <div class="shoshin-total-cost-row"
+           style="display:flex;align-items:center;gap:12px;margin-top:4px;margin-bottom:4px;">
+        <strong style="font-size:0.95rem;white-space:nowrap;">Total Cost:</strong>
+
+        <div id="shoshin-support-cost"
+             style="border:1px solid #ccc;padding:4px 8px;font-size:0.95rem;
+                    min-width:48px;text-align:center;min-height:1.4em;">
+          --
+        </div>
+      </div>
+    </div> <!-- end .shoshin-basic -->
+
+  </div> <!-- end .shoshin-row-top -->
+
+  <!-- Row 2: Weapon Stats -->
+  <div class="shoshin-row shoshin-row-weapons" style="margin-bottom:12px;">
+    <h4 style="margin:0 0 4px;font-size:0.95rem;">Weapon Stats</h4>
+    <table class="shoshin-table shoshin-weapons"
+           style="width:100%;border-collapse:collapse;font-size:0.85rem;text-align:center;">
+      <thead>
+        <tr>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Melee<br>Damage
+          </th>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Melee<br>Critical
+          </th>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Melee<br>Distance
+          </th>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Ranged<br>Damage
+          </th>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Ranged<br>Critical
+          </th>
+          <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            Ranged<br>Distance
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="shoshin-support-melee-dmg"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+          <td id="shoshin-support-melee-crit"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+          <td id="shoshin-support-melee-dist"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+          <td id="shoshin-support-ranged-dmg"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+          <td id="shoshin-support-ranged-crit"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+          <td id="shoshin-support-ranged-dist"
+              style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">
+            --
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Row 3: Asset Stats -->
+  <div class="shoshin-row shoshin-row-stats" style="margin-bottom:12px;">
+    <h4 style="margin:0 0 4px;font-size:0.95rem;">Support Asset Stats</h4>
+<table class="shoshin-table shoshin-stats"
+       style="width:100%;border-collapse:collapse;font-size:0.85rem;text-align:center;">
+  <thead>
+    <tr>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Attack</th>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Resistance</th>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Movement</th>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Toughness</th>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Leadership</th>
+      <th style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">Initiative</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="shoshin-stat-attack"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+      <td id="shoshin-stat-resistance"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+      <td id="shoshin-stat-movement"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+      <td id="shoshin-stat-toughness"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+      <td id="shoshin-stat-leadership"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+      <td id="shoshin-stat-initiative"
+          style="border:1px solid #ccc;padding:4px;text-align:center;vertical-align:middle;">--</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+  <!-- FINAL ROWS: Training / Equipment / Combat Modifiers -->
+<div class="shoshin-row shoshin-row-modifiers" style="margin-bottom:8px;">
+
+ <!-- 1) Training Requirements -->
+<h4 style="margin:0 0 4px;font-size:0.95rem;">Training Requirements</h4>
+<div style="display:flex; gap:16px; margin-bottom:10px;">
+  <ul id="shoshin-support-training-req-col1"
+      style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+    <li>None</li>
+  </ul>
+  <ul id="shoshin-support-training-req-col2"
+      style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+    <!-- will be filled by JS -->
+  </ul>
+</div>
+
+<!-- 2) Equipment & Items -->
+<h4 style="margin:0 0 4px;font-size:0.95rem;">Equipment &amp; Items</h4>
+<div style="display:flex; gap:16px; margin-bottom:10px;">
+  <ul id="shoshin-support-equipment-items-col1"
+      style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+    <li>None</li>
+  </ul>
+  <ul id="shoshin-support-equipment-items-col2"
+      style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+    <!-- will be filled by JS -->
+  </ul>
+</div>
+
+
+  <!-- 3) Combat Modifiers (was Special Rules & Modifiers) -->
+  <h4 style="margin:0 0 4px;font-size:0.95rem;">Combat Modifiers</h4>
+  <div style="display:flex; gap:16px;">
+    <ul id="shoshin-support-modifiers-col1"
+        style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+      <li>None</li>
+    </ul>
+    <ul id="shoshin-support-modifiers-col2"
+        style="margin:0; padding-left:18px; font-size:0.85rem; flex:1;">
+      <!-- will be filled by JS -->
+    </ul>
+  </div>
+
+  <div id="shoshin-support-modifiers-key"
+       style="margin-top:4px;font-size:0.75rem;color:#666;text-align:center;">
+    <strong>[M]</strong> Melee&nbsp;&nbsp;
+    <strong>[R]</strong> Ranged&nbsp;&nbsp;
+    <strong>[B]</strong> Both&nbsp;&nbsp;
+    <strong>[P]</strong> Passive&nbsp;&nbsp;
+    <strong>[A]</strong> Action
+  </div>
+</div>
+
+
+</div> <!-- end #shoshin-support-summary -->

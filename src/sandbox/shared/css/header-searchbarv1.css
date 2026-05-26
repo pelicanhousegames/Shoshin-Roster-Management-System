@@ -1,0 +1,326 @@
+/* =========================
+   BEGIN SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   Purpose:
+   - Force true 3-column flex header (logo | elastic search | hard-right menu)
+   - OVERRIDES Elementor inline widths (%/px) that are breaking flex
+   - Search always visible + expands when space exists
+   - Right cluster never wraps; search yields/shrinks first
+   ========================= */
+
+   /* =========================
+   SHOSHIN: Disable Header Expand/Collapse (Sticky Shrink)
+   Targets your header wrapper (hdr-wrap)
+   ========================= */
+
+/* When Elementor applies sticky/shrink classes, force same sizing */
+.hdr-wrap.elementor-sticky--effects,
+.hdr-wrap.elementor-sticky--active{
+  transform: none !important;
+  top: 0 !important;
+}
+
+/* Remove “smooth shrink” transitions (optional but usually necessary) */
+.hdr-wrap,
+.hdr-wrap *{
+  transition: none !important;
+}
+
+/* 0) Safety: prevent any horizontal spill from header */
+.hdr-wrap{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+
+  width: 100% !important;
+  max-width: 100vw !important;
+
+  gap: 16px !important;
+  overflow-x: clip !important;     /* avoids “menu exceeds viewport” */
+}
+
+/* 1) LEFT (logo): ignore Elementor width, keep it compact + clamped */
+.hdr-wrap > .hdr-left{
+  /* override Elementor width controls */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+
+  /* clamp logo cluster so it never takes the whole row */
+  flex-basis: auto !important;
+  /* adjust these if you want smaller/larger logo region */
+  max-inline-size: clamp(120px, 14vw, 220px) !important;
+}
+
+/* 2) RIGHT (menus): hard-right, never wrap, never overlap */
+.hdr-wrap > .hdr-right{
+  /* override Elementor width controls */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+
+  white-space: nowrap !important;
+  min-width: 0 !important;         /* allows internal flex to size correctly */
+}
+
+/* Elementor menus often wrap via flex, not whitespace — force no-wrap */
+.hdr-right .elementor-nav-menu__container,
+.hdr-right .elementor-nav-menu,
+.hdr-right .elementor-nav-menu > ul{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 18px !important;
+  white-space: nowrap !important;
+}
+.hdr-right .elementor-nav-menu > ul > li{ flex: 0 0 auto !important; }
+.hdr-right .elementor-nav-menu a{ white-space: nowrap !important; }
+
+/* 3) MIDDLE (search): THIS must be elastic.
+      Key: width:auto + flex-basis:0 + min-width:0 so it can grow AND shrink. */
+.hdr-wrap > .hdr-search{
+  /* override Elementor width controls (this is the big one) */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 1 1 0 !important;          /* take all remaining space */
+  min-width: 0 !important;         /* allow shrink before right wraps */
+}
+
+/* 4) Force the shortcode output and any wrappers to actually fill the middle */
+.hdr-search-slot{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Make the immediate shortcode widget wrapper expand (Elementor often sets inline widths) */
+.hdr-search-slot > *{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Common search wrappers + forms: full width */
+.hdr-search-slot form,
+.hdr-search-slot .rms-gs,
+.hdr-search-slot .betterdocs-searchform,
+.hdr-search-slot .betterdocs-search{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* If the search uses flex internally, prevent min-content collapse */
+.hdr-search,
+.hdr-search *{
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Inputs fill the available space */
+.hdr-search-slot input[type="search"],
+.hdr-search-slot input[type="text"]{
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+}
+
+/* 5) When tight: reduce gaps (menus still no-wrap; search yields first) */
+@media (max-width: 1180px){
+  .hdr-wrap{ gap: 10px !important; }
+  .hdr-wrap > .hdr-right{ gap: 12px !important; }
+  .hdr-right .elementor-nav-menu > ul{ gap: 12px !important; }
+}
+@media (max-width: 980px){
+  .hdr-wrap{ gap: 8px !important; }
+}
+
+/* =========================
+   END SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   ========================= */
+
+/* =========================
+ * BEGIN RMS_GLOBAL_SEARCH_CSS
+ * ========================= */
+.rms-gs { position: relative; width: 100%; max-width: 720px; }
+.rms-gs__wrap {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px;
+}
+.rms-gs__icon { opacity: 0.65; }
+.rms-gs__input {
+  flex: 1; border: 0; outline: none; font-size: 15px; background: transparent;
+}
+.rms-gs__clear {
+  border: 0; background: transparent; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; line-height: 1;
+  opacity: 0.7;
+}
+.rms-gs__clear:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+
+.rms-gs__panel {
+  position: absolute; left: 0; right: 0; top: calc(100% + 8px);
+  background: #fff; border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+  z-index: 9999;
+  overflow: hidden;
+}
+.rms-gs__panelInner { max-height: 420px; overflow: auto; padding: 12px; }
+
+.rms-gs__section { margin-bottom: 14px; }
+.rms-gs__sectionTitle {
+  font-weight: 700; font-size: 12px; letter-spacing: 0.02em;
+  text-transform: uppercase; opacity: 0.7; margin: 4px 0 10px;
+}
+
+.rms-gs__cards { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+.rms-gs__card {
+  display: block; min-width: 140px; max-width: 160px;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 10px;
+  padding: 8px; text-decoration: none;
+}
+.rms-gs__card:hover { border-color: rgba(0,0,0,0.18); }
+.rms-gs__thumb { width: 100%; height: 86px; object-fit: cover; border-radius: 8px; background: rgba(0,0,0,0.05); }
+.rms-gs__thumb--blank { width:100%; height:86px; border-radius:8px; background: rgba(0,0,0,0.06); }
+.rms-gs__cardTitle { font-size: 12px; margin-top: 8px; color: #111; line-height: 1.2; }
+
+.rms-gs__list { list-style: none; padding: 0; margin: 0; }
+.rms-gs__row { display: flex; align-items: center; gap: 10px; padding: 8px 6px; border-radius: 10px; }
+.rms-gs__row:hover { background: rgba(0,0,0,0.045); }
+.rms-gs__rowBtn {
+  display: flex; align-items: center; gap: 10px;
+  border: 0; background: transparent; cursor: pointer;
+  width: 100%; text-align: left; padding: 0;
+}
+.rms-gs__rowIcon { opacity: 0.6; }
+.rms-gs__rowText { flex: 1; font-size: 14px; color: #111; }
+.rms-gs__rowX {
+  border: 0; background: transparent; cursor: pointer;
+  width: 28px; height: 28px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px; opacity: 0.55;
+}
+.rms-gs__rowX:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+
+.rms-gs__row--link { padding: 0; }
+.rms-gs__link {
+  display:flex; align-items:center; gap:10px;
+  width:100%; padding: 8px 6px; border-radius: 10px;
+  text-decoration:none;
+}
+.rms-gs__link:hover { background: rgba(0,0,0,0.045); }
+
+.rms-gs__thumbSm { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; background: rgba(0,0,0,0.05); }
+.rms-gs__thumbSm--blank { width:34px; height:34px; border-radius:8px; background: rgba(0,0,0,0.06); }
+
+.rms-gs__muted { opacity: 0.6; font-size: 13px; padding: 8px 6px; }
+/* =========================
+ * END RMS_GLOBAL_SEARCH_CSS
+ * ========================= */
+
+ /* ========================= SHOSHIN_HEADER_SEARCH_V1 ========================= */
+
+/* Ensure the middle container can actually shrink/grow inside flex */
+.hdr-search {
+  min-width: 0; /* critical for flex children at various zoom levels */
+}
+
+/* Form should fill the container */
+.hdr-search .e-search-form {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+/* Wrapper must not collapse */
+.hdr-search .e-search-input-wrapper {
+  width: 100%;
+  max-width: 100%;
+  position: relative; /* for pseudo-icon anchoring */
+}
+
+/* Input fills available width and stays stable */
+.hdr-search .e-search-input {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+
+    /* Kill any legacy/background-based icons to prevent double spyglass */
+  background-image: none !important;
+  background: #fff !important;
+
+  /* "Wiki-style" icon spacing */
+  padding-left: 38px; /* room for spyglass */
+}
+
+/* Spyglass icon inside input (CSS only) */
+.hdr-search .e-search-input-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16x;
+  height: 16px;
+  pointer-events: none;
+  opacity: 0.65;
+
+  /* Inline SVG (no external assets) */
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23666' d='M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17L442.7 505c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z'/%3E%3C/svg%3E");
+}
+
+/* Keep the live results dropdown constrained to the field width */
+.hdr-search output.e-search-results-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Don’t let the screen-reader submit button affect layout */
+.hdr-search .e-search-submit {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+/* Optional: ensure the input height doesn’t jump due to theme defaults */
+.hdr-search .e-search-input {
+  line-height: 1.2;
+}
+
+/* ---- PATCH: prevent placeholder/text overlapping spyglass ---- */
+.hdr-search .e-search-input-wrapper {
+  position: relative;
+}
+
+.hdr-search .e-search-input-wrapper::before {
+  z-index: 2; /* keep icon above input background */
+}
+
+.hdr-search .e-search-input {
+  padding-left: 44px !important; /* stronger than before */
+}
+
+/* Some themes apply text-indent or weird padding resets; normalize both states */
+.hdr-search .e-search-input::placeholder {
+  padding-left: 0 !important;
+}
+
+/* If any rule uses text-indent, kill it so padding-left is the only offset */
+.hdr-search .e-search-input {
+  text-indent: 0 !important;
+}

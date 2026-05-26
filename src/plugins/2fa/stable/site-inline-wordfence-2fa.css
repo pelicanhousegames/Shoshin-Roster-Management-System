@@ -1,0 +1,52 @@
+.wf-inline-2fa {
+	margin-top: 1rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.wf-inline-2fa[hidden] {
+	display: none !important;
+}
+
+.wf-inline-2fa__panel {
+	padding: 0.875rem 1rem;
+	border: 1px solid rgba(0,0,0,.08);
+	border-radius: 0;
+	background: #fff;
+}
+
+.wf-inline-2fa__label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.4rem;
+}
+
+.wf-inline-2fa__input {
+	width: 100%;
+	max-width: 100%;
+	letter-spacing: .04em;
+	box-sizing: border-box;
+}
+
+.wf-inline-2fa__hint {
+	font-size: .92rem;
+	opacity: .8;
+	margin: .5rem 0 0.65rem;
+}
+
+.wf-inline-2fa__remember {
+	display: inline-flex;
+	gap: .5rem;
+	align-items: center;
+	font-size: .92rem;
+}
+
+.wf-inline-2fa__message {
+	margin-top: .75rem;
+	font-size: .95rem;
+}
+
+.wf-inline-2fa__message.is-error {
+	color: #b42318;
+	font-weight: 600;
+}

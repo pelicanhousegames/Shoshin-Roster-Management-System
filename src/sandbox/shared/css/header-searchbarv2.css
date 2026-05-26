@@ -1,0 +1,529 @@
+/* ============================================================================
+   HEADER CSS ONLY (AUTHORITATIVE)
+   - Preserves header layout + sticky behavior
+   - Removes ALL searchbar/search styling (Elementor Search Widget handles UI)
+   - Removes ALL RMS global search styling from this file
+   ============================================================================ */
+
+
+/* =========================
+   BEGIN SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   Purpose:
+   - Force true 3-column flex header (logo | elastic middle | hard-right menu)
+   - OVERRIDES Elementor inline widths (%/px) that are breaking flex
+   - Middle region expands when space exists and yields first when tight
+   - Right cluster never wraps
+   ========================= */
+
+/* =========================
+   SHOSHIN: Disable Header Expand/Collapse (Sticky Shrink)
+   Targets your header wrapper (hdr-wrap)
+   ========================= */
+
+/* When Elementor applies sticky/shrink classes, force same sizing */
+.hdr-wrap.elementor-sticky--effects,
+.hdr-wrap.elementor-sticky--active{
+  transform: none !important;
+  top: 0 !important;
+}
+
+/* Remove “smooth shrink” transitions (optional but usually necessary) */
+.hdr-wrap,
+.hdr-wrap *{
+  transition: none !important;
+}
+
+/* 0) Safety: prevent any horizontal spill from header */
+.hdr-wrap{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+
+  width: 100% !important;
+  max-width: 100vw !important;
+
+  gap: 16px !important;
+  overflow-x: clip !important;     /* avoids “menu exceeds viewport” */
+}
+
+/* 1) LEFT (logo): ignore Elementor width, keep it compact + clamped */
+.hdr-wrap > .hdr-left{
+  /* override Elementor width controls */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+
+  /* clamp logo cluster so it never takes the whole row */
+  flex-basis: auto !important;
+  /* adjust these if you want smaller/larger logo region */
+  max-inline-size: clamp(120px, 14vw, 220px) !important;
+}
+
+/* 2) RIGHT (menus): hard-right, never wrap, never overlap */
+.hdr-wrap > .hdr-right{
+  /* override Elementor width controls */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 0 0 auto !important;
+  margin-left: auto !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+
+  white-space: nowrap !important;
+  min-width: 0 !important;         /* allows internal flex to size correctly */
+}
+
+/* Elementor menus often wrap via flex, not whitespace — force no-wrap */
+.hdr-right .elementor-nav-menu__container,
+.hdr-right .elementor-nav-menu,
+.hdr-right .elementor-nav-menu > ul{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 18px !important;
+  white-space: nowrap !important;
+}
+.hdr-right .elementor-nav-menu > ul > li{ flex: 0 0 auto !important; }
+.hdr-right .elementor-nav-menu a{ white-space: nowrap !important; }
+
+/* 3) MIDDLE (elastic region): width:auto + flex-basis:0 + min-width:0 so it can grow AND shrink */
+.hdr-wrap > .hdr-search{
+  /* override Elementor width controls (this is the big one) */
+  width: auto !important;
+  max-width: none !important;
+
+  flex: 1 1 0 !important;          /* take all remaining space */
+  min-width: 0 !important;         /* allow shrink before right wraps */
+}
+
+/* 4) Force the middle container content and wrappers to fill the region */
+.hdr-search-slot{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Make the immediate widget wrapper expand (Elementor often sets inline widths) */
+.hdr-search-slot > *{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Common wrappers + forms: full width */
+.hdr-search-slot form,
+.hdr-search-slot .rms-gs,
+.hdr-search-slot .betterdocs-searchform,
+.hdr-search-slot .betterdocs-search{
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* If the middle region uses flex internally, prevent min-content collapse */
+.hdr-search,
+.hdr-search *{
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Inputs fill the available space (generic; does not style appearance) */
+.hdr-search-slot input[type="search"],
+.hdr-search-slot input[type="text"]{
+  width: 100% !important;
+  max-width: none !important;
+  display: block !important;
+}
+
+/* 5) When tight: reduce gaps (menus still no-wrap; middle yields first) */
+@media (max-width: 1180px){
+  .hdr-wrap{ gap: 10px !important; }
+  .hdr-wrap > .hdr-right{ gap: 12px !important; }
+  .hdr-right .elementor-nav-menu > ul{ gap: 12px !important; }
+}
+@media (max-width: 980px){
+  .hdr-wrap{ gap: 8px !important; }
+}
+
+/* =========================
+   END SHOSHIN_HEADER_FLEX_LOCK_V7 (DROP-IN)
+   ========================= */
+
+/* =========================
+   SHOSHIN_HEADER_SEARCH_WIDGET_V2
+   Force Elementor Search icon INSIDE input and vertically centered
+   ========================= */
+
+/* Anchor positioning to the wrapper that contains the input */
+.hdr-search .elementor-widget-search .e-search-input-wrapper{
+  position: relative !important;
+}
+
+/* Put the label+icon on top of the input, not above it */
+.hdr-search .elementor-widget-search .e-search-label{
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  pointer-events: none !important; /* click focuses input */
+  z-index: 2 !important;
+}
+
+/* Style the icon itself (lighter + slightly smaller) */
+.hdr-search .elementor-widget-search .e-search-label svg.e-font-icon-svg{
+  width: 16px !important;
+  height: 16px !important;
+  opacity: 0.75 !important; /* ~75% visual weight */
+  display: block !important;
+}
+
+/* Make room for the icon */
+.hdr-search .elementor-widget-search .e-search-input{
+  padding-left: 50px !important;
+}
+
+/* ========================= SHOSHIN_HEADER_SEARCH_DROPDOWN_V1 ========================= */
+
+/* Scope to header search slot if you have it; fallback to Elementor search widget class */
+.hdr-search .elementor-widget-search,
+.hdr-search .elementor-widget-search * {
+  box-sizing: border-box;
+}
+
+/* Make sure the dropdown positions relative to the widget */
+.hdr-search .elementor-widget-search,
+.elementor-widget-search {
+  position: relative;
+}
+
+/* Dropdown container */
+.hdr-search output.e-search-results-container {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+
+  padding: 6px 0;
+
+  max-height: 420px;
+  overflow: auto;
+
+  /* Prevent “full width page” style weirdness in some themes */
+  margin: 0;
+}
+
+/* Results list wrapper */
+.hdr-search .elementor-widget-search .e-search-results,
+.elementor-widget-search .e-search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0;
+}
+
+/* Each result item (Elementor uses links inside the results list) */
+.hdr-search .elementor-widget-search .e-search-results a,
+.elementor-widget-search .e-search-results a {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  text-decoration: none;
+  border-radius: 0;
+  color: inherit;
+
+  transition: background-color .12s ease;
+}
+
+.hdr-search .elementor-widget-search .e-search-results a:hover,
+.elementor-widget-search .e-search-results a:hover {
+  background: rgba(0,0,0,.04);
+}
+
+/* Thumbnail / icon column */
+.hdr-search .elementor-widget-search .e-search-results a img,
+.elementor-widget-search .e-search-results a img {
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(0,0,0,.03);
+}
+
+/* Title text (Elementor typically wraps titles in spans/divs) */
+.hdr-search .elementor-widget-search .e-search-results a .e-search-result__title,
+.elementor-widget-search .e-search-results a .e-search-result__title,
+.hdr-search .elementor-widget-search .e-search-results a strong,
+.elementor-widget-search .e-search-results a strong {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #111;
+}
+
+/* Price / meta text */
+.hdr-search .elementor-widget-search .e-search-results a .price,
+.elementor-widget-search .e-search-results a .price,
+.hdr-search .elementor-widget-search .e-search-results a .e-search-result__meta,
+.elementor-widget-search .e-search-results a .e-search-result__meta,
+.hdr-search .elementor-widget-search .e-search-results a small,
+.elementor-widget-search .e-search-results a small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: rgba(0,0,0,.62);
+}
+
+/* "No results" message should be readable and not duplicated-looking */
+.hdr-search .elementor-widget-search .e-search-results .e-search-no-results,
+.elementor-widget-search .e-search-results .e-search-no-results {
+  padding: 12px;
+  font-size: 13px;
+  color: rgba(0,0,0,.70);
+}
+
+/* Mobile safety: dropdown should not overflow viewport */
+@media (max-width: 768px) {
+  .hdr-search .elementor-widget-search .e-search-results-container,
+  .elementor-widget-search .e-search-results-container {
+    max-height: 55vh;
+  }
+}
+
+/* Optional: nicer scrollbar without breaking anything */
+.hdr-search .elementor-widget-search .e-search-results-container::-webkit-scrollbar,
+.elementor-widget-search .e-search-results-container::-webkit-scrollbar {
+  width: 10px;
+}
+.hdr-search .elementor-widget-search .e-search-results-container::-webkit-scrollbar-thumb,
+.elementor-widget-search .e-search-results-container::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.18);
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,.9);
+}
+
+/* ========================= SHOSHIN_HEADER_SEARCH_DROPDOWN_V2 ========================= */
+/* Target: Elementor Pro Search widget live results dropdown rendering Loop Items */
+
+.hdr-search output.e-search-results-container{
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999999 !important;
+
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18) !important;
+
+  padding: 6px !important;
+  max-height: 420px !important;
+  overflow: auto !important;
+}
+
+/* Keep results list clean */
+.hdr-search .e-search-results{
+  display: block !important;
+}
+
+/* Each live-result row is a Loop Item wrapper */
+.hdr-search .e-search-results .e-loop-item{
+  display: block !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/* Hover highlight on the full row */
+.hdr-search .e-search-results .e-loop-item:hover{
+  background: rgba(0,0,0,0.04) !important;
+}
+
+/* Reduce internal container padding/spacing so it feels like an autocomplete row */
+.hdr-search .e-search-results .e-loop-item .e-con-inner{
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 12px !important;
+}
+
+/* Thumbnail widget: lock size */
+.hdr-search .e-search-results .elementor-widget-theme-post-featured-image img{
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  background: rgba(0,0,0,0.03);
+}
+
+/* IMPORTANT: Disable lightbox click in dropdown (thumbnail link points to image file) */
+.hdr-search .e-search-results .elementor-widget-theme-post-featured-image a{
+  pointer-events: none !important;
+}
+
+/* Title block: kill H1 sizing + spacing, keep it tight */
+.hdr-search .e-search-results .elementor-widget-theme-post-title h1{
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+}
+
+/* Title link: make it look like dropdown text */
+.hdr-search .e-search-results .elementor-widget-theme-post-title a{
+  color: #111 !important;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+/* Price: smaller + muted */
+.hdr-search .e-search-results .woocommerce-product-price .price{
+  margin: 3px 0 0 0 !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  color: rgba(0,0,0,0.62) !important;
+}
+
+/* Tighten the right-side container so title/price stack nicely */
+.hdr-search .e-search-results .elementor-element-3de7d7d{
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+}
+
+/* Prevent long titles from blowing out the dropdown width */
+.hdr-search .e-search-results .elementor-widget-theme-post-title a{
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Keep scrollbar usable on small screens */
+@media (max-width: 768px){
+  .hdr-search output.e-search-results-container{
+    max-height: 55vh !important;
+  }
+}
+
+/* ========================= SHOSHIN_HEADER_SEARCH_RESULTS_EMPTY_FIX_V1 ========================= */
+
+/* Hide Elementor search results shell by default */
+.hdr-search .e-search-results-container,
+.hdr-search-slot .e-search-results-container{
+  display: none;
+}
+
+/* Show only when Elementor actually populates results */
+.hdr-search .e-search-results-container:not(:empty),
+.hdr-search-slot .e-search-results-container:not(:empty){
+  display: block;
+}
+
+/* If results div itself is empty, suppress the shell entirely */
+.hdr-search .e-search-results-container:has(.e-search-results:empty),
+.hdr-search-slot .e-search-results-container:has(.e-search-results:empty){
+  display: none !important;
+}
+
+/* Hide the loader when inactive */
+.hdr-search .e-search-loader,
+.hdr-search-slot .e-search-loader{
+  display: none !important;
+}
+
+/* ========================= SHOSHIN_SEARCH_RESULT_EMOJI_SCALE_V1 ========================= */
+
+/* Reduce emoji images in search result titles without affecting product thumbnails */
+.hdr-search .e-search-results img.emoji,
+.hdr-search-slot .e-search-results img.emoji{
+  width: 1.25em !important;
+  height: 1.25em !important;
+  min-width: 1.25em !important;
+  max-width: 1.25em !important;
+    vertical-align:-1.0em !important;
+  margin-right:6px !important;
+}
+
+/* ========================= SHOSHIN_SEARCH_PRODUCT_THUMBNAIL_SCALE_V1 ========================= */
+
+.e-search-results img.attachment-thumbnail{
+  width:64px !important;
+  height:64px !important;
+  object-fit:cover !important;
+  border-radius:4px;
+}
+
+/* ========================= SHOSHIN_SEARCH_TEXT_HOVER_BG_REMOVE_V1 ========================= */
+
+/* Remove nested gray hover/background on title/text blocks inside results */
+.hdr-search .e-search-results a,
+.hdr-search-slot .e-search-results a{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep text area transparent on hover/focus/active */
+.hdr-search .e-search-results a:hover,
+.hdr-search-slot .e-search-results a:hover,
+.hdr-search .e-search-results a:focus,
+.hdr-search-slot .e-search-results a:focus,
+.hdr-search .e-search-results a:active,
+.hdr-search-slot .e-search-results a:active{
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ========================= SHOSHIN_SEARCH_RESULT_CARD_V1 ========================= */
+
+.e-search-results .e-search-result{
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+
+.e-search-results .e-search-result:hover{
+  transform: translateX(2px);
+}
+
+/* ========================= SHOSHIN_SEARCH_RESULT_DENSITY_V1 ========================= */
+
+/* tighten result row padding */
+.e-search-results .e-search-result{
+  padding: 6px 12px !important;
+}
+
+/* remove extra margin between results */
+.e-search-results .e-search-result{
+  margin-bottom: 2px !important;
+}
+
+/* tighten title + price spacing */
+.e-search-results .e-search-result h3,
+.e-search-results .e-search-result .woocommerce-Price-amount{
+  margin: 2px 0 !important;
+}
+
+/* compact result text */
+.e-search-results{
+  line-height: 1.25;
+}

@@ -1,17 +1,18 @@
-Daimyo max 1 for /my-rosters asset assignment.
+
+
+***********************************************************************************************
+Gaming System / Wiki
+
+ALign Site/Docs/Woocommerce search into a single search bar (use exisitng Docs)
+
+WPForms Signup list to sunset mailchimp
+
+Build out Webshop / Create QR downloads
 
 
 
-Create Another button Yellow
-After character/asset/roster creation upon submit/save, reset display form
 
-Assignments and Unassignment modals should have a load more.
-All Units in filter
-
-
-
-
-[  {"kind": "support",    "cls": "Ozutsu",    "refId": "ART-002",    "name": "Heavy Ozutsu",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 55,    "qty": 1,    "r_dmg": "3",    "r_crt": "4+",    "r_dis": "14",    "atk": "—",    "def": "2",    "mov": "3",    "bod": "4",    "ldr": "—",    "ini": "1",    "unitKey": "support|Ozutsu|ART-002|Heavy Ozutsu|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Samurai",    "refId": "SAM-001",    "name": "Veteran Samurai",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 35,    "qty": 3,    "m_dmg": "2",    "m_crt": "5+",    "m_dis": "1",    "r_dmg": "—",    "r_crt": "—",    "r_dis": "—",    "atk": "4",    "def": "4",    "mov": "6",    "bod": "3",    "ldr": "2",    "ini": "3",    "unitKey": "character|Samurai|SAM-001|Veteran Samurai|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Ashigaru",    "refId": "ASH-014",    "name": "Yari Ashigaru",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 18,    "qty": 5,    "m_dmg": "1",    "m_crt": "6+",    "m_dis": "1",    "r_dmg": "—",    "r_crt": "—",    "r_dis": "—",    "atk": "3",    "def": "2",    "mov": "6",    "bod": "2",    "ldr": "1",    "ini": "2",    "unitKey": "character|Ashigaru|ASH-014|Yari Ashigaru|/wp-content/uploads/2025/12/Helmet-grey.jpg"},  {"kind": "character",    "cls": "Ninja",    "refId": "NIN-007",    "name": "Shadow Operative",    "img": "/wp-content/uploads/2025/12/Helmet-grey.jpg",    "cost": 42,    "qty": 2,    "m_dmg": "2",    "m_crt": "4+",    "m_dis": "1",    "r_dmg": "1",    "r_crt": "5+",    "r_dis": "6",    "atk": "4",    "def": "3",    "mov": "7",    "bod": "2",    "ldr": "1",    "ini": "4",    "unitKey": "character|Ninja|NIN-007|Shadow Operative|/wp-content/uploads/2025/12/Helmet-grey.jpg"}]
+***********************************************************************************************
 
 
 DIGITAL PAID
@@ -32,13 +33,13 @@ Mark Cunningham = [Addon: 10555263] Crimson Shadows Gang - Digital
 Joseph Zipperich =[Addon: 10532088] Broken Blade Brotherhood - Digital
 Waynaik = 
 Justin Pederson = [Addon: 10532088] Broken Blade Brotherhood - Digital
-Walter Lam = 
+Walter Lam = [Addon: 10532069] Iron Lotus Clan - Digital
 
 
 PHYSICAL OUTSTANDING AR
 Jared = [Addon: 10555263] Crimson Shadows Gang - Digital
-Dave Shields = 
-Jonathan Thornhill = 
+Dave Shields = Iron Lotus Clan
+Jonathan Thornhill =
 
 
 
@@ -56,3 +57,21 @@ Base44
 Loveable
 
 CHATGPT - prompt to Base44
+
+
+
+
+Atakebune (Large): The biggest, heavily armed, and often armored warships used for transporting samurai, featuring large, castle-like box structures. Oda Nobunaga famously used iron-covered versions called tekkōsen.
+Sekibune (Medium): The most common, standard naval warship in the middle of the Sengoku period, which was faster than the Atakebune.
+Kobaya (Small): Small, fast, oar-powered boats used for scouting, signaling, and rapid attacks, often called "small boats". 
+
+
+
+
+The Three-Tier Hierarchy
+The Japanese naval system categorized its fleet based on size, function, and speed. You can think of it as a pyramid structure:
+Class 	Type	Primary Role	Key Feature
+O-fune (Large)	Atakebune	Floating Fortresses	Defensive power and psychological warfare; often had iron plating.
+Chu-fune (Medium)	Sekibune	Main Line Warship	Balanced speed and firepower; the "destroyer" of the fleet.
+Ko-fune (Small)	Kobaya	Utility & Skirmish	High maneuverability; used for scouting and messenger duties.
+

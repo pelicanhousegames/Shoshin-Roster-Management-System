@@ -1,0 +1,2223 @@
+/* ==========================================
+   SINGLE PRODUCT V2 — GALLERY FILM STRIP
+   Best Buy style capped strip
+   ========================================== */
+
+/* Target only the new Product Images widget */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) !important;
+  grid-template-areas: "thumbs main";
+  column-gap: 12px;
+  align-items: start;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Main image area */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery .flex-viewport {
+  grid-area: main;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* Each slide fills the square stage */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__image {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+/* Keep WooCommerce slider internals */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__wrapper,
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__image {
+  width: 100%;
+}
+
+/* Main image appearance */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__wrapper img,
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__image img,
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery img.wp-post-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none !important;
+  margin: 0 auto;
+  object-fit: contain;
+  cursor: default !important;
+}
+
+/* Vertical thumbnail strip */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs {
+  grid-area: thumbs;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-content: start;
+}
+
+/* Shared 96px tile sizing */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li,
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li img,
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more {
+  width: 96px !important;
+  min-width: 96px !important;
+  max-width: 96px !important;
+  height: 96px !important;
+  min-height: 96px !important;
+  max-height: 96px !important;
+}
+
+/* Thumbnail items */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li {
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  display: block !important;
+  overflow: hidden !important;
+}
+
+/* Real thumbs */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li img {
+  display: block !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid #d7d9e0;
+  border-radius: 3px;
+  background: #fff;
+  opacity: 1;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Active + hover state */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li img.flex-active,
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li img:hover {
+  border-color: #1f2a60;
+}
+
+/* Hidden thumbs after JS caps them */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-hidden {
+  display: none !important;
+}
+
+/* +N More tile */
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more {
+  display: block !important;
+  border: 1px solid #cfd3dc;
+  border-radius: 3px;
+  background: #f3f4f7;
+  color: #2a2f3a;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.1;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more .shoshin-thumb-more-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more .shoshin-thumb-more-count {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-more .shoshin-thumb-more-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Zoom / lightbox icon */
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery__trigger {
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+}
+
+/* Hide single-product Woo sale badge */
+.elementor-element.elementor-element-1599068 .onsale {
+  display: none !important;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .elementor-element.elementor-element-1599068 .woocommerce-product-gallery {
+    grid-template-columns: 96px minmax(0, 1fr);
+    column-gap: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .elementor-element.elementor-element-1599068 .woocommerce-product-gallery {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "thumbs";
+    row-gap: 12px;
+  }
+
+  .elementor-element.elementor-element-1599068 .flex-control-thumbs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .elementor-element.elementor-element-1599068 .flex-control-thumbs li.shoshin-thumb-hidden {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================
+   SHOSHIN — PHOTO SWIPE MODAL RESTYLE
+   Clean dark modal with custom white controls
+   ========================================== */
+
+#photoswipe-fullscreen-dialog.pswp {
+  z-index: 999999 !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__bg {
+  background: rgba(12, 16, 24, 0.88) !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__top-bar,
+#photoswipe-fullscreen-dialog .pswp__caption,
+#photoswipe-fullscreen-dialog .pswp__ui,
+#photoswipe-fullscreen-dialog .pswp__container,
+#photoswipe-fullscreen-dialog .pswp__scroll-wrap,
+#photoswipe-fullscreen-dialog .pswp__item {
+  background: transparent !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__zoom-wrap {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__img {
+  background: #ffffff !important;
+  object-fit: contain !important;
+  cursor: default !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__img--placeholder {
+  background: transparent !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__top-bar {
+  height: 64px !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__counter {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  left: 22px !important;
+  top: 18px !important;
+  opacity: 1 !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__button--zoom,
+#photoswipe-fullscreen-dialog .pswp__button--fs,
+#photoswipe-fullscreen-dialog .pswp__button--share,
+#photoswipe-fullscreen-dialog .pswp__preloader {
+  display: none !important;
+}
+
+/* Neutralize default sprite */
+#photoswipe-fullscreen-dialog .pswp__button:before {
+  background: none !important;
+  content: "" !important;
+}
+
+/* Base control buttons */
+#photoswipe-fullscreen-dialog .pswp__button--close,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+/* Close button */
+#photoswipe-fullscreen-dialog .pswp__button--close {
+  top: 16px !important;
+  right: 18px !important;
+  width: 56px !important;
+  height: 56px !important;
+}
+
+/* Arrow buttons */
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right {
+  width: 64px !important;
+  height: 64px !important;
+  margin-top: -32px !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left {
+  left: 18px !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right {
+  right: 18px !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__button--close:hover,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left:hover,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right:hover {
+  transform: scale(1.08);
+}
+
+/* Custom close glyph */
+#photoswipe-fullscreen-dialog .pswp__button--close::before {
+  content: "×" !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -56%);
+  color: #ffffff;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+}
+
+#photoswipe-fullscreen-dialog .pswp__button--close::after {
+  content: none !important;
+}
+
+/* Shared arrow pseudo base */
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left::before,
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right::before {
+  content: "" !important;
+  position: absolute;
+  top: 21px;
+  width: 18px;
+  height: 18px;
+  transform: rotate(45deg);
+  display: block;
+}
+
+/* Custom left arrow */
+#photoswipe-fullscreen-dialog .pswp__button--arrow--left::before {
+  left: 24px;
+  border-left: 4px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
+}
+
+/* Custom right arrow */
+#photoswipe-fullscreen-dialog .pswp__button--arrow--right::before {
+  left: 18px;
+  border-right: 4px solid #ffffff;
+  border-top: 4px solid #ffffff;
+}
+
+/* Caption */
+#photoswipe-fullscreen-dialog .pswp__caption {
+  background: transparent !important;
+}
+
+#photoswipe-fullscreen-dialog .pswp__caption__center {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  max-width: 900px !important;
+  padding: 10px 16px 18px !important;
+}
+
+/* PhotoSwipe mobile tuning */
+@media (max-width: 767px) {
+  #photoswipe-fullscreen-dialog .pswp__button--close {
+    width: 44px !important;
+    height: 44px !important;
+    top: 12px !important;
+    right: 12px !important;
+  }
+
+  #photoswipe-fullscreen-dialog .pswp__button--close::before {
+    font-size: 34px;
+  }
+
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--left,
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--right {
+    width: 48px !important;
+    height: 48px !important;
+    margin-top: -24px !important;
+  }
+
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--left::before,
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--right::before {
+    top: 16px;
+    width: 14px;
+    height: 14px;
+  }
+
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--left::before {
+    left: 18px;
+    border-left: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+  }
+
+  #photoswipe-fullscreen-dialog .pswp__button--arrow--right::before {
+    left: 14px;
+    border-right: 3px solid #ffffff;
+    border-top: 3px solid #ffffff;
+  }
+}
+
+/* ==========================================
+   SHOSHIN — PRODUCT RATING STARS
+   ========================================== */
+
+.woocommerce .star-rating::before {
+  color: #d7d9e0;
+}
+
+.woocommerce .star-rating span::before {
+  color: #f7ca00;
+}
+
+/* Single product rating output */
+.shoshin-single-rating-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 0 !important;
+}
+
+.shoshin-single-rating-wrap .woocommerce-review-link {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #7a7f89;
+  text-decoration: none;
+}
+
+.shoshin-single-rating-wrap .woocommerce-review-link:hover {
+  text-decoration: underline;
+}
+
+.shoshin-single-rating-empty {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #7a7f89;
+}
+
+/* Reduce gap between rating and price block */
+.woocommerce div.product .woocommerce-product-rating,
+.single-product .woocommerce-product-rating {
+  margin-bottom: 6px !important;
+}
+
+/* ==========================================
+   SINGLE PRODUCT V2 — SINGLE IMAGE FINAL RESET
+   Handles Woo gallery markup when no flex-viewport/thumb strip exists
+   ========================================== */
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .flex-control-thumbs {
+  display: none !important;
+}
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .woocommerce-product-gallery__wrapper {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  transform: none !important;
+  transition: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  margin: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border-radius: 4px !important;
+}
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image > a {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image > a > img,
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image > img,
+.elementor-element.elementor-element-1599068 .woocommerce-product-gallery.shoshin-single-image-gallery img.wp-post-image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+}
+
+/* =================================
+   SHOSHIN SINGLE PRODUCT PRICE SYSTEM
+   ================================= */
+
+.shoshin-price-block {
+  margin: 16px 0;
+}
+
+.shoshin-price-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.shoshin-price-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.shoshin-price-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+/* FINAL PRICE (largest number) */
+.shoshin-price-final {
+  font-family: "Poppins", Sans-serif !important;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.shoshin-price-final--standard {
+  color: #000;
+}
+
+.shoshin-price-final--member {
+  color: #c8a95a;
+  letter-spacing: -0.01em;
+}
+
+/* SALE SECONDARY PRICE */
+.shoshin-price-secondary {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  margin-right: 6px;
+}
+
+/* STRIKE PRICE */
+.shoshin-price-regular {
+  color: #888;
+  font-size: 16px;
+}
+
+/* SAVINGS TEXT */
+.shoshin-price-savings {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a7f37;
+}
+
+/* PRICE DIVIDER */
+.shoshin-price-divider {
+  width: 2px;
+  min-width: 2px;
+  align-self: stretch;
+  margin: 0 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(181, 181, 181, 0) 0%,
+    rgba(181, 181, 181, 1) 18%,
+    rgba(181, 181, 181, 1) 82%,
+    rgba(181, 181, 181, 0) 100%
+  );
+}
+
+/* SALE ONLY / MEMBER ONLY layout */
+.shoshin-price-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.single-product .price {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.single-product .shoshin-price-block {
+  margin-top: 4px !important;
+}
+
+/* =================================
+   SHOSHIN — NATIVE STOCK STATUS
+   Attribute-driven replacement
+   ================================= */
+
+.shoshin-stock-status {
+  margin: 10px 0 14px !important;
+}
+
+.shoshin-stock-status__label {
+  font-family: "Poppins", Sans-serif !important;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+/* Color by mapped fulfillment state */
+.shoshin-stock-status--in-stock .shoshin-stock-status__label {
+  color: #1a7f37;
+}
+
+.shoshin-stock-status--available-to-purchase .shoshin-stock-status__label {
+  color: #222;
+}
+
+.shoshin-stock-status--preorders-open .shoshin-stock-status__label {
+  color: #c8a95a;
+}
+
+.shoshin-stock-status--out-of-stock .shoshin-stock-status__label {
+  color: #b42318;
+}
+
+.shoshin-stock-status--currently-unavailable .shoshin-stock-status__label {
+  color: #8a6d3b;
+}
+
+.shoshin-stock-status__subtext {
+  font-size: 14px;
+  line-height: 1.35;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.shoshin-stock-status__truck {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.shoshin-stock-status__subtext-label {
+  font-weight: 600;
+  color: #444;
+}
+
+.shoshin-stock-status__subtext-value {
+  color: #666;
+}
+
+/* =================================
+   SHOSHIN — VARIABLE PRODUCT PRICE
+   Use top price block as single source of truth
+   ================================= */
+
+.single-product .single_variation_wrap .woocommerce-variation-price,
+.single-product .single_variation_wrap .woocommerce-variation .price {
+  display: none !important;
+}
+
+/* Guest / free membership teaser under regular price */
+.shoshin-price-member-teaser {
+  color: #1a7f37;
+}
+
+.shoshin-price-member-teaser a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.shoshin-price-member-teaser a:hover {
+  opacity: 0.85;
+}
+
+/* =========================================
+   SHOSHIN PURCHASE UI VISIBILITY CONTROLS
+   ========================================= */
+
+.single-product .summary.shoshin-hide-purchase-ui form.cart .single_variation_wrap,
+.single-product .summary.shoshin-hide-purchase-ui form.cart .woocommerce-variation-add-to-cart,
+.single-product .summary.shoshin-hide-purchase-ui form.cart .quantity,
+.single-product .summary.shoshin-hide-purchase-ui form.cart .single_add_to_cart_button,
+.single-product .summary.shoshin-hide-purchase-ui .wcpay-payment-request-wrapper,
+.single-product .summary.shoshin-hide-purchase-ui .wc-stripe-product-checkout-container,
+.single-product .summary.shoshin-hide-purchase-ui .payment_request_button,
+.single-product .summary.shoshin-hide-purchase-ui .payment-request-button,
+.single-product .summary.shoshin-hide-purchase-ui .paypal-buttons,
+.single-product .summary.shoshin-hide-purchase-ui .ppc-button-wrapper,
+.single-product .summary.shoshin-hide-purchase-ui .ppcp-button-wrapper,
+.single-product .summary.shoshin-hide-purchase-ui .woocommerce-payments-express-payment-type-button,
+.single-product .summary.shoshin-hide-purchase-ui .woocommerce-payments-express-payment-wrapper,
+.single-product .summary.shoshin-hide-purchase-ui .wc_payment_request_buttons,
+.single-product .summary.shoshin-hide-purchase-ui .wc_payment_request_button,
+.single-product .summary.shoshin-hide-purchase-ui #wc-stripe-payment-request-wrapper,
+.single-product .summary.shoshin-hide-purchase-ui [class*="amazon-pay"],
+.single-product .summary.shoshin-hide-purchase-ui [class*="payment-request"],
+.single-product .summary.shoshin-hide-purchase-ui [class*="express-payment"] {
+  display: none !important;
+}
+
+.single-product .summary.shoshin-hide-express-ui .wcpay-payment-request-wrapper,
+.single-product .summary.shoshin-hide-express-ui .wc-stripe-product-checkout-container,
+.single-product .summary.shoshin-hide-express-ui .payment_request_button,
+.single-product .summary.shoshin-hide-express-ui .payment-request-button,
+.single-product .summary.shoshin-hide-express-ui .paypal-buttons,
+.single-product .summary.shoshin-hide-express-ui .ppc-button-wrapper,
+.single-product .summary.shoshin-hide-express-ui .ppcp-button-wrapper,
+.single-product .summary.shoshin-hide-express-ui .woocommerce-payments-express-payment-type-button,
+.single-product .summary.shoshin-hide-express-ui .woocommerce-payments-express-payment-wrapper,
+.single-product .summary.shoshin-hide-express-ui .wc_payment_request_buttons,
+.single-product .summary.shoshin-hide-express-ui .wc_payment_request_button,
+.single-product .summary.shoshin-hide-express-ui #wc-stripe-payment-request-wrapper,
+.single-product .summary.shoshin-hide-express-ui [class*="amazon-pay"],
+.single-product .summary.shoshin-hide-express-ui [class*="payment-request"],
+.single-product .summary.shoshin-hide-express-ui [class*="express-payment"] {
+  display: none !important;
+}
+
+/* =========================================
+   SHOSHIN — VARIABLE OPTIONS / DROPDOWN UI
+   Etsy-inspired cleanup
+   ========================================= */
+
+/* Remove the gray options panel background */
+.single-product form.variations_form .variations,
+.single-product form.variations_form .variations tbody,
+.single-product form.variations_form .variations tr,
+.single-product form.variations_form .variations td,
+.single-product form.variations_form .variations th,
+.single-product form.variations_form .reset_variations_alert,
+.single-product .elementor-widget-woocommerce-product-add-to-cart .variations {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Stack label above dropdown */
+.single-product form.variations_form .variations tr {
+  display: block !important;
+  margin: 0 0 16px 0 !important;
+}
+
+.single-product form.variations_form .variations th,
+.single-product form.variations_form .variations td {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+/* Label styling */
+.single-product form.variations_form .variations th.label,
+.single-product form.variations_form .variations th.label label {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+  font-weight: 600 !important;
+  color: #1f1f1f !important;
+  text-align: left !important;
+}
+
+/* Dropdown container full width */
+.single-product form.variations_form .variations td.value {
+  position: relative !important;
+  width: 100% !important;
+}
+
+/* Full-width select */
+.single-product form.variations_form .variations select,
+.single-product .elementor-widget-woocommerce-product-add-to-cart form.variations_form .variations select {
+  display: block !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 48px !important;
+  padding: 0 40px 0 14px !important;
+  margin: 0 !important;
+  border: 1px solid #1f1f1f !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  color: #1f1f1f !important;
+  font-size: 16px !important;
+  line-height: 46px !important;
+  box-shadow: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+  cursor: pointer !important;
+}
+
+/* Left aligned dropdown text */
+.single-product form.variations_form .variations select {
+  text-align: left !important;
+  text-align-last: left !important;
+  font-weight: 500 !important;
+}
+
+/* Hover / focus shadow */
+.single-product form.variations_form .variations select:hover,
+.single-product form.variations_form .variations select:focus {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+  outline: none !important;
+}
+
+/* Custom dropdown arrow */
+.single-product form.variations_form .variations td.value::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #1f1f1f;
+  transform: translateY(-40%);
+  pointer-events: none;
+}
+
+/* Remove clear button */
+.single-product form.variations_form .reset_variations,
+.single-product form.variations_form .reset_variations_alert,
+.single-product form.variations_form a.reset_variations {
+  display: none !important;
+}
+
+/* Tighten spacing under dropdown */
+.single-product form.variations_form .woocommerce-variation {
+  margin-top: 12px !important;
+}
+
+/* =========================================
+   SHOSHIN ADD TO CART CTA
+   ========================================= */
+
+/* Variable + simple product cart row only */
+.single-product form.cart .woocommerce-variation-add-to-cart,
+.single-product form.cart:not(.variations_form) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* Quantity */
+.single-product form.cart .quantity {
+  margin: 0 !important;
+}
+
+.single-product form.cart .quantity input.qty {
+  height: 44px;
+}
+
+/* Main Add to Cart button */
+.single-product form.cart .single_add_to_cart_button {
+  flex: 1;
+  display: block !important;
+  height: 48px;
+  padding: 13px 10px !important;
+
+  background: #f58624 !important;
+  color: #ffffff !important;
+
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  text-transform: capitalize !important;
+  text-align: center !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease !important;
+}
+
+/* Hover / active / focus / loading */
+.single-product form.cart .single_add_to_cart_button:hover,
+.single-product form.cart .single_add_to_cart_button:active,
+.single-product form.cart .single_add_to_cart_button:focus,
+.single-product form.cart .single_add_to_cart_button.loading,
+.single-product form.cart .single_add_to_cart_button.added {
+  background: #ff8c1a !important;
+  color: #ffffff !important;
+  border-color: #ff8c1a !important;
+}
+
+/* Hover motion only */
+.single-product form.cart .single_add_to_cart_button:hover {
+  transform: scale(1.05);
+}
+
+/* Disabled */
+.single-product form.cart .single_add_to_cart_button.disabled,
+.single-product form.cart .single_add_to_cart_button:disabled {
+  background: #e2e2e2 !important;
+  color: #777 !important;
+  box-shadow: none !important;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   SHOSHIN ADD TO CART CTA — EXTERNAL PRODUCTS
+   Keep Amazon-style pill only for external product main CTA
+   ========================================= */
+
+.single-product .product.product-type-external form.cart .single_add_to_cart_button,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt {
+  background: #F5B301 !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 999px !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.single-product .product.product-type-external form.cart .single_add_to_cart_button:hover,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button:hover,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt:hover,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button:active,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button:active,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt:active,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button:focus,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button:focus,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt:focus,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.loading,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.loading,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt.loading,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.added,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.added,
+.single-product .product.product-type-external form.cart .single_add_to_cart_button.button.alt.added {
+  background: #FFC533 !important;
+  color: #000 !important;
+  border-color: #FFC533 !important;
+  border-radius: 999px !important;
+}
+
+/* =========================================
+   PRODUCT SHORT DESCRIPTION BULLETS
+   ========================================= */
+
+.woocommerce-product-details__short-description ul,
+.single-product .woocommerce-product-details__short-description ul {
+  margin: 6px 0 12px 12px;
+  margin-left: 0;
+  padding-left: 14px;
+}
+
+.woocommerce-product-details__short-description li,
+.single-product .woocommerce-product-details__short-description li {
+  margin-bottom: 5px;
+  padding-left: 2px;
+  text-indent: 0;
+  line-height: 1.45;
+}
+
+.single-product .woocommerce-product-details__short-description li::marker {
+  font-size: 0.65em;
+}
+
+/* =========================================
+   EXPRESS CHECKOUT DIVIDER
+   ========================================= */
+
+.shoshin-express-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 14px;
+  color: #777;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shoshin-express-divider::before,
+.shoshin-express-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+.shoshin-express-divider span {
+  white-space: nowrap;
+}
+
+/* =========================================
+   SHOSHIN — SINGLE PRODUCT TRUST BLOCK
+   POLISH PASS
+   ========================================= */
+
+.single-product .shoshin-trust-block {
+  margin: 16px 0 18px;
+  padding: 10px 12px;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  background: #fcfcfc;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 16px;
+  row-gap: 8px;
+  align-items: start;
+  overflow: visible;
+}
+
+.single-product .shoshin-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.single-product .shoshin-trust-icon {
+  flex: 0 0 16px;
+  width: 16px;
+  min-width: 16px;
+  margin-top: 1px;
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4169e1 !important;
+  text-align: center;
+}
+
+.single-product .shoshin-trust-text {
+  display: block;
+  min-width: 0;
+  font-size: 12.5px;
+  line-height: 1.35;
+  font-weight: 500;
+  color: #2a2a2a;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+@media (max-width: 767px) {
+  .single-product .shoshin-trust-block {
+    grid-template-columns: 1fr;
+    padding: 10px 11px;
+    row-gap: 7px;
+  }
+
+  .single-product .shoshin-trust-text {
+    font-size: 12.5px;
+  }
+}
+
+/* =========================================
+   SHOSHIN — STOCK STATUS COLORS
+   ========================================= */
+
+/* GREEN STATUSES */
+
+.single-product .shoshin-stock-status--in-stock .shoshin-stock-status__label,
+.single-product .shoshin-stock-status--preorders-open .shoshin-stock-status__label,
+.single-product .shoshin-stock-status--available-to-purchase .shoshin-stock-status__label {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+/* RED STATUSES */
+
+.single-product .shoshin-stock-status--currently-unavailable .shoshin-stock-status__label,
+.single-product .shoshin-stock-status--out-of-stock .shoshin-stock-status__label {
+  color: #cc1818;
+  font-weight: 600;
+}
+
+/* =========================================
+   SHOSHIN — SINGLE PRODUCT UPSELL RAIL
+   De-duped / optimized / role-stable
+   ========================================= */
+
+/* -----------------------------------------
+   1) RAIL WRAPPER + VISIBILITY
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) {
+  margin-top: 6px !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) > h2,
+.single-product :is(.elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) h2 {
+  margin: 0 0 8px !important;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  color: #1f1f1f !important;
+}
+
+/* Show only first 3 rendered upsells */
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products > li.product:nth-child(n + 4) {
+  display: none !important;
+}
+
+/* Force clean 3-card row */
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* -----------------------------------------
+   2) CARD SHELL
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 6px 6px 8px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+
+  border: 1px solid #ececec !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 6px 14px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.10),
+    0 10px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Main product link behaves as flexible card body */
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product > a:first-of-type,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-LoopProduct-link,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-loop-product__link {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+/* -----------------------------------------
+   3) IMAGE + TITLE
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .onsale {
+  display: none !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product a img {
+  width: 100% !important;
+  max-height: 118px !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 0 5px !important;
+  border-radius: 4px !important;
+  background: #fff !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-loop-product__title,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product h2 {
+  width: 100% !important;
+  align-self: stretch !important;
+  overflow: hidden !important;
+
+  margin: 0 0 5px !important;
+  min-height: 2.5em !important;
+  max-height: 2.5em !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  text-align: left !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+  color: #1f1f1f !important;
+}
+
+/* -----------------------------------------
+   4) HIDE NOISY / DUPLICATIVE CONTENT
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product :is(
+  .woocommerce-review-link,
+  .product_meta,
+  .shoshin-price-label,
+  .shoshin-price-divider,
+  .shoshin-price-regular,
+  .shoshin-price-savings,
+  .shoshin-price-member-teaser,
+  .pmpro_price,
+  .pmpro-level-price,
+  .membership-price,
+  .member-price
+) {
+  display: none !important;
+}
+
+/* Hide any native Woo star output inside the upsell rail.
+   Re-show only the normalized Shoshin wrapper row below. */
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .star-rating {
+  display: none !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating .star-rating {
+  display: inline-block !important;
+}
+
+/* Remove helper clutter inside compact rail price row */
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .price :is(
+  br,
+  small,
+  .shoshin-price-member-teaser,
+  .pmpro_price,
+  .pmpro-level-price,
+  .membership-price,
+  .member-price
+) {
+  display: none !important;
+}
+
+/* -----------------------------------------
+   5) RATING ROW
+   Unified upsell rating row for native + external products
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+  gap: 6px !important;
+
+  min-height: 16px !important;
+  margin: 0 0 5px !important;
+
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating .star-rating {
+  display: inline-block !important;
+  float: none !important;
+  flex: 0 0 auto !important;
+
+  width: 5.6em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  vertical-align: middle !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating .shoshin-rating-count {
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  vertical-align: middle !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  color: #666 !important;
+
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating.shoshin-rating-empty {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .woocommerce-product-rating.shoshin-upsell-rating .shoshin-rating-none {
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  vertical-align: middle !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  color: #9a9a9a !important;
+}
+
+/* -----------------------------------------
+   6) COMPACT PRICE PRESENTATION
+   ----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .shoshin-price-block {
+  margin: 0 0 5px !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .shoshin-price-top,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .shoshin-price-col {
+  display: block !important;
+  gap: 0 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .shoshin-price-top .shoshin-price-col:not(:first-of-type) {
+  display: none !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .shoshin-price-final {
+  font-size: 15px !important;
+  line-height: 1.05 !important;
+  font-weight: 600 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .price {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  min-height: 18px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+
+  margin: 0 0 5px !important;
+  font-size: 12px !important;
+  line-height: 1.15 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .price del {
+  font-size: 11px !important;
+  line-height: 1 !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products li.product .price .shoshin-sale-percent {
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+
+/* -----------------------------------------
+   UPSell Rail CTA Button — Custom Style
+----------------------------------------- */
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button) {
+  margin-top: auto !important;
+  display: block !important;
+  padding: 13px 10px !important;
+
+  background: #f58624 !important;
+  color: #ffffff !important;
+
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px !important;
+  text-transform: capitalize !important;
+  text-align: center !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    background .15s ease !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button):hover,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button):active,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button):focus,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button).added,
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button).loading {
+  background: #ff8c1a !important;
+  color: #ffffff !important;
+  border-color: #ff8c1a !important;
+}
+
+.single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells)
+ul.products li.product :is(.button, .add_to_cart_button):hover {
+  transform: scale(1.05);
+}
+
+/* -----------------------------------------
+   8) MOBILE FALLBACK
+   ----------------------------------------- */
+
+@media (max-width: 767px) {
+  .single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products {
+    grid-template-columns: 1fr !important;
+  }
+
+  .single-product :is(.upsells, .elementor-widget-woocommerce-product-upsell, .elementor-widget-woocommerce-product-upsells) ul.products > li.product:nth-child(n + 4) {
+    display: none !important;
+  }
+}
+
+/* =========================================
+   SHOSHIN — SINGLE PRODUCT META
+   ========================================= */
+
+.single-product .product_meta {
+  margin-top: 14px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid #e7e7e7 !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  color: #666 !important;
+}
+
+.single-product .product_meta > span {
+  display: block;
+  margin: 0 0 4px 0;
+}
+
+.single-product .product_meta .posted_in,
+.single-product .product_meta .tagged_as,
+.single-product .product_meta .sku_wrapper {
+  color: #666 !important;
+}
+
+.single-product .product_meta .posted_in > span,
+.single-product .product_meta .tagged_as > span,
+.single-product .product_meta .sku_wrapper > span,
+.single-product .product_meta strong,
+.single-product .product_meta b {
+  color: #1f1f1f !important;
+  font-weight: 600 !important;
+}
+
+.single-product .product_meta a {
+  color: #4f6fbf !important;
+  text-decoration: none !important;
+}
+
+.single-product .product_meta a:hover {
+  text-decoration: underline !important;
+}
+
+.single-product .product_meta .posted_in::before,
+.single-product .product_meta .tagged_as::before,
+.single-product .product_meta .sku_wrapper::before {
+  display: none !important;
+}
+
+/* Brand row — make it match the other meta rows */
+.single-product .product_meta > span.posted_in:not(.detail-container) {
+  display: flex !important;
+  align-items: flex-start !important;
+  margin: 0 0 4px 0 !important;
+
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+}
+
+.single-product .product_meta > span.posted_in:not(.detail-container)::before {
+  content: "Brand";
+  display: inline-block !important;
+  min-width: 109px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #1f1f1f !important;
+}
+
+.single-product .product_meta > span.posted_in:not(.detail-container) a {
+  display: inline-block;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  margin-left: 0 !important;
+  color: #4f6fbf !important;
+  text-decoration: none !important;
+}
+
+.single-product .product_meta > span.posted_in:not(.detail-container) a:hover {
+  text-decoration: underline !important;
+}
+
+/* =========================================
+   SHOSHIN — PRODUCT DESCRIPTION READ MORE
+   ========================================= */
+
+.shoshin-desc-readmore-content {
+  position: relative;
+  max-height: 260px;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+
+.shoshin-desc-readmore-content.is-collapsed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 84px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.92) 68%,
+    rgba(255,255,255,1) 100%
+  );
+}
+
+.shoshin-desc-readmore-content.is-expanded {
+  max-height: 2200px;
+  overflow: visible;
+}
+
+.shoshin-desc-readmore-content.is-expanded::after {
+  display: none;
+}
+
+.shoshin-desc-readmore-wrap {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.shoshin-desc-readmore-btn {
+  appearance: none;
+  border: none;
+
+  padding: 10px 18px;
+  border-radius: 0px !important;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+
+  color: #fff;
+  background: #000;
+
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+
+  cursor: pointer;
+
+  transition: background .18s ease, transform .08s ease;
+}
+
+/* collapsed state */
+.shoshin-desc-readmore-content.is-collapsed + .shoshin-desc-readmore-wrap .shoshin-desc-readmore-btn {
+  background: #000;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+}
+
+/* expanded state (Show Less) */
+.shoshin-desc-readmore-content.is-expanded + .shoshin-desc-readmore-wrap .shoshin-desc-readmore-btn {
+  background: #444;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22) !important;
+}
+
+.shoshin-desc-readmore-btn:hover {
+  transform: translateY(-1px);
+}
+
+.shoshin-desc-readmore-content.is-collapsed + .shoshin-desc-readmore-wrap .shoshin-desc-readmore-btn:hover {
+  background: #1a1a1a;
+}
+
+.shoshin-desc-readmore-content.is-expanded + .shoshin-desc-readmore-wrap .shoshin-desc-readmore-btn:hover {
+  background: #555;
+}
+
+.shoshin-desc-readmore-content p:last-child,
+.shoshin-desc-readmore-content ul:last-child,
+.shoshin-desc-readmore-content ol:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   SHOSHIN — AMAZON-LIKE ADDITIONAL INFO TABLE
+   ========================================= */
+
+.woocommerce-product-attributes.shop_attributes {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0 !important;
+  background: #fff !important;
+  margin: 0;
+  table-layout: fixed;
+}
+
+/* kill all Woo zebra striping and table chrome */
+.woocommerce-product-attributes.shop_attributes,
+.woocommerce-product-attributes.shop_attributes tbody,
+.woocommerce-product-attributes.shop_attributes tr,
+.woocommerce-product-attributes.shop_attributes tr:nth-child(odd),
+.woocommerce-product-attributes.shop_attributes tr:nth-child(even),
+.woocommerce-product-attributes.shop_attributes tbody tr,
+.woocommerce-product-attributes.shop_attributes tbody tr:nth-child(odd),
+.woocommerce-product-attributes.shop_attributes tbody tr:nth-child(even),
+.woocommerce-product-attributes.shop_attributes th,
+.woocommerce-product-attributes.shop_attributes td {
+  background: #fff !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+/* horizontal dividers only */
+.woocommerce-product-attributes.shop_attributes tbody tr {
+  border-bottom: 1px solid #d5d9d9 !important;
+}
+
+.woocommerce-product-attributes.shop_attributes tbody tr:first-child {
+  border-top: 1px solid #d5d9d9 !important;
+}
+
+.woocommerce-product-attributes.shop_attributes tbody tr:last-child {
+  border-bottom: 1px solid #d5d9d9 !important;
+}
+
+/* cells */
+.woocommerce-product-attributes.shop_attributes th,
+.woocommerce-product-attributes.shop_attributes td {
+  padding: 4px 20px 4px 0 !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  font-size: 14px !important;
+  line-height: 1.0 !important;
+}
+
+/* label column */
+.woocommerce-product-attributes.shop_attributes th.woocommerce-product-attributes-item__label {
+  width: 46% !important;
+  padding-right: 56px !important;
+  color: #37475a !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  white-space: normal !important;
+}
+
+/* value column */
+.woocommerce-product-attributes.shop_attributes td.woocommerce-product-attributes-item__value {
+  width: 54% !important;
+  color: #0f1111 !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+.woocommerce-product-attributes.shop_attributes td.woocommerce-product-attributes-item__value p {
+  margin: 0 !important;
+}
+
+/* values should read like normal text first */
+.woocommerce-product-attributes.shop_attributes td.woocommerce-product-attributes-item__value a {
+  color: #0f1111 !important;
+  text-decoration: none !important;
+  font-weight: 400 !important;
+}
+
+/* only visibly link-like on hover */
+.woocommerce-product-attributes.shop_attributes td.woocommerce-product-attributes-item__value a:hover {
+  color: #007185 !important;
+  text-decoration: underline !important;
+}
+
+/* =========================================
+   SHOSHIN — AMAZON-STYLE CUSTOMER REVIEWS
+   ========================================= */
+
+.shoshin-product-reviews {
+  color: #0f1111;
+}
+
+/* top heading */
+.shoshin-product-reviews__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.shoshin-product-reviews__heading h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #0f1111;
+}
+
+.shoshin-product-reviews__count {
+  font-size: 16px;
+  color: #565959;
+  font-weight: 400;
+}
+
+/* hide duplicate inner title */
+.shoshin-product-reviews .woocommerce-Reviews-title {
+  display: none;
+}
+
+/* list */
+.shoshin-product-reviews .commentlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shoshin-product-reviews .commentlist > li {
+  margin: 0;
+  padding: 0 0 22px;
+  border-bottom: 1px solid #e7e9ec;
+}
+
+.shoshin-product-reviews .commentlist > li + li {
+  padding-top: 22px;
+}
+
+/* review row */
+.shoshin-product-reviews .comment_container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* avatar */
+.shoshin-product-reviews .avatar {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #d5d9d9;
+  background: #fff;
+  margin-top: 2px;
+}
+
+/* text area: no card */
+.shoshin-product-reviews .comment-text {
+  flex: 1 1 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* star rating */
+.shoshin-product-reviews .star-rating {
+  margin: 0 0 6px;
+  float: none;
+  color: #f0c14b;
+  font-size: 14px;
+}
+
+/* Base styling for rating count (spacing handled contextually) */
+.shoshin-rating-count {
+  font-size: 11px;
+  color: #666;
+  display: inline-block;
+  margin-left: 0;
+}
+
+/* Not yet rated text */
+.shoshin-rating-none {
+  font-size: 11px;
+  color: #9a9a9a;
+}
+
+/* Red required asterisk for review form */
+.shoshin-product-reviews .required {
+  color: #d93025;
+  font-weight: 600;
+}
+
+/* author/date line */
+.shoshin-product-reviews .meta {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #565959;
+}
+
+.shoshin-product-reviews .woocommerce-review__author {
+  color: #0f1111;
+  font-weight: 600;
+}
+
+.shoshin-product-reviews .woocommerce-review__published-date {
+  color: #565959;
+}
+
+/* body */
+.shoshin-product-reviews .description p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #0f1111;
+}
+
+/* form area */
+.shoshin-product-reviews #review_form_wrapper {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #d5d9d9;
+}
+
+.shoshin-product-reviews .comment-reply-title {
+  display: block;
+  margin: 0 0 14px;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #0f1111;
+}
+
+.shoshin-product-reviews #review_form label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f1111;
+}
+
+.shoshin-product-reviews .comment-form-rating {
+  margin-bottom: 18px;
+}
+
+.shoshin-product-reviews p.stars {
+  margin: 0;
+}
+
+.shoshin-product-reviews p.stars a {
+  color: #007185;
+}
+
+.shoshin-product-reviews p.stars:hover a,
+.shoshin-product-reviews p.stars.selected a {
+  color: #f0c14b;
+}
+
+.shoshin-product-reviews .comment-form-comment {
+  margin-bottom: 16px;
+}
+
+.shoshin-product-reviews textarea#comment {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 14px;
+  border: 1px solid #bfc5c5;
+  border-radius: 6px;
+  background: #fff;
+  color: #0f1111;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.shoshin-product-reviews textarea#comment:focus {
+  outline: none;
+  border-color: #007185;
+  box-shadow: 0 0 0 2px rgba(0, 113, 133, 0.12);
+}
+
+.shoshin-product-reviews .form-submit {
+  margin: 0;
+}
+
+.shoshin-product-reviews input.submit {
+  appearance: none;
+  border: 1px solid #888c8c;
+  background: #fff;
+  color: #0f1111;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+
+.shoshin-product-reviews input.submit:hover {
+  background: #f7fafa;
+  border-color: #6f7373;
+}
+
+.shoshin-product-reviews .clear {
+  display: none;
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .shoshin-product-reviews__heading h2 {
+    font-size: 22px;
+  }
+
+  .shoshin-product-reviews .comment-reply-title {
+    font-size: 20px;
+  }
+
+  .shoshin-product-reviews .comment_container {
+    gap: 10px;
+  }
+
+  .shoshin-product-reviews .avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+}
+
+/* Fix WooCommerce review avatar rendering */
+
+.shoshin-product-reviews .comment_container {
+  position: relative;
+}
+
+.shoshin-product-reviews img.avatar {
+  position: static !important;
+  float: none !important;
+
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  display: block;
+}
+
+/* Override WooCommerce review text offset */
+.shoshin-product-reviews #reviews #comments ol.commentlist li .comment-text {
+  margin-left: 0 !important;
+}
+
+/* Review star picker styling */
+.shoshin-product-reviews p.stars a {
+  color: #d5d9d9; /* grey outline for empty stars */
+}
+
+/* hovered stars */
+.shoshin-product-reviews p.stars:hover a,
+.shoshin-product-reviews p.stars.selected a {
+  color: #f0c14b; /* Amazon yellow */
+}
+
+/* stars to the left of hover */
+.shoshin-product-reviews p.stars a:hover,
+.shoshin-product-reviews p.stars a:hover ~ a {
+  color: #f0c14b;
+}
+
+/* =========================================
+   SHOSHIN — REVIEW BODY READ MORE
+   ========================================= */
+
+.shoshin-product-reviews .description {
+  position: relative;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-content {
+  position: relative;
+  max-height: 122px;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-content.is-collapsed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.92) 68%,
+    rgba(255,255,255,1) 100%
+  );
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-content.is-expanded {
+  max-height: 2000px;
+  overflow: visible;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-content.is-expanded::after {
+  display: none;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-wrap {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  color: #007185;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.shoshin-product-reviews .shoshin-review-readmore-btn:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}
+
+/* =========================================
+   SHOSHIN — MINIMAL REVIEW PAGINATION
+   ========================================= */
+
+.shoshin-product-reviews nav.woocommerce-pagination,
+.shoshin-product-reviews .woocommerce-pagination {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers li,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers a,
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers span,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers a,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers span {
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 400;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+/* current page larger/darker */
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers .current,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers .current {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* other page links */
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers a.page-numbers,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers a.page-numbers {
+  color: #6b7280;
+}
+
+/* arrows */
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers a.next,
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers a.prev,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers a.next,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers a.prev {
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* kill hover effects completely */
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers a:hover,
+.shoshin-product-reviews nav.woocommerce-pagination ul.page-numbers span:hover,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers a:hover,
+.shoshin-product-reviews .woocommerce-pagination ul.page-numbers span:hover {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit;
+  text-decoration: none;
+  transform: none !important;
+}
+
+/* =========================================
+   SHOSHIN — REVIEW SUBMIT BUTTON
+   ========================================= */
+
+.shoshin-product-reviews #respond input#submit {
+  display: inline-block;
+
+  background: #000;
+  color: #fff;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 10px 22px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* subtle hover */
+
+.shoshin-product-reviews #respond input#submit:hover {
+  background: #a8a8a8;
+}
+
+/* =========================================
+   SHOSHIN — TRUST BLOCK PRIME ICON
+   ========================================= */
+
+.single-product .shoshin-trust-icon--prime {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 36px;   /* reserve width for the logo */
+  width: 48px;
+  justify-content: center;
+}
+
+.single-product .shoshin-trust-prime-icon {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: none;
+
+  /* visually align logo to text baseline */
+  margin-top: -16px;
+  margin-bottom: -16px;
+}
+
+/* =================================
+   SHOSHIN — AFFILIATE RATING LINK FIX
+   ================================= */
+
+/* Only disable affiliate rating summary text, not native review links */
+.single-product .shoshin-single-rating-wrap span.woocommerce-review-link {
+  text-decoration: none !important;
+  cursor: default !important;
+  pointer-events: none !important;
+  color: inherit !important;
+}
+
+.single-product .shoshin-single-rating-wrap span.woocommerce-review-link:hover {
+  text-decoration: none !important;
+}
+
